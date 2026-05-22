@@ -1,0 +1,152 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1779462411307,
+  "projectRoot": "/Users/hanhang/Desktop/work/home/developer/clipnote/website",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "react",
+        "version": "19.0.1",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.0.1",
+        "category": "frontend"
+      },
+      {
+        "name": "vite",
+        "version": "6.2.3",
+        "category": "build"
+      },
+      {
+        "name": "esbuild",
+        "version": "0.25.0",
+        "category": "build"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": null,
+    "lintCommand": "npm run lint",
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "vite --port=3000 --host=0.0.0.0",
+      "build": "vite build",
+      "preview": "vite preview",
+      "clean": "rm -rf dist",
+      "lint": "tsc --noEmit"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": "type-based"
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "public",
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "dist": {
+      "path": "dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 5,
+      "lastAccessed": 1779462411294,
+      "keyFiles": [
+        "favicon.svg",
+        "index.html",
+        "robots.txt",
+        "sitemap.xml",
+        "灵剪.dmg"
+      ]
+    },
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 4,
+      "lastAccessed": 1779462411295,
+      "keyFiles": [
+        "favicon.svg",
+        "robots.txt",
+        "sitemap.xml",
+        "灵剪.dmg"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 3,
+      "lastAccessed": 1779462411297,
+      "keyFiles": [
+        "App.tsx",
+        "index.css",
+        "main.tsx"
+      ]
+    },
+    "dist/assets": {
+      "path": "dist/assets",
+      "purpose": "Static assets",
+      "fileCount": 2,
+      "lastAccessed": 1779462411297,
+      "keyFiles": [
+        "index-DKOOVNBm.js",
+        "index-DqtTBczf.css"
+      ]
+    },
+    "src/components": {
+      "path": "src/components",
+      "purpose": "UI components",
+      "fileCount": 5,
+      "lastAccessed": 1779462411297,
+      "keyFiles": [
+        "Comparison.tsx",
+        "Features.tsx",
+        "Hero.tsx"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "package.json",
+      "accessCount": 1,
+      "lastAccessed": 1779462607029,
+      "type": "file"
+    },
+    {
+      "path": "vite.config.ts",
+      "accessCount": 1,
+      "lastAccessed": 1779462618727,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

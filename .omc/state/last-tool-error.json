@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"gh auth status 2>&1\",\"description\":\"Check GitHub CLI auth status\"}",
+  "error": "Exit code 1\ngithub.com\n  X Failed to log in to github.com account hanhang-han (keyring)\n  - Active account: true\n  - The token in keyring is invalid.\n  - To re-authenticate, run: gh auth login -h github.com\n  - To forget about this account, run: gh auth logout -h github.com -u hanhang-han",
+  "timestamp": "2026-05-22T15:10:18.567Z",
+  "retry_count": 1
+}
