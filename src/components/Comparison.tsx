@@ -49,14 +49,20 @@ export default function Comparison() {
 
         {/* 底部 CTA */}
         <div className="mt-10 text-center">
+          <div className="mb-4 px-4 py-2.5 rounded-xl bg-gradient-to-r from-red-500/10 via-orange-500/10 to-yellow-500/10 border border-orange-500/20 inline-block">
+            <p className="text-orange-300 text-sm font-medium">
+              🎁 限时福利：关注小红书「<span className="text-white font-bold">秃头也要做开发</span>」免费领取 Pro 兑换码
+            </p>
+          </div>
+          <br />
           <a
             href="/灵剪.dmg"
             download
             className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full font-semibold hover:from-blue-500 hover:to-indigo-500 shadow-[0_0_20px_rgba(59,130,246,0.3)] text-white no-underline transition-all"
           >
-            免费下载，体验后再决定是否升级 Pro
+            免费下载，体验后再决定
           </a>
-          <p className="text-gray-500 text-sm mt-3">支持支付宝购买 · 一次买断 · 永久使用</p>
+          <p className="text-gray-500 text-sm mt-3">支持支付宝购买 · 一次买断 ¥18 · 永久使用</p>
         </div>
       </div>
     </section>

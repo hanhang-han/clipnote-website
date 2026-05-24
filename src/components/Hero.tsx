@@ -50,6 +50,21 @@ export default function Hero() {
           <span className="text-gray-400 text-sm">一次性买断</span>
         </div>
 
+        {/* 限时免费 Pro 横幅 */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mb-8 px-6 py-3 rounded-2xl bg-gradient-to-r from-red-500/10 via-orange-500/10 to-yellow-500/10 border border-orange-500/20 max-w-lg mx-auto"
+        >
+          <p className="text-orange-300 text-sm font-medium">
+            🎁 限时活动 · 关注小红书「<span className="text-white font-bold">秃头也要做开发</span>」免费领取 Pro 权益
+          </p>
+          <p className="text-gray-500 text-xs mt-1">
+            价值 ¥18 的 Pro 功能，限量兑换码先到先得
+          </p>
+        </motion.div>
+
         {/* CTA 按钮 */}
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
           <motion.a
