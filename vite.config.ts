@@ -7,7 +7,7 @@ import { cloudflare } from "@cloudflare/vite-plugin";
 
 export default defineConfig(() => {
   return {
-    base: '/clipnote-website/',
+    base: '/',
     plugins: [react(), tailwindcss(), cloudflare()],
     resolve: {
       alias: {
