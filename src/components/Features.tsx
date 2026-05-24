@@ -1,13 +1,43 @@
 import { motion } from 'motion/react';
-import { Layers, Zap, Search, Clipboard, Tag, Cpu } from 'lucide-react';
+import { Layers, Zap, Search, Clipboard, Tag, FileDown } from 'lucide-react';
 
 const features = [
-  { icon: Layers, title: "灵动岛交互", desc: "鼠标悬停屏幕顶部自动展开，丝滑体验", gradient: "from-blue-500 to-cyan-500" },
-  { icon: Clipboard, title: "智能剪贴板", desc: "自动记录文本、图片、链接、代码", gradient: "from-indigo-500 to-blue-500" },
-  { icon: Search, title: "极速搜索", desc: "毫秒级定位历史记录，内联搜索", gradient: "from-purple-500 to-indigo-500" },
-  { icon: Tag, title: "智能分类", desc: "自动识别文本、链接、代码、图片", gradient: "from-pink-500 to-rose-500" },
-  { icon: Cpu, title: "轻量高效", desc: "菜单栏常驻，内存占用极致优化", gradient: "from-emerald-500 to-teal-500" },
-  { icon: Zap, title: "智能便签", desc: "随时记录灵感，即刻沉淀", gradient: "from-amber-500 to-orange-500" },
+  {
+    icon: Layers,
+    title: "灵动岛交互",
+    desc: "悬停即开，离开即收。不占屏幕空间，鼠标移到顶部自动展开管理面板",
+    gradient: "from-blue-500 to-cyan-500",
+  },
+  {
+    icon: Clipboard,
+    title: "智能剪贴板",
+    desc: "复制即保存，最多记录 500 条历史。文本、链接、代码、图片全自动识别",
+    gradient: "from-indigo-500 to-blue-500",
+  },
+  {
+    icon: Search,
+    title: "极速搜索",
+    desc: "3 秒找到 3 天前复制的那段话。输入关键词，毫秒级定位历史记录",
+    gradient: "from-purple-500 to-indigo-500",
+  },
+  {
+    icon: Tag,
+    title: "智能分类",
+    desc: "文本、链接、代码、图片、富文本、Markdown…7 种类型自动归类，支持自定义排序",
+    gradient: "from-pink-500 to-rose-500",
+  },
+  {
+    icon: FileDown,
+    title: "多格式导出",
+    desc: "一键导出为 TXT、JSON、Markdown。资料永不丢失，随时备份整理",
+    gradient: "from-emerald-500 to-teal-500",
+  },
+  {
+    icon: Zap,
+    title: "便签预览",
+    desc: "点击任意记录弹出便签预览，不用来回切窗口。写代码、查链接、看图片一目了然",
+    gradient: "from-amber-500 to-orange-500",
+  },
 ];
 
 export default function Features() {

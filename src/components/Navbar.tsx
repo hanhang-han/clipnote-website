@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Download } from 'lucide-react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,10 +22,20 @@ export default function Navbar() {
           <span className="text-lg font-bold">灵剪</span>
           <span className="text-xs text-gray-500 hidden sm:inline">ClipNote</span>
         </div>
-        <div className="flex gap-6 text-sm font-medium text-gray-400">
-          <a href="#features" className="hover:text-white transition-colors">功能</a>
-          <a href="#mockup" className="hover:text-white transition-colors">演示</a>
-          <a href="#comparison" className="hover:text-white transition-colors">版本对比</a>
+        <div className="flex items-center gap-6 text-sm font-medium text-gray-400">
+          <a href="#features" className="hover:text-white transition-colors hidden sm:inline">功能</a>
+          <a href="#scenarios" className="hover:text-white transition-colors hidden sm:inline">场景</a>
+          <a href="#mockup" className="hover:text-white transition-colors hidden sm:inline">演示</a>
+          <a href="#comparison" className="hover:text-white transition-colors hidden sm:inline">价格</a>
+          <a
+            href="/灵剪.dmg"
+            download
+            className="flex items-center gap-1.5 px-4 py-1.5 bg-blue-600/80 hover:bg-blue-500 rounded-full text-white text-sm font-medium transition-colors no-underline"
+          >
+            <Download size={14} />
+            <span className="hidden sm:inline">免费下载</span>
+            <span className="sm:hidden">下载</span>
+          </a>
         </div>
       </div>
     </nav>

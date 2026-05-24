@@ -6,8 +6,10 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
+import Scenarios from './components/Scenarios';
 import MockupSection from './components/MockupSection';
 import Comparison from './components/Comparison';
+import FAQ from './components/FAQ';
 
 export default function App() {
   return (
@@ -15,9 +17,11 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <Scenarios />
         <Features />
         <MockupSection />
         <Comparison />
+        <FAQ />
       </main>
       <footer className="py-12 text-center text-gray-500 border-t border-white/5">
         <p className="mb-2">© 2026 灵剪 (ClipNote). 版权所有.</p>
