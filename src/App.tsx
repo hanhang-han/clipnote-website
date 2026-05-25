@@ -24,11 +24,19 @@ export default function App() {
         <FAQ />
       </main>
       <footer className="py-12 text-center text-gray-500 border-t border-white/5">
-        <div className="mb-4 flex justify-center items-center gap-2">
-          <span className="text-red-400 text-lg">📕</span>
-          <span className="text-gray-400 text-sm">小红书</span>
-          <span className="text-white font-medium">秃头也要做开发</span>
-          <span className="text-gray-600 text-sm">— 关注免费领 Pro</span>
+        <div className="mb-4 flex justify-center items-center gap-4 flex-wrap">
+          <a href="https://www.xiaohongshu.com/user/profile/秃头也要做开发" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 no-underline hover:text-red-400 transition-colors">
+            <span className="text-red-400">📕</span>
+            <span className="text-gray-400 text-sm">小红书</span>
+            <span className="text-white font-medium">秃头也要做开发</span>
+          </a>
+          <span className="text-gray-700">|</span>
+          <a href="https://x.com/jch47643085" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 no-underline hover:text-blue-400 transition-colors">
+            <span className="text-blue-400">𝕏</span>
+            <span className="text-gray-400 text-sm">Twitter</span>
+            <span className="text-white font-medium">@jch47643085</span>
+          </a>
+          <span className="text-gray-600 text-xs">关注免费领 Pro</span>
         </div>
         <p className="mb-2">© 2026 灵剪 (ClipNote). 版权所有.</p>
         <div className="flex justify-center gap-6 text-sm">

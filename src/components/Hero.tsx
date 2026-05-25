@@ -58,11 +58,18 @@ export default function Hero() {
           className="mb-8 px-6 py-3 rounded-2xl bg-gradient-to-r from-red-500/10 via-orange-500/10 to-yellow-500/10 border border-orange-500/20 max-w-lg mx-auto"
         >
           <p className="text-orange-300 text-sm font-medium">
-            🎁 限时活动 · 关注小红书「<span className="text-white font-bold">秃头也要做开发</span>」免费领取 Pro 权益
+            🎁 限时活动 · 免费领取 Pro 权益
           </p>
-          <p className="text-gray-500 text-xs mt-1">
-            价值 ¥18 的 Pro 功能，限量兑换码先到先得
-          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-2">
+            <span className="text-gray-300 text-xs">关注</span>
+            <a href="https://www.xiaohongshu.com/user/profile/秃头也要做开发" target="_blank" rel="noopener noreferrer" className="text-white text-xs font-bold hover:text-red-400 transition-colors no-underline">
+              📕 小红书「秃头也要做开发」
+            </a>
+            <span className="text-gray-600 text-xs">或</span>
+            <a href="https://x.com/jch47643085" target="_blank" rel="noopener noreferrer" className="text-white text-xs font-bold hover:text-blue-400 transition-colors no-underline">
+              𝕏 @jch47643085
+            </a>
+          </div>
         </motion.div>
 
         {/* CTA 按钮 */}

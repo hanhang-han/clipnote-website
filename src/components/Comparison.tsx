@@ -51,8 +51,17 @@ export default function Comparison() {
         <div className="mt-10 text-center">
           <div className="mb-4 px-4 py-2.5 rounded-xl bg-gradient-to-r from-red-500/10 via-orange-500/10 to-yellow-500/10 border border-orange-500/20 inline-block">
             <p className="text-orange-300 text-sm font-medium">
-              🎁 限时福利：关注小红书「<span className="text-white font-bold">秃头也要做开发</span>」免费领取 Pro 兑换码
+              🎁 限时福利：免费领取 Pro 兑换码
             </p>
+            <div className="flex items-center justify-center gap-3 mt-1">
+              <a href="https://www.xiaohongshu.com/user/profile/秃头也要做开发" target="_blank" rel="noopener noreferrer" className="text-white text-xs font-bold hover:text-red-400 transition-colors no-underline">
+                📕 小红书「秃头也要做开发」
+              </a>
+              <span className="text-gray-600 text-xs">·</span>
+              <a href="https://x.com/jch47643085" target="_blank" rel="noopener noreferrer" className="text-white text-xs font-bold hover:text-blue-400 transition-colors no-underline">
+                𝕏 @jch47643085
+              </a>
+            </div>
           </div>
           <br />
           <a
