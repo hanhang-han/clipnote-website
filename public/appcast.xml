@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>灵剪 ClipNote</title>
+    <link>https://funbox.chat/appcast.xml</link>
+    <description>灵剪更新日志</description>
+    <language>zh-CN</language>
+    <item>
+      <title>灵剪 1.0.0</title>
+      <sparkle:version>1</sparkle:version>
+      <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://funbox.chat/灵剪.dmg"
+                 sparkle:edSignature=""
+                 length="0"
+                 type="application/octet-stream" />
+      <description>初始发布版本</description>
+    </item>
+  </channel>
+</rss>
