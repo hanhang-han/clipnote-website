@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api/
 Disallow: /assets/
 
-Sitemap: https://clipnote.app/sitemap.xml
+Sitemap: https://funbox.chat/sitemap.xml
