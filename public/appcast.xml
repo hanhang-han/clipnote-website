@@ -6,15 +6,15 @@
     <description>灵剪更新日志</description>
     <language>zh-CN</language>
     <item>
-      <title>灵剪 1.1.0</title>
-      <sparkle:version>2</sparkle:version>
-      <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
+      <title>灵剪 1.1.1</title>
+      <sparkle:version>3</sparkle:version>
+      <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://funbox.chat/灵剪.dmg"
                  sparkle:edSignature=""
-                 length="5294632"
+                 length="5294190"
                  type="application/octet-stream" />
-      <description>菜单栏快捷访问、Sparkle自动更新、修复17项Bug</description>
+      <description>修复剪贴板监控在模态对话框和快速复制时可能丢失记录的问题</description>
     </item>
   </channel>
 </rss>
