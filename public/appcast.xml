@@ -11,7 +11,7 @@
       <sparkle:shortVersionString>1.2.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://funbox.chat/灵剪.dmg"
-                 sparkle:edSignature=""
+                 sparkle:edSignature="srp+t6usjeM7VUZDUAuvUIjgX8l1N7ZKK2BTP3l6jpukvE2LjU1bzHzNwM2RjqGXtZG3a8YQIiGSj7uEHJevDg=="
                  length="5264767"
                  type="application/octet-stream" />
       <description>新增更新设置（自动检查+自动下载安装）、修复剪贴板监控丢失记录问题</description>
