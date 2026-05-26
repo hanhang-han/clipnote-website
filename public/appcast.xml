@@ -7,14 +7,14 @@
     <language>zh-CN</language>
     <item>
       <title>灵剪 1.2.0</title>
-      <sparkle:version>4</sparkle:version>
+      <sparkle:version>5</sparkle:version>
       <sparkle:shortVersionString>1.2.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://funbox.chat/灵剪.dmg"
-                 sparkle:edSignature="srp+t6usjeM7VUZDUAuvUIjgX8l1N7ZKK2BTP3l6jpukvE2LjU1bzHzNwM2RjqGXtZG3a8YQIiGSj7uEHJevDg=="
-                 length="5264767"
+                 sparkle:edSignature="pmeNpAhl4dUgn/cSmtLe1AIxlmJTs+CgmJZt433z45hSHwfxDZXQmq+ZY9yJjgg5IWAxCk8mOle+iLk6B8gPAg=="
+                 length="5093496"
                  type="application/octet-stream" />
-      <description>新增更新设置（自动检查+自动下载安装）、修复剪贴板监控丢失记录问题</description>
+      <description>新增更新设置、DMG安装页面优化、修复剪贴板监控丢失记录、修复检查更新卡死</description>
     </item>
   </channel>
 </rss>
