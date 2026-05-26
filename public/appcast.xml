@@ -11,10 +11,10 @@
       <sparkle:shortVersionString>1.2.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://funbox.chat/灵剪.dmg"
-                 sparkle:edSignature="knZr2ZAACZ9U65sNKwyE5aLhaeUnXluTjE3DZQldi7ejJ0xcb3JQcRqUVV8nPCqqLu/0/U7g4rMlPXccGIdODQ=="
-                 length="5091509"
+                 sparkle:edSignature="OrkYjD6BM/Fp3AWSizBLzOFmll686dR+BWo5syIEFNlHAIXj8IgP2dJCpPZY4JXx/vGQxxOKJxyIbP09KVVYDQ=="
+                 length="4670695"
                  type="application/octet-stream" />
-      <description>优化预览交互：hover显示预览按钮、单击复制、新增Eye预览入口</description>
+      <description>修复更新循环bug、性能优化（缓存/存储/体积）、预览按钮交互优化</description>
     </item>
   </channel>
 </rss>
