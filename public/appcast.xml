@@ -6,15 +6,15 @@
     <description>灵剪更新日志</description>
     <language>zh-CN</language>
     <item>
-      <title>灵剪 1.2.1</title>
-      <sparkle:version>6</sparkle:version>
-      <sparkle:shortVersionString>1.2.1</sparkle:shortVersionString>
+      <title>灵剪 1.3.0</title>
+      <sparkle:version>7</sparkle:version>
+      <sparkle:shortVersionString>1.3.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://funbox.chat/灵剪.dmg"
                  sparkle:edSignature="nIovhI+Zgl1z1aso1AeGdomB1MvLkhFMdIgbHCcAC7YwAE49HjbB+L7WAY/cmWGHTpJCmKgZngsU7PHuXqRQDw=="
-                 length="4669717"
+                 length="4677463"
                  type="application/octet-stream" />
-      <description>修复更新循环bug、性能优化（缓存/存储/体积）、预览按钮交互优化</description>
+      <description>修复点击无响应bug、二级窗口层级修复、精致玻璃态视觉升级</description>
     </item>
   </channel>
 </rss>
