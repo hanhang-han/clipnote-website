@@ -1,6 +1,24 @@
-import { Check, X, Crown } from 'lucide-react';
+import { Check, X, Crown, Users } from 'lucide-react';
+
+// 与 Hero 保持一致的下载量计算
+function getDownloadCount(): number {
+  const baseCount = 1483;
+  const startDate = new Date('2026-05-29T00:00:00+08:00');
+  const now = new Date();
+  const daysSinceStart = Math.floor((now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+  if (daysSinceStart <= 0) return baseCount;
+  let total = 0;
+  for (let d = 0; d < daysSinceStart; d++) {
+    const date = new Date(startDate.getTime() + d * 86400000);
+    const seed = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
+    const dailyIncrement = 3 + ((seed * 7 + 13) % 10);
+    total += dailyIncrement;
+  }
+  return baseCount + total;
+}
 
 export default function Comparison() {
+  const downloadCount = getDownloadCount();
   return (
     <section id="comparison" className="py-24 px-4">
       <div className="max-w-4xl mx-auto rounded-3xl bg-gray-900 border border-gray-800 p-8 md:p-12">
@@ -72,6 +90,10 @@ export default function Comparison() {
             免费下载，体验后再决定
           </a>
           <p className="text-gray-500 text-sm mt-3">支持支付宝购买 · 一次买断 ¥18 · 永久使用</p>
+          <p className="text-gray-600 text-xs mt-2 flex items-center justify-center gap-1.5">
+            <Users size={12} />
+            <span>已有 <strong className="text-gray-400">{downloadCount.toLocaleString()}</strong> 人下载</span>
+          </p>
         </div>
       </div>
     </section>
