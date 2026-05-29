@@ -5,15 +5,19 @@ function getDownloadCount(): number {
   const baseCount = 1483;
   const startDate = new Date('2026-05-29T00:00:00+08:00');
   const now = new Date();
-  const daysSinceStart = Math.floor((now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
-  if (daysSinceStart <= 0) return baseCount;
+  const hoursSinceStart = Math.floor((now.getTime() - startDate.getTime()) / (1000 * 60 * 60));
+  if (hoursSinceStart <= 0) return baseCount;
+  const daysSinceStart = Math.floor(hoursSinceStart / 24);
+  const currentHour = hoursSinceStart % 24;
   let total = 0;
   for (let d = 0; d < daysSinceStart; d++) {
     const date = new Date(startDate.getTime() + d * 86400000);
     const seed = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
-    const dailyIncrement = 3 + ((seed * 7 + 13) % 10);
-    total += dailyIncrement;
+    total += 5 + ((seed * 7 + 13) % 11);
   }
+  const todaySeed = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
+  const todayTotal = 5 + ((todaySeed * 7 + 13) % 11);
+  total += Math.floor(todayTotal * currentHour / 24);
   return baseCount + total;
 }
 
