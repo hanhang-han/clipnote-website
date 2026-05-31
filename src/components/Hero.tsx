@@ -46,8 +46,8 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.2 }}
           className="h-10 bg-gray-800 rounded-full border border-gray-700 mx-auto mb-8 flex items-center justify-center gap-2"
         >
-          <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-xs text-gray-400 font-medium">剪贴板已就绪</span>
+          <div className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+          <span className="text-xs text-gray-400 font-medium">AI 助手已就绪</span>
         </motion.div>
 
         {/* 主标题 — 场景化痛点 */}
@@ -62,7 +62,7 @@ export default function Hero() {
           灵剪 ClipNote — macOS 灵动岛剪贴板管理工具
         </p>
         <p className="text-sm text-gray-500 mb-8">
-          自动记录每一次复制 · 智能分类 · AI 助手 · 一键导出
+          自动记录每一次复制 · 智能分类 · AI 智能助手 · 一键导出
         </p>
 
         {/* 价格标签 */}
@@ -117,6 +117,26 @@ export default function Hero() {
             <ArrowDown size={20} /> 看看谁在用
           </motion.a>
         </div>
+
+        {/* Homebrew 安装 */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-5 flex flex-col items-center gap-2"
+        >
+          <span className="text-gray-500 text-xs">或通过 Homebrew 安装</span>
+          <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 font-mono text-sm text-gray-300">
+            <span>brew install --cask hanhang-han/tap/clipnote</span>
+            <button
+              onClick={() => navigator.clipboard.writeText('brew install --cask hanhang-han/tap/clipnote')}
+              className="text-gray-500 hover:text-white transition-colors"
+              title="复制命令"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            </button>
+          </div>
+        </motion.div>
 
         {/* 下载量统计 */}
         <motion.div

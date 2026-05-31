@@ -96,6 +96,10 @@ export default function Comparison() {
             免费下载，体验后再决定
           </a>
           <p className="text-gray-500 text-sm mt-3">支持支付宝购买 · 一次买断 ¥18 · 永久使用</p>
+          <div className="mt-3 flex items-center justify-center gap-2 text-gray-500 text-xs">
+            <span>Homebrew 安装：</span>
+            <code className="px-2 py-0.5 rounded bg-white/5 text-gray-400 font-mono text-xs">brew install --cask hanhang-han/tap/clipnote</code>
+          </div>
           <p className="text-gray-600 text-xs mt-2 flex items-center justify-center gap-1.5">
             <Users size={12} />
             <span>已有 <strong className="text-gray-400">{downloadCount.toLocaleString()}</strong> 人下载</span>
