@@ -6,15 +6,15 @@
     <description>灵剪更新日志</description>
     <language>zh-CN</language>
     <item>
-      <title>灵剪 1.3.4</title>
-      <sparkle:version>11</sparkle:version>
-      <sparkle:shortVersionString>1.3.4</sparkle:shortVersionString>
+      <title>灵剪 2.0.0</title>
+      <sparkle:version>12</sparkle:version>
+      <sparkle:shortVersionString>2.0.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://funbox.chat/灵剪.dmg"
-                 sparkle:edSignature="9NnameQ+S12zm9BDLzJQh+Aytw04xKTTUCrpCn+1CE1imeycNOgCoL23AGqJGzaTBYPnyToHuPAR+EZ4tkC1CQ=="
-                 length="4676616"
+                 sparkle:edSignature="iE7lCHeIY66hkbdo+Yuex+T8LbgHOT6+DpbSCpJaeq61YwCbdPoQakWRdy3QcUi+rlDvJK07PKo3+x123WuJDg=="
+                 length="5067005"
                  type="application/octet-stream" />
-      <description>修复数据丢失：数据库异常时自动备份而非删除、修复长时间运行后复制失效</description>
+      <description>AI 智能助手：翻译、总结、解释、润色、代码分析 | 设置页重构：Tab 分栏布局 | 积分系统 | 反馈交流</description>
     </item>
   </channel>
 </rss>
