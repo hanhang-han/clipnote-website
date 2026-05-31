@@ -62,7 +62,7 @@ export default function Hero() {
           灵剪 ClipNote — macOS 灵动岛剪贴板管理工具
         </p>
         <p className="text-sm text-gray-500 mb-8">
-          自动记录每一次复制 · 智能分类 · 极速搜索 · 一键导出
+          自动记录每一次复制 · 智能分类 · AI 助手 · 一键导出
         </p>
 
         {/* 价格标签 */}

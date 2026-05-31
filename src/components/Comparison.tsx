@@ -37,6 +37,7 @@ export default function Comparison() {
               <div className="flex items-center gap-2"><Check className="text-green-500 shrink-0" size={18} /> <span>灵动岛交互体验</span></div>
               <div className="flex items-center gap-2"><Check className="text-green-500 shrink-0" size={18} /> <span>置顶和收藏功能</span></div>
               <div className="flex items-center gap-2"><Check className="text-green-500 shrink-0" size={18} /> <span>按时间自动分组</span></div>
+              <div className="flex items-center gap-2"><Check className="text-green-500 shrink-0" size={18} /> <span>AI 助手 · 8 积分/天</span></div>
               <div className="flex items-center gap-2"><X className="text-red-500/50 shrink-0" size={18} /> <span className="text-gray-500">全文搜索</span></div>
               <div className="flex items-center gap-2"><X className="text-red-500/50 shrink-0" size={18} /> <span className="text-gray-500">智能分类筛选</span></div>
               <div className="flex items-center gap-2"><X className="text-red-500/50 shrink-0" size={18} /> <span className="text-gray-500">便签功能</span></div>
@@ -65,6 +66,7 @@ export default function Comparison() {
               <div className="flex items-center gap-2"><Check className="text-blue-400 shrink-0" size={18} /> <span>图片剪贴板支持</span></div>
               <div className="flex items-center gap-2"><Check className="text-blue-400 shrink-0" size={18} /> <span>多格式导出 (TXT/JSON/MD)</span></div>
               <div className="flex items-center gap-2"><Check className="text-blue-400 shrink-0" size={18} /> <span>富文本还原</span></div>
+              <div className="flex items-center gap-2"><Check className="text-purple-400 shrink-0" size={18} /> <span className="text-purple-300">AI 助手 · 80 积分/天</span></div>
             </div>
           </div>
         </div>

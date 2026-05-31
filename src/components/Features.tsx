@@ -1,7 +1,14 @@
 import { motion } from 'motion/react';
-import { Layers, Zap, Search, Clipboard, Tag, FileDown } from 'lucide-react';
+import { Layers, Zap, Search, Clipboard, Tag, FileDown, Sparkles } from 'lucide-react';
 
 const features = [
+  {
+    icon: Sparkles,
+    title: "AI 智能助手",
+    desc: "选中内容一键翻译、总结、解释、润色。DeepSeek 驱动，流式输出，支持多轮对话",
+    gradient: "from-violet-500 to-purple-600",
+    badge: "NEW",
+  },
   {
     icon: Layers,
     title: "灵动岛交互",
@@ -46,7 +53,7 @@ export default function Features() {
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">核心功能</h2>
         <p className="text-gray-400 text-center mb-16 max-w-lg mx-auto">
-          六大核心能力，让剪贴板管理从未如此高效优雅
+          七大核心能力，让剪贴板管理从未如此高效优雅
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((f, i) => (
@@ -56,12 +63,25 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="group p-6 rounded-2xl bg-gray-900/80 border border-gray-800 hover:border-blue-500/30 transition-all duration-300 hover:bg-gray-900"
+              className={`group p-6 rounded-2xl bg-gray-900/80 border transition-all duration-300 hover:bg-gray-900 ${
+                f.badge
+                  ? 'border-purple-500/30 hover:border-purple-500/50'
+                  : 'border-gray-800 hover:border-blue-500/30'
+              }`}
             >
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${f.gradient} flex items-center justify-center mb-5 shadow-lg`}>
-                <f.icon className="w-6 h-6 text-white" />
+              <div className="flex items-center gap-3 mb-5">
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${f.gradient} flex items-center justify-center shadow-lg`}>
+                  <f.icon className="w-6 h-6 text-white" />
+                </div>
+                {f.badge && (
+                  <span className="px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-400 text-xs font-bold border border-purple-500/30">
+                    {f.badge}
+                  </span>
+                )}
               </div>
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-400 transition-colors">{f.title}</h3>
+              <h3 className={`text-lg font-semibold mb-2 transition-colors ${
+                f.badge ? 'text-purple-400' : 'group-hover:text-blue-400'
+              }`}>{f.title}</h3>
               <p className="text-gray-400 text-sm leading-relaxed">{f.desc}</p>
             </motion.div>
           ))}
