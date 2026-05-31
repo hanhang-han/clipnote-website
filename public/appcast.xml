@@ -6,15 +6,15 @@
     <description>灵剪更新日志</description>
     <language>zh-CN</language>
     <item>
-      <title>灵剪 1.3.3</title>
-      <sparkle:version>10</sparkle:version>
-      <sparkle:shortVersionString>1.3.3</sparkle:shortVersionString>
+      <title>灵剪 1.3.4</title>
+      <sparkle:version>11</sparkle:version>
+      <sparkle:shortVersionString>1.3.4</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://funbox.chat/灵剪.dmg"
-                 sparkle:edSignature="Aj6fKodWne0MaP3Cz9d9euepaq5KpkbHfC6Y5ZBlrvFOfcdsFFwAHeM2qnc0JW6NeG8tVPDUDewB259eGK5XAA=="
-                 length="4675784"
+                 sparkle:edSignature="9NnameQ+S12zm9BDLzJQh+Aytw04xKTTUCrpCn+1CE1imeycNOgCoL23AGqJGzaTBYPnyToHuPAR+EZ4tkC1CQ=="
+                 length="4676616"
                  type="application/octet-stream" />
-      <description>修复运行一段时间后复制停止记录的 bug、稳定性提升</description>
+      <description>修复数据丢失：数据库异常时自动备份而非删除、修复长时间运行后复制失效</description>
     </item>
   </channel>
 </rss>
