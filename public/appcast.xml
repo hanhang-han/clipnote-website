@@ -6,15 +6,15 @@
     <description>灵剪更新日志</description>
     <language>zh-CN</language>
     <item>
-      <title>灵剪 2.0.2</title>
-      <sparkle:version>14</sparkle:version>
-      <sparkle:shortVersionString>2.0.2</sparkle:shortVersionString>
+      <title>灵剪 2.0.3</title>
+      <sparkle:version>15</sparkle:version>
+      <sparkle:shortVersionString>2.0.3</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://funbox.chat/灵剪.dmg"
-                 sparkle:edSignature="F+LuAqOmf0mOKGIJk6XVgN900m1TcZ5pJrmgsTh0mYlCCMlvX3TXvp4wv3h9CXSX24A1RHxKN7r6XX/3iQNZDw=="
-                 length="5092496"
+                 sparkle:edSignature="O9TUxQY+hmM+EhURoV2FCaTS+U3TuROap/hrb3IYYRqzMBN4ljEd+b0rUIaRFQkaHJzGquCd8jXD54NOzKiaAg=="
+                 length="5092474"
                  type="application/octet-stream" />
-      <description>新增用户管理系统 | 启动自动登记 | 管理后台用户管理 Tab | 设置页展示用户信息</description>
+      <description>修复 AI 功能触发 Keychain 密码弹窗的问题 | 优化 Keychain 访问策略</description>
     </item>
   </channel>
 </rss>
