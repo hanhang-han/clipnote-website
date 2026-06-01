@@ -100,8 +100,7 @@ export default function Hero() {
         {/* CTA 按钮 */}
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
           <motion.a
-            href="/灵剪.dmg"
-            download
+            href="https://clipnote-api.renqingbu.workers.dev/api/stats/dl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full font-semibold text-lg hover:from-blue-500 hover:to-indigo-500 shadow-[0_0_30px_rgba(59,130,246,0.4)] flex items-center gap-2 no-underline text-white transition-shadow"

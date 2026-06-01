@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
@@ -12,6 +13,14 @@ import Comparison from './components/Comparison';
 import FAQ from './components/FAQ';
 
 export default function App() {
+  useEffect(() => {
+    fetch('https://clipnote-api.renqingbu.workers.dev/api/stats/pv', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ page: window.location.pathname }),
+    }).catch(() => {});
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#0a0a1a] text-white">
       <Navbar />

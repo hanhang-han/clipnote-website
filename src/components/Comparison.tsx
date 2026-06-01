@@ -89,8 +89,7 @@ export default function Comparison() {
           </div>
           <br />
           <a
-            href="/灵剪.dmg"
-            download
+            href="https://clipnote-api.renqingbu.workers.dev/api/stats/dl"
             className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full font-semibold hover:from-blue-500 hover:to-indigo-500 shadow-[0_0_20px_rgba(59,130,246,0.3)] text-white no-underline transition-all"
           >
             免费下载，体验后再决定
