@@ -6,15 +6,15 @@
     <description>灵剪更新日志</description>
     <language>zh-CN</language>
     <item>
-      <title>灵剪 2.0.1</title>
-      <sparkle:version>13</sparkle:version>
-      <sparkle:shortVersionString>2.0.1</sparkle:shortVersionString>
+      <title>灵剪 2.0.2</title>
+      <sparkle:version>14</sparkle:version>
+      <sparkle:shortVersionString>2.0.2</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://funbox.chat/灵剪.dmg"
-                 sparkle:edSignature="kPrXwuEtuJipLlihDqV/c/7mWV6wK638YHx4r0t1aUyOiQ1SFXLdNnHYMmkCHZn4+0QfsY0x+RdwD+ltsfwuDw=="
-                 length="5067096"
+                 sparkle:edSignature="F+LuAqOmf0mOKGIJk6XVgN900m1TcZ5pJrmgsTh0mYlCCMlvX3TXvp4wv3h9CXSX24A1RHxKN7r6XX/3iQNZDw=="
+                 length="5092496"
                  type="application/octet-stream" />
-      <description>修复：关闭自动清理后数据仍被清空的问题 | 管理后台增加数据统计可视化</description>
+      <description>新增用户管理系统 | 启动自动登记 | 管理后台用户管理 Tab | 设置页展示用户信息</description>
     </item>
   </channel>
 </rss>
