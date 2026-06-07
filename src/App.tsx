@@ -1,16 +1,14 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { useEffect } from 'react';
+import { LanguageProvider } from './i18n';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Features from './components/Features';
-import Scenarios from './components/Scenarios';
 import MockupSection from './components/MockupSection';
+import AIFeatures from './components/AIFeatures';
+import Features from './components/Features';
 import Comparison from './components/Comparison';
 import FAQ from './components/FAQ';
+import FinalCTA from './components/FinalCTA';
+import Footer from './components/Footer';
 
 export default function App() {
   useEffect(() => {
@@ -22,40 +20,20 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0a0a1a] text-white">
+    <LanguageProvider>
+    <div className="min-h-screen bg-[#111] text-white">
       <Navbar />
       <main>
         <Hero />
-        <Scenarios />
-        <Features />
         <MockupSection />
+        <AIFeatures />
+        <Features />
         <Comparison />
         <FAQ />
+        <FinalCTA />
       </main>
-      <footer className="py-12 text-center text-gray-500 border-t border-white/5">
-        <div className="mb-4 flex justify-center items-center gap-4 flex-wrap">
-          <a href="https://www.xiaohongshu.com/user/profile/秃头也要做开发" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 no-underline hover:text-red-400 transition-colors">
-            <span className="text-red-400">📕</span>
-            <span className="text-gray-400 text-sm">小红书</span>
-            <span className="text-white font-medium">秃头也要做开发</span>
-          </a>
-          <span className="text-gray-700">|</span>
-          <a href="https://x.com/jch47643085" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 no-underline hover:text-blue-400 transition-colors">
-            <span className="text-blue-400">𝕏</span>
-            <span className="text-gray-400 text-sm">Twitter</span>
-            <span className="text-white font-medium">@jch47643085</span>
-          </a>
-          <span className="text-gray-600 text-xs">关注免费领 Pro</span>
-        </div>
-        <p className="mb-2">© 2026 灵剪 (ClipNote). 版权所有.</p>
-        <div className="flex justify-center gap-6 text-sm">
-          <a href="mailto:support@clipnote.app" className="hover:text-blue-400">联系我们</a>
-          <span className="text-gray-700">|</span>
-          <span>隐私政策</span>
-          <span className="text-gray-700">|</span>
-          <span>用户协议</span>
-        </div>
-      </footer>
+      <Footer />
     </div>
+    </LanguageProvider>
   );
 }

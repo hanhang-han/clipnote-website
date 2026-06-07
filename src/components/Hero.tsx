@@ -1,24 +1,21 @@
-import { motion } from 'motion/react';
-import { Download, ArrowDown, Users } from 'lucide-react';
+import { Download } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { useLang } from '../i18n';
 
-// 下载量统计：基准 1483 + 按小时自然增长
 function getDownloadCount(): number {
   const baseCount = 1483;
   const startDate = new Date('2026-05-29T00:00:00+08:00');
   const now = new Date();
   const hoursSinceStart = Math.floor((now.getTime() - startDate.getTime()) / (1000 * 60 * 60));
   if (hoursSinceStart <= 0) return baseCount;
-  // 每天约 5~15 个新下载，分摊到每小时
   const daysSinceStart = Math.floor(hoursSinceStart / 24);
   const currentHour = hoursSinceStart % 24;
   let total = 0;
-  // 完整天数的增量
   for (let d = 0; d < daysSinceStart; d++) {
     const date = new Date(startDate.getTime() + d * 86400000);
     const seed = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
-    total += 5 + ((seed * 7 + 13) % 11); // 5~15
+    total += 5 + ((seed * 7 + 13) % 11);
   }
-  // 今天已过小时的增量
   const todaySeed = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
   const todayTotal = 5 + ((todaySeed * 7 + 13) % 11);
   total += Math.floor(todayTotal * currentHour / 24);
@@ -26,131 +23,107 @@ function getDownloadCount(): number {
 }
 
 export default function Hero() {
+  const { lang } = useLang();
   const downloadCount = getDownloadCount();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoError, setVideoError] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const t = {
+    heading: lang === 'zh' ? '灵动岛上的 AI 剪贴板' : 'AI Clipboard on Dynamic Island',
+    subtitle: lang === 'zh'
+      ? '复制即保存，AI 自动翻译、总结、分析。灵动岛交互，不占桌面空间。'
+      : 'Copy to save. AI translates, summarizes, analyzes. Dynamic Island UI, zero footprint.',
+    cta: lang === 'zh' ? '免费下载' : 'Free Download',
+    downloads: lang === 'zh' ? '次下载' : 'downloads',
+    scrollHint: lang === 'zh' ? '下滑看更多' : 'Scroll for more',
+  };
+
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-4 pt-20 overflow-hidden">
-      {/* 背景渐变光效 */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(59,130,246,0.12)_0%,_transparent_60%)]" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-500/10 blur-[100px] rounded-full" />
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10"
-      >
-        {/* 灵动岛装饰 */}
-        <motion.div
-          initial={{ width: 80, opacity: 0 }}
-          animate={{ width: 200, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="h-10 bg-gray-800 rounded-full border border-gray-700 mx-auto mb-8 flex items-center justify-center gap-2"
-        >
-          <div className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
-          <span className="text-xs text-gray-400 font-medium">AI 助手已就绪</span>
-        </motion.div>
-
-        {/* 主标题 — 场景化痛点 */}
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
-          复制过的东西
-          <br />
-          <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
-            再也不用找第二次
-          </span>
+    <section id="hero" className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20">
+      <div className="max-w-[640px] mx-auto mb-10">
+        <h1 className="text-[48px] md:text-[60px] font-normal leading-[1.12] tracking-tight mb-6">
+          {t.heading}
         </h1>
-        <p className="text-lg md:text-xl text-gray-300 mb-3">
-          灵剪 ClipNote — macOS 灵动岛剪贴板管理工具
-        </p>
-        <p className="text-sm text-gray-500 mb-8">
-          自动记录每一次复制 · 智能分类 · AI 智能助手 · 一键导出
-        </p>
+        <p className="text-[16px] text-[#999] mb-10 leading-relaxed">{t.subtitle}</p>
 
-        {/* 价格标签 */}
-        <div className="flex items-center justify-center gap-3 mb-10">
-          <span className="text-gray-500 line-through text-sm">¥28</span>
-          <span className="text-3xl font-bold text-white">¥18</span>
-          <span className="px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-400 text-xs font-medium border border-orange-500/30">
-            限时优惠
-          </span>
-          <span className="text-gray-400 text-sm">一次性买断</span>
-        </div>
-
-        {/* 限时免费 Pro 横幅 */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mb-8 px-6 py-3 rounded-2xl bg-gradient-to-r from-red-500/10 via-orange-500/10 to-yellow-500/10 border border-orange-500/20 max-w-lg mx-auto"
-        >
-          <p className="text-orange-300 text-sm font-medium">
-            🎁 限时活动 · 免费领取 Pro 权益
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-2">
-            <span className="text-gray-300 text-xs">关注</span>
-            <a href="https://www.xiaohongshu.com/user/profile/秃头也要做开发" target="_blank" rel="noopener noreferrer" className="text-white text-xs font-bold hover:text-red-400 transition-colors no-underline">
-              📕 小红书「秃头也要做开发」
-            </a>
-            <span className="text-gray-600 text-xs">或</span>
-            <a href="https://x.com/jch47643085" target="_blank" rel="noopener noreferrer" className="text-white text-xs font-bold hover:text-blue-400 transition-colors no-underline">
-              𝕏 @jch47643085
-            </a>
-          </div>
-        </motion.div>
-
-        {/* CTA 按钮 */}
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-          <motion.a
-            href="https://clipnote-api.renqingbu.workers.dev/api/stats/dl"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full font-semibold text-lg hover:from-blue-500 hover:to-indigo-500 shadow-[0_0_30px_rgba(59,130,246,0.4)] flex items-center gap-2 no-underline text-white transition-shadow"
+        {/* Download area */}
+        <div className="flex flex-col items-center gap-4">
+          <button
+            onClick={() => window.location.href = 'https://clipnote-api.renqingbu.workers.dev/api/stats/dl'}
+            className="flex items-center gap-3 bg-[#F97316] text-[#111] border-none px-8 py-4 text-[15px] font-light tracking-wider cursor-pointer hover:opacity-85 transition-opacity"
+            style={{ borderRadius: 2 }}
           >
-            <Download size={20} /> 免费下载
-          </motion.a>
-          <motion.a
-            href="#scenarios"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-white/5 rounded-full font-semibold text-lg hover:bg-white/10 flex items-center gap-2 border border-white/10 no-underline text-white backdrop-blur-sm"
-          >
-            <ArrowDown size={20} /> 看看谁在用
-          </motion.a>
-        </div>
+            <Download size={18} strokeWidth={1.5} />
+            <span>{t.cta}</span>
+            <span className="text-[11px] opacity-60 font-mono ml-1">.dmg</span>
+          </button>
 
-        {/* Homebrew 安装 */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-5 flex flex-col items-center gap-2"
-        >
-          <span className="text-gray-500 text-xs">或通过 Homebrew 安装</span>
-          <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 font-mono text-sm text-gray-300">
-            <span>brew install --cask hanhang-han/tap/clipnote</span>
-            <button
-              onClick={() => navigator.clipboard.writeText('brew install --cask hanhang-han/tap/clipnote')}
-              className="text-gray-500 hover:text-white transition-colors"
-              title="复制命令"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-            </button>
+          <div className="flex items-center gap-4 text-[13px] text-[#666] font-light">
+            <span>{downloadCount.toLocaleString()} {t.downloads}</span>
+            <span className="text-[#444]">·</span>
+            <span>macOS 14+</span>
+            <span className="text-[#444]">·</span>
+            <span>{lang === 'zh' ? 'Apple 公证' : 'Apple Notarized'}</span>
           </div>
-        </motion.div>
 
-        {/* 下载量统计 */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="flex items-center justify-center gap-2 mt-6 text-gray-500"
-        >
-          <Users size={14} />
-          <span className="text-sm">已有 <strong className="text-gray-300">{downloadCount.toLocaleString()}</strong> 人下载</span>
-        </motion.div>
-      </motion.div>
+          <div className="flex items-center gap-2 text-[12px] text-[#666] font-mono font-light mt-1 overflow-x-auto max-w-full">
+            <span className="shrink-0">$</span>
+            <span className="whitespace-nowrap">brew install --cask hanhang-han/tap/clipnote</span>
+          </div>
+        </div>
+      </div>
 
-      {/* 底部渐变遮罩 */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0a1a] to-transparent" />
+      {/* Product showcase */}
+      <div className="w-full max-w-[900px] mt-4">
+        {!videoError ? (
+          <div className="relative hero-video-enter border border-[#222] group" style={{ borderRadius: 2, boxShadow: '0 20px 60px rgba(0,0,0,0.4)' }}>
+            <video
+              ref={videoRef}
+              src="/videos/hero-island.mp4"
+              muted
+              loop
+              playsInline
+              onError={() => setVideoError(true)}
+              className="w-full block"
+              style={{ borderRadius: 2 }}
+            />
+            {/* Play button overlay */}
+            {!isPlaying && (
+              <button
+                onClick={handlePlay}
+                className="absolute inset-0 flex items-center justify-center bg-[#111]/50 cursor-pointer border-none"
+                style={{ borderRadius: 2 }}
+                aria-label={lang === 'zh' ? '播放视频' : 'Play video'}
+              >
+                <div className="w-20 h-20 flex items-center justify-center bg-[#F97316]/90 hover:bg-[#F97316] transition-colors" style={{ borderRadius: '50%' }}>
+                  <div className="w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-l-[16px] border-l-[#111] ml-1.5" />
+                </div>
+              </button>
+            )}
+            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#111] to-transparent pointer-events-none" style={{ borderRadius: '0 0 2px 2px' }} />
+          </div>
+        ) : (
+          <div className="w-full bg-[#0a0a0a] flex items-center justify-center border border-[#222]" style={{ aspectRatio: '1280/832', borderRadius: 2 }}>
+            <span className="text-[14px] text-[#666] font-light">
+              {lang === 'zh' ? '灵动岛交互预览' : 'Dynamic Island Preview'}
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Scroll hint */}
+      <div className="mt-10 scroll-hint flex flex-col items-center gap-1.5">
+        <span className="text-[11px] text-[#555] font-light tracking-widest uppercase">{t.scrollHint}</span>
+        <span className="text-[12px] text-[#555]">↓</span>
+      </div>
     </section>
   );
 }

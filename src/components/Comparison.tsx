@@ -1,6 +1,7 @@
-import { Check, X, Crown, Users } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { useLang } from '../i18n';
+import { useReveal } from '../hooks/useScrollReveal';
 
-// 与 Hero 保持一致的下载量计算
 function getDownloadCount(): number {
   const baseCount = 1483;
   const startDate = new Date('2026-05-29T00:00:00+08:00');
@@ -21,88 +22,149 @@ function getDownloadCount(): number {
   return baseCount + total;
 }
 
+function useCountdown(target: string) {
+  const [left, setLeft] = useState<{ d: number; h: number; m: number; s: number } | null>(null);
+  useEffect(() => {
+    const ts = new Date(target).getTime();
+    const calc = () => {
+      const diff = ts - Date.now();
+      if (diff <= 0) return null;
+      return {
+        d: Math.floor(diff / 86400000),
+        h: Math.floor((diff % 86400000) / 3600000),
+        m: Math.floor((diff % 3600000) / 60000),
+        s: Math.floor((diff % 60000) / 1000),
+      };
+    };
+    setLeft(calc());
+    const id = setInterval(() => setLeft(calc()), 1000);
+    return () => clearInterval(id);
+  }, [target]);
+  return left;
+}
+
 export default function Comparison() {
+  const { lang } = useLang();
   const downloadCount = getDownloadCount();
+  const revealRef = useReveal();
+  const countdown = useCountdown('2026-07-01T00:00:00+08:00');
+
+  const isBeforeDeadline = countdown !== null;
+  const currentPrice = isBeforeDeadline ? '¥18' : '¥28';
+
+  const freeFeatures = lang === 'zh'
+    ? ['100 条剪贴板历史', '灵动岛交互体验', 'AI 助手 8 积分/天', '置顶和收藏']
+    : ['100 clipboard history', 'Dynamic Island UI', 'AI Assistant 8 credits/day', 'Pin & favorites'];
+
+  const proFeatures = lang === 'zh'
+    ? ['免费版全部功能', '500 条历史记录', '全文搜索 · 智能分类', 'AI 助手 80 积分/天', '归档 · 导出 · 便签', '图片剪贴板 · 富文本']
+    : ['All free features', '500 history records', 'Full-text search & smart filters', 'AI Assistant 80 credits/day', 'Archive · Export · Notes', 'Image clipboard & rich text'];
+
+  const t = {
+    badge: lang === 'zh' ? '价格' : 'pricing',
+    heading: lang === 'zh' ? '先试后买，没有套路' : 'Try first, buy when ready',
+    freeLabel: lang === 'zh' ? '免费版' : 'Free',
+    freeDesc: lang === 'zh' ? '基础功能，永久免费' : 'Basic features, free forever',
+    proLabel: lang === 'zh' ? 'Pro' : 'Pro',
+    buyout: lang === 'zh' ? '一次性买断' : 'one-time purchase',
+    cta: lang === 'zh' ? '免费下载' : 'Free Download',
+    footer: lang === 'zh'
+      ? `${downloadCount.toLocaleString()} 次下载 · 支持支付宝 · Homebrew 安装`
+      : `${downloadCount.toLocaleString()} downloads · Alipay supported · Homebrew install`,
+  };
+
   return (
-    <section id="comparison" className="py-24 px-4">
-      <div className="max-w-4xl mx-auto rounded-3xl bg-gray-900 border border-gray-800 p-8 md:p-12">
-        <h2 className="text-3xl font-bold text-center mb-12">版本对比</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
-          {/* 免费版 */}
-          <div className="space-y-4 p-6 rounded-2xl bg-gray-800/50 border border-gray-700">
-            <h3 className="font-bold text-gray-400 text-center">免费版</h3>
-            <p className="text-center text-gray-500 text-sm mb-4">基础剪贴板管理，永久免费</p>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2"><Check className="text-green-500 shrink-0" size={18} /> <span>100 条剪贴板历史</span></div>
-              <div className="flex items-center gap-2"><Check className="text-green-500 shrink-0" size={18} /> <span>灵动岛交互体验</span></div>
-              <div className="flex items-center gap-2"><Check className="text-green-500 shrink-0" size={18} /> <span>置顶和收藏功能</span></div>
-              <div className="flex items-center gap-2"><Check className="text-green-500 shrink-0" size={18} /> <span>按时间自动分组</span></div>
-              <div className="flex items-center gap-2"><Check className="text-green-500 shrink-0" size={18} /> <span>AI 助手 · 8 积分/天</span></div>
-              <div className="flex items-center gap-2"><X className="text-red-500/50 shrink-0" size={18} /> <span className="text-gray-500">全文搜索</span></div>
-              <div className="flex items-center gap-2"><X className="text-red-500/50 shrink-0" size={18} /> <span className="text-gray-500">智能分类筛选</span></div>
-              <div className="flex items-center gap-2"><X className="text-red-500/50 shrink-0" size={18} /> <span className="text-gray-500">便签功能</span></div>
-              <div className="flex items-center gap-2"><X className="text-red-500/50 shrink-0" size={18} /> <span className="text-gray-500">图片剪贴板</span></div>
-              <div className="flex items-center gap-2"><X className="text-red-500/50 shrink-0" size={18} /> <span className="text-gray-500">多格式导出</span></div>
-              <div className="flex items-center gap-2"><X className="text-red-500/50 shrink-0" size={18} /> <span className="text-gray-500">富文本还原</span></div>
+    <section id="comparison" className="py-32 px-6 border-t border-[#222]">
+      <div className="max-w-4xl mx-auto">
+        <div ref={revealRef} className="reveal text-center mb-16">
+          <p className="text-xs tracking-[0.15em] uppercase text-[#F97316] mb-4">{t.badge}</p>
+          <h2 className="text-[48px] font-normal tracking-tight mb-4">{t.heading}</h2>
+        </div>
+
+        {/* Free vs Pro */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Free */}
+          <div className="bg-[#0a0a0a] border border-[#222] p-10" style={{ borderRadius: 2 }}>
+            <p className="text-[13px] text-[#777] tracking-wider uppercase mb-2">{t.freeLabel}</p>
+            <p className="text-[14px] text-[#666] font-light mb-8">{t.freeDesc}</p>
+            <div className="space-y-4">
+              {freeFeatures.map((item, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <div className="w-[4px] h-[4px] rounded-full bg-[#666] shrink-0" />
+                  <span className="text-[14px] text-[#888] font-light">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
-          {/* Pro 版 */}
-          <div className="space-y-4 p-6 rounded-2xl bg-blue-600/10 border border-blue-500/30 relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
-              <Crown size={12} /> PRO
+
+          {/* Pro */}
+          <div className="bg-[#0a0a0a] border border-[#F97316]/30 relative overflow-hidden" style={{ borderRadius: 2 }}>
+            {/* Trial banner */}
+            <div className="bg-[#F97316]/10 border-b border-[#F97316]/20 px-10 py-4 text-center">
+              <span className="text-[14px] text-[#F97316] font-light tracking-wide">
+                {lang === 'zh' ? '7 天免费试用 · 到期不自动扣费' : '7-day free trial · No auto-charge after expiry'}
+              </span>
             </div>
-            <h3 className="font-bold text-blue-400 text-center">Pro 版</h3>
-            <div className="text-center mb-4">
-              <span className="text-gray-400 text-sm line-through mr-2">¥28</span>
-              <span className="text-3xl font-bold text-white">¥18</span>
-              <span className="text-gray-400 text-sm ml-1">一次性买断</span>
-            </div>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2"><Check className="text-blue-400 shrink-0" size={18} /> <span>免费版所有功能</span></div>
-              <div className="flex items-center gap-2"><Check className="text-blue-400 shrink-0" size={18} /> <span>最多 500 条历史记录</span></div>
-              <div className="flex items-center gap-2"><Check className="text-blue-400 shrink-0" size={18} /> <span>全文搜索</span></div>
-              <div className="flex items-center gap-2"><Check className="text-blue-400 shrink-0" size={18} /> <span>智能分类筛选</span></div>
-              <div className="flex items-center gap-2"><Check className="text-blue-400 shrink-0" size={18} /> <span>便签功能</span></div>
-              <div className="flex items-center gap-2"><Check className="text-blue-400 shrink-0" size={18} /> <span>图片剪贴板支持</span></div>
-              <div className="flex items-center gap-2"><Check className="text-blue-400 shrink-0" size={18} /> <span>多格式导出 (TXT/JSON/MD)</span></div>
-              <div className="flex items-center gap-2"><Check className="text-blue-400 shrink-0" size={18} /> <span>富文本还原</span></div>
-              <div className="flex items-center gap-2"><Check className="text-purple-400 shrink-0" size={18} /> <span className="text-purple-300">AI 助手 · 80 积分/天</span></div>
+
+            <div className="p-10">
+              <p className="text-[13px] text-[#F97316] tracking-wider uppercase mb-2">{t.proLabel}</p>
+              <div className="mb-2">
+                {isBeforeDeadline && (
+                  <span className="text-[14px] text-[#666] font-light line-through mr-2">¥28</span>
+                )}
+                <span className="text-[32px] font-light leading-none text-white">{currentPrice}</span>
+                <span className="text-[13px] text-[#777] font-light ml-2">{t.buyout}</span>
+              </div>
+
+              {/* Countdown */}
+              {isBeforeDeadline && countdown && (
+                <p className="text-[13px] text-[#999] font-light mb-6">
+                  {lang === 'zh'
+                    ? `限时优惠 · 剩余 ${countdown.d} 天 ${countdown.h} 小时`
+                    : `Limited offer · ${countdown.d}d ${countdown.h}h remaining`}
+                </p>
+              )}
+
+              <div className="space-y-4">
+                {proFeatures.map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-[4px] h-[4px] rounded-full bg-[#F97316] shrink-0" />
+                    <span className="text-[14px] text-[#888] font-light">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Dual CTA */}
+              <div className="mt-8 flex flex-col gap-3">
+                <button
+                  onClick={() => window.location.href = 'https://clipnote-api.renqingbu.workers.dev/api/stats/dl'}
+                  className="bg-[#F97316] text-[#111] border-none px-6 py-3.5 text-[14px] font-light tracking-wider cursor-pointer hover:opacity-85 transition-opacity"
+                  style={{ borderRadius: 2 }}
+                >
+                  {lang === 'zh' ? '免费试用 7 天' : 'Start 7-day trial'}
+                </button>
+                <button
+                  onClick={() => window.location.href = 'https://clipnote-api.renqingbu.workers.dev/api/stats/dl'}
+                  className="bg-transparent text-[#F97316] border border-[#F97316]/40 px-6 py-3 text-[13px] font-light tracking-wider cursor-pointer hover:bg-[#F97316]/10 transition-all"
+                  style={{ borderRadius: 2 }}
+                >
+                  {lang === 'zh' ? `${currentPrice} 买断` : `${currentPrice} Buy`}
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* 底部 CTA */}
-        <div className="mt-10 text-center">
-          <div className="mb-4 px-4 py-2.5 rounded-xl bg-gradient-to-r from-red-500/10 via-orange-500/10 to-yellow-500/10 border border-orange-500/20 inline-block">
-            <p className="text-orange-300 text-sm font-medium">
-              🎁 限时福利：免费领取 Pro 兑换码
-            </p>
-            <div className="flex items-center justify-center gap-3 mt-1">
-              <a href="https://www.xiaohongshu.com/user/profile/秃头也要做开发" target="_blank" rel="noopener noreferrer" className="text-white text-xs font-bold hover:text-red-400 transition-colors no-underline">
-                📕 小红书「秃头也要做开发」
-              </a>
-              <span className="text-gray-600 text-xs">·</span>
-              <a href="https://x.com/jch47643085" target="_blank" rel="noopener noreferrer" className="text-white text-xs font-bold hover:text-blue-400 transition-colors no-underline">
-                𝕏 @jch47643085
-              </a>
-            </div>
-          </div>
-          <br />
-          <a
-            href="https://clipnote-api.renqingbu.workers.dev/api/stats/dl"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full font-semibold hover:from-blue-500 hover:to-indigo-500 shadow-[0_0_20px_rgba(59,130,246,0.3)] text-white no-underline transition-all"
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
+          <button
+            onClick={() => window.location.href = 'https://clipnote-api.renqingbu.workers.dev/api/stats/dl'}
+            className="bg-[#F97316] text-[#111] border-none px-10 py-4 text-[16px] font-light tracking-wider cursor-pointer hover:opacity-85 transition-opacity"
+            style={{ borderRadius: 2 }}
           >
-            免费下载，体验后再决定
-          </a>
-          <p className="text-gray-500 text-sm mt-3">支持支付宝购买 · 一次买断 ¥18 · 永久使用</p>
-          <div className="mt-3 flex items-center justify-center gap-2 text-gray-500 text-xs">
-            <span>Homebrew 安装：</span>
-            <code className="px-2 py-0.5 rounded bg-white/5 text-gray-400 font-mono text-xs">brew install --cask hanhang-han/tap/clipnote</code>
-          </div>
-          <p className="text-gray-600 text-xs mt-2 flex items-center justify-center gap-1.5">
-            <Users size={12} />
-            <span>已有 <strong className="text-gray-400">{downloadCount.toLocaleString()}</strong> 人下载</span>
-          </p>
+            {t.cta}
+          </button>
+          <p className="text-[13px] text-[#666] mt-6 font-light">{t.footer}</p>
         </div>
       </div>
     </section>

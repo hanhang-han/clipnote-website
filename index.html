@@ -8,16 +8,17 @@
     <meta name="keywords" content="灵剪,ClipNote,macOS剪贴板,剪贴板管理,灵动岛,clipboard manager,mac app,剪贴板历史,mac工具" />
     <meta name="author" content="灵剪 ClipNote" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <link rel="canonical" href="https://funbox.chat/" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://clipnote.app/" />
+    <link rel="icon" type="image/png" href="/icon.png?v=2" />
+    <link rel="apple-touch-icon" href="/icon.png?v=2" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://funbox.chat/" />
+    <meta property="og:url" content="https://clipnote.app/" />
     <meta property="og:title" content="灵剪 ClipNote - 复制过的东西，再也不用找第二次" />
     <meta property="og:description" content="macOS 灵动岛剪贴板管理工具。自动记录复制内容、极速搜索、智能分类。Pro版仅需¥18买断。" />
-    <meta property="og:image" content="https://funbox.chat/og-image.png" />
+    <meta property="og:image" content="https://clipnote.app/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="zh_CN" />
@@ -27,7 +28,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="灵剪 ClipNote - macOS 灵动岛剪贴板管理工具" />
     <meta name="twitter:description" content="自动记录复制内容、极速搜索、智能分类。Pro版仅需¥18买断。" />
-    <meta name="twitter:image" content="https://funbox.chat/og-image.png" />
+    <meta name="twitter:image" content="https://clipnote.app/og-image.png" />
 
     <!-- JSON-LD 结构化数据 -->
     <script type="application/ld+json">
@@ -37,7 +38,7 @@
       "name": "灵剪",
       "alternateName": "ClipNote",
       "description": "macOS 首创灵动岛剪贴板管理工具，自动记录复制内容、极速搜索、智能分类",
-      "url": "https://funbox.chat",
+      "url": "https://clipnote.app",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "macOS 14.0",
       "offers": [
@@ -53,7 +54,7 @@
           "name": "Pro版",
           "price": "18",
           "priceCurrency": "CNY",
-          "description": "500条历史、全文搜索、智能筛选、便签、图片剪贴板、多格式导出、富文本还原、AI助手80积分/天"
+          "description": "500条历史、全文搜索、智能筛选、便签、图片剪贴板、多格式导出、富文本还原"
         }
       ],
       "featureList": [
@@ -61,67 +62,24 @@
         "智能剪贴板记录（最多500条）",
         "极速全文搜索",
         "智能分类（文本/链接/代码/图片/富文本/Markdown）",
-        "AI智能助手（翻译/总结/解释/润色/代码分析）",
         "便签预览功能",
         "多格式导出（TXT/JSON/Markdown）",
         "图片剪贴板支持",
         "开机启动",
         "全局快捷键 ⌘⇧V"
       ],
-      "screenshot": "https://funbox.chat/screenshot.png",
+      "screenshot": "https://clipnote.app/screenshot.png",
       "inLanguage": "zh-CN",
-      "softwareVersion": "2.0.0",
-      "downloadUrl": "https://funbox.chat/灵剪.dmg"
-    }
-    </script>
-
-    <!-- FAQPage 结构化数据 (GEO) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "灵剪和 Maccy、Paste 有什么区别？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "灵剪独创灵动岛交互，鼠标移到屏幕顶部自动展开，离开自动收起，不占桌面空间。Maccy 是免费开源的极简工具，Paste 是 $29.99/年的订阅制。灵剪免费版 100 条记录，Pro 仅 ¥18 一次买断，是 macOS 剪贴板工具中性价比最高的选择。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "macOS 上最好的免费剪贴板管理工具是什么？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "灵剪 ClipNote 是 macOS 上最好的免费剪贴板管理工具之一。它提供灵动岛交互、智能内容分类、菜单栏快捷访问、极速搜索等功能，免费版支持 100 条记录。Pro 版 ¥18 买断即可解锁 500 条记录和全部高级功能。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "灵剪安全吗？会不会上传我的数据？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "所有数据仅存储在你的本地 Mac 上，灵剪不会联网上传任何内容。剪贴板数据完全由你自己掌控。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "灵剪怎么安装？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "官网下载 DMG 安装包，双击打开后将灵剪拖入「应用程序」文件夹即可。也可以用 Homebrew 安装：brew install --cask hanhang-han/tap/clipnote。已通过 Apple 公证，双击安装无安全警告。"
-          }
-        }
-      ]
+      "softwareVersion": "3.0.0",
+      "downloadUrl": "https://clipnote.app/灵剪.dmg"
     }
     </script>
 
     <!-- 预连接优化 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <script type="module" src="/src/main.tsx"></script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
