@@ -10,7 +10,7 @@
       <sparkle:version>31</sparkle:version>
       <sparkle:shortVersionString>3.2.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <enclosure url="https://api.cliperx.com/download?v=3.2.0"
+      <enclosure url="https://clipnote-api.renqingbu.workers.dev/download"
                  sparkle:edSignature="tIj2Umr/8oLXb+nJUje2DXR6tIRnj++4V71E487uEc7ueFYV6TpsvGdSGRMltt0sfVQF3Akax8a+T16ooUFNCw=="
                  length="5821860"
                  type="application/octet-stream" />
