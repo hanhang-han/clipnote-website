@@ -45,7 +45,7 @@ export default function Features() {
             <div key={i} className="bg-[#0a0a0a] border border-[#222] p-8" style={{ borderRadius: 2 }}>
               <f.Icon size={24} strokeWidth={1.5} className="text-[#F97316] mb-4" />
               <h3 className="text-[18px] text-[#ccc] font-normal mb-3">{f.title}</h3>
-              <p className="text-[14px] text-[#777] font-light leading-relaxed">{f.desc}</p>
+              <p className="text-[14px] text-[#999] font-light leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -55,7 +55,7 @@ export default function Features() {
           <p className="text-[13px] text-[#666] font-light mb-4">{t.more}</p>
           <div className="flex flex-wrap justify-center gap-x-2 gap-y-2">
             {more.map((item, i) => (
-              <span key={i} className="text-[13px] text-[#777] font-light">
+              <span key={i} className="text-[13px] text-[#999] font-light">
                 {i > 0 && <span className="text-[#444] mx-2">·</span>}
                 {item}
               </span>

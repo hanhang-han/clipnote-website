@@ -52,7 +52,7 @@ export default function Hero() {
         <h1 className="text-[48px] md:text-[60px] font-normal leading-[1.12] tracking-tight mb-6">
           {t.heading}
         </h1>
-        <p className="text-[16px] text-[#999] mb-10 leading-relaxed">{t.subtitle}</p>
+        <p className="text-[16px] text-[#bbb] mb-10 leading-relaxed">{t.subtitle}</p>
 
         {/* Download area */}
         <div className="flex flex-col items-center gap-4">

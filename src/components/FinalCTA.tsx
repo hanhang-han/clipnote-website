@@ -32,11 +32,11 @@ export default function FinalCTA() {
         </button>
 
         <div className="mt-10 flex justify-center gap-6">
-          <a href="https://xhslink.com/m/7OAhON5Terr" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[#777] font-light no-underline hover:text-[#888] transition-colors">
+          <a href="https://xhslink.com/m/7OAhON5Terr" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[#999] font-light no-underline hover:text-[#888] transition-colors">
             {t.xiaohongshu}
           </a>
           <span className="text-[13px] text-[#444]">·</span>
-          <a href="https://x.com/jch47643085" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[#777] font-light no-underline hover:text-[#888] transition-colors">
+          <a href="https://x.com/jch47643085" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[#999] font-light no-underline hover:text-[#888] transition-colors">
             {t.xNote}
           </a>
           <span className="text-[13px] text-[#444]">·</span>

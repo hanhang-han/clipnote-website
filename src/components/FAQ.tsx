@@ -50,7 +50,7 @@ export default function FAQ() {
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between py-6 text-left cursor-pointer bg-transparent border-none"
               >
-                <span className="text-[16px] text-[#aaa] font-light pr-4">{faq.q}</span>
+                <span className="text-[16px] text-[#ccc] font-light pr-4">{faq.q}</span>
                 <span className={`text-[18px] transition-colors shrink-0 ${openIndex === i ? 'text-[#F97316]' : 'text-[#666]'} font-light`}>
                   {openIndex === i ? '−' : '+'}
                 </span>

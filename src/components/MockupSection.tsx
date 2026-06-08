@@ -65,7 +65,7 @@ export default function MockupSection() {
             {t.features.map((f, i) => (
               <div key={i}>
                 <h3 className="text-[16px] text-[#ccc] font-light mb-1">{f.title}</h3>
-                <p className="text-[14px] text-[#777] font-light leading-relaxed">{f.desc}</p>
+                <p className="text-[14px] text-[#999] font-light leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>

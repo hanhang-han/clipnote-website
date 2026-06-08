@@ -85,7 +85,7 @@ export default function Comparison() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Free */}
           <div className="bg-[#0a0a0a] border border-[#222] p-10" style={{ borderRadius: 2 }}>
-            <p className="text-[13px] text-[#777] tracking-wider uppercase mb-2">{t.freeLabel}</p>
+            <p className="text-[13px] text-[#999] tracking-wider uppercase mb-2">{t.freeLabel}</p>
             <p className="text-[14px] text-[#666] font-light mb-8">{t.freeDesc}</p>
             <div className="space-y-4">
               {freeFeatures.map((item, i) => (
@@ -113,7 +113,7 @@ export default function Comparison() {
                   <span className="text-[14px] text-[#666] font-light line-through mr-2">¥28</span>
                 )}
                 <span className="text-[32px] font-light leading-none text-white">{currentPrice}</span>
-                <span className="text-[13px] text-[#777] font-light ml-2">{t.buyout}</span>
+                <span className="text-[13px] text-[#999] font-light ml-2">{t.buyout}</span>
               </div>
 
               {/* Countdown */}
