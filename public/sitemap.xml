@@ -2,12 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://funbox.chat/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://funbox.chat/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://funbox.chat/?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://funbox.chat/" />
+    <loc>https://cliperx.com/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cliperx.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://cliperx.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cliperx.com/" />
     <lastmod>2026-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://cliperx.com/compare/paste.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cliperx.com/compare/maccy.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cliperx.com/compare/cleanclip.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cliperx.com/blog/how-to-view-clipboard-history-mac.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cliperx.com/blog/best-clipboard-manager-mac.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cliperx.com/blog/clipboard-manager-one-time-purchase.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

@@ -9,4 +9,7 @@ Allow: /
 Disallow: /api/
 Disallow: /assets/
 
-Sitemap: https://funbox.chat/sitemap.xml
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://cliperx.com/sitemap.xml
