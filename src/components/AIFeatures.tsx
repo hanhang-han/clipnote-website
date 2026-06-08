@@ -58,6 +58,7 @@ const coreFeatures: CoreFeature[] = [
   },
   {
     key: 'chat',
+    video: '/videos/ai-chat.mp4',
     title: { zh: 'AI 对话', en: 'AI Chat' },
     desc: { zh: '侧边栏多轮对话，连续追问不断线', en: 'Multi-turn conversation in sidebar, keep asking' },
     details: {
