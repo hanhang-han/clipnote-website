@@ -45,12 +45,12 @@ export default function FAQ() {
         </div>
         <div className="divide-y divide-[#222]">
           {items.map((faq, i) => (
-            <div key={i}>
+            <div key={i} id={`faq-${i}`}>
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between py-6 text-left cursor-pointer bg-transparent border-none"
               >
-                <span className="text-[16px] text-[#ccc] font-light pr-4">{faq.q}</span>
+                <h3 className="text-[16px] text-[#ccc] font-light pr-4">{faq.q}</h3>
                 <span className={`text-[18px] transition-colors shrink-0 ${openIndex === i ? 'text-[#F97316]' : 'text-[#666]'} font-light`}>
                   {openIndex === i ? '−' : '+'}
                 </span>

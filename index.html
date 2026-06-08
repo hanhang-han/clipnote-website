@@ -3,62 +3,84 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>灵剪 ClipNote - macOS 灵动岛剪贴板管理工具 | 智能剪贴板</title>
-    <meta name="description" content="灵剪(ClipNote)是 macOS 首创灵动岛剪贴板管理工具。自动记录复制内容、极速搜索、智能分类文本/链接/代码/图片。免费下载，Pro版仅需¥18买断。" />
-    <meta name="keywords" content="灵剪,ClipNote,macOS剪贴板,剪贴板管理,灵动岛,clipboard manager,mac app,剪贴板历史,mac工具" />
+    <title>灵剪 ClipNote - macOS 灵动岛剪贴板管理工具 | AI 智能剪贴板</title>
+    <meta name="description" content="灵剪(ClipNote)是 macOS 灵动岛剪贴板管理工具。自动记录复制内容、AI智能翻译总结、极速搜索、智能分类。Pro版¥18买断，免费下载。" />
+    <meta name="keywords" content="灵剪,ClipNote,macOS剪贴板,剪贴板管理,剪贴板管理工具,灵动岛,clipboard manager,mac clipboard,AI剪贴板,剪贴板历史,mac工具,剪贴板助手,macOS剪贴板管理,免费剪贴板工具" />
     <meta name="author" content="灵剪 ClipNote" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <link rel="canonical" href="https://clipnote.app/" />
+    <link rel="canonical" href="https://funbox.chat/" />
     <link rel="icon" type="image/png" href="/icon.png?v=2" />
     <link rel="apple-touch-icon" href="/icon.png?v=2" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="zh-CN" href="https://funbox.chat/" />
+    <link rel="alternate" hreflang="en" href="https://funbox.chat/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://funbox.chat/" />
+
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href="/videos/hero-poster.png" fetchpriority="high" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://clipnote-api.renqingbu.workers.dev" />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://clipnote.app/" />
-    <meta property="og:title" content="灵剪 ClipNote - 复制过的东西，再也不用找第二次" />
-    <meta property="og:description" content="macOS 灵动岛剪贴板管理工具。自动记录复制内容、极速搜索、智能分类。Pro版仅需¥18买断。" />
-    <meta property="og:image" content="https://clipnote.app/og-image.png" />
+    <meta property="og:url" content="https://funbox.chat/" />
+    <meta property="og:title" content="灵剪 ClipNote - macOS 灵动岛 AI 剪贴板管理工具" />
+    <meta property="og:description" content="灵动岛剪贴板管理工具。自动记录、AI翻译总结、极速搜索、智能分类。Pro版¥18买断。" />
+    <meta property="og:image" content="https://funbox.chat/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:site_name" content="灵剪 ClipNote" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="灵剪 ClipNote - macOS 灵动岛剪贴板管理工具" />
-    <meta name="twitter:description" content="自动记录复制内容、极速搜索、智能分类。Pro版仅需¥18买断。" />
-    <meta name="twitter:image" content="https://clipnote.app/og-image.png" />
+    <meta name="twitter:title" content="灵剪 ClipNote - macOS 灵动岛 AI 剪贴板管理工具" />
+    <meta name="twitter:description" content="灵动岛剪贴板管理工具。AI翻译总结、极速搜索、智能分类。Pro版¥18买断。" />
+    <meta name="twitter:image" content="https://funbox.chat/og-image.png" />
 
-    <!-- JSON-LD 结构化数据 -->
+    <!-- JSON-LD: SoftwareApplication -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "灵剪",
-      "alternateName": "ClipNote",
-      "description": "macOS 首创灵动岛剪贴板管理工具，自动记录复制内容、极速搜索、智能分类",
-      "url": "https://clipnote.app",
+      "alternateName": ["ClipNote", "灵剪 ClipNote", "ClipNote macOS"],
+      "description": "macOS 灵动岛剪贴板管理工具，AI智能翻译、总结、代码分析，自动记录复制内容、极速搜索、智能分类",
+      "url": "https://funbox.chat",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "macOS 14.0",
+      "softwareVersion": "3.0.0",
+      "inLanguage": ["zh-CN", "en"],
+      "downloadUrl": "https://funbox.chat/灵剪.dmg",
+      "author": {
+        "@type": "Organization",
+        "name": "ClipNote",
+        "url": "https://funbox.chat"
+      },
       "offers": [
         {
           "@type": "Offer",
           "name": "免费版",
           "price": "0",
           "priceCurrency": "CNY",
-          "description": "100条剪贴板历史、灵动岛交互、置顶收藏"
+          "category": "Free",
+          "description": "100条剪贴板历史、灵动岛交互、AI助手8积分/天、置顶收藏"
         },
         {
           "@type": "Offer",
           "name": "Pro版",
           "price": "18",
           "priceCurrency": "CNY",
-          "description": "500条历史、全文搜索、智能筛选、便签、图片剪贴板、多格式导出、富文本还原"
+          "category": "One-time purchase",
+          "description": "500条历史、全文搜索、智能筛选、AI助手80积分/天、便签、图片剪贴板、多格式导出、富文本还原"
         }
       ],
       "featureList": [
         "灵动岛交互体验",
+        "AI智能助手（翻译、总结、代码分析、OCR、润色）",
         "智能剪贴板记录（最多500条）",
         "极速全文搜索",
         "智能分类（文本/链接/代码/图片/富文本/Markdown）",
@@ -68,15 +90,76 @@
         "开机启动",
         "全局快捷键 ⌘⇧V"
       ],
-      "screenshot": "https://clipnote.app/screenshot.png",
-      "inLanguage": "zh-CN",
-      "softwareVersion": "3.0.0",
-      "downloadUrl": "https://clipnote.app/灵剪.dmg"
+      "screenshot": "https://funbox.chat/videos/hero-poster.png",
+      "video": {
+        "@type": "VideoObject",
+        "name": "ClipNote 灵动岛演示",
+        "description": "ClipNote 灵动岛剪贴板管理工具在 macOS 上的使用演示",
+        "thumbnailUrl": "https://funbox.chat/videos/hero-poster.png",
+        "contentUrl": "https://funbox.chat/videos/hero-island.mp4",
+        "uploadDate": "2026-06-01"
+      }
     }
     </script>
 
-    <!-- 预连接优化 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "灵剪安全吗？会不会上传我的数据？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "所有数据仅存储在你的本地 Mac 上，灵剪不会联网上传任何内容。剪贴板数据完全由你自己掌控。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI 会读取我的剪贴板内容吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "只有在主动点击 AI 功能时，内容才会发送到 AI 服务进行处理。灵剪不会在后台自动扫描或上传你的剪贴板数据。AI 请求通过加密连接传输，服务端不存储用户内容。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI 积分是什么？免费版有多少？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI 功能使用积分制。免费用户每天获得 8 积分，Pro 用户每天 80 积分。不同操作消耗不同积分：翻译 1 分、总结/解释/润色 2 分、代码分析 3 分。积分每日重置。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "灵剪和 Mac 自带的剪贴板有什么区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mac 系统剪贴板只能记住最近 1 条复制内容。灵剪可以记住最多 500 条，并且自动识别内容类型进行智能分类。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¥18 是一次性买断吗？有订阅吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "是的，¥18 是一次性买断，永久使用所有 Pro 功能，没有任何订阅费用。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎么安装灵剪？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "官网下载 DMG 安装包，双击打开后将灵剪拖入应用程序文件夹即可。也可以用 Homebrew 安装：brew install --cask hanhang-han/tap/clipnote。已通过 Apple 公证。"
+          }
+        }
+      ]
+    }
+    </script>
+
     <script type="module" src="/src/main.tsx"></script>
   </head>
   <body>

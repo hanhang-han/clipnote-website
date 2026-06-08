@@ -2,5 +2,11 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /assets/
+Disallow: /demo-*
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /api/
+Disallow: /assets/
 
 Sitemap: https://funbox.chat/sitemap.xml
