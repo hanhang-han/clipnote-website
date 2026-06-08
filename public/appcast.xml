@@ -10,7 +10,7 @@
       <sparkle:version>27</sparkle:version>
       <sparkle:shortVersionString>3.0.8</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <enclosure url="https://cliperx.com/灵剪.dmg"
+      <enclosure url="https://api.cliperx.com/download"
                  sparkle:edSignature="F0UK/UC1KnX+dn8CQDU5EycxG75JJUTSGbv/lr52wsU7RqZujD+huNyJHqkpTfrcmF6g7SYWUfNad6vIHslFBA=="
                  length="5976332"
                  type="application/octet-stream" />
