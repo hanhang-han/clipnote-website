@@ -6,8 +6,12 @@
     "enabled": true
   },
   "assets": {
-    "not_found_handling": "single-page-application"
+    "not_found_handling": "single-page-application",
+    "html_handling": "auto-trailing-slash"
   },
+  "routes": [
+    { "pattern": "cliperx.com/*", "zone_id": "aaebba0d0e84347de9e91850f033205f" }
+  ],
   "compatibility_flags": [
     "nodejs_compat"
   ]

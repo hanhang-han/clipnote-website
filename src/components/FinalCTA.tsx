@@ -8,7 +8,7 @@ export default function FinalCTA() {
   const t = {
     heading1: lang === 'zh' ? '试试看，' : 'Try it, ',
     heading2: lang === 'zh' ? '复制第一条就开始了' : 'your first copy starts now',
-    desc: lang === 'zh' ? '免费下载，复制点什么，灵剪就开始工作了' : 'Free download. Copy something. ClipNote starts working.',
+    desc: lang === 'zh' ? '免费下载，复制点什么，灵剪就开始工作了' : 'Free download. Copy something. CliperX starts working.',
     cta: lang === 'zh' ? '免费下载' : 'Free Download',
     xiaohongshu: lang === 'zh' ? '小红书「麦克斯」' : 'Xiaohongshu @Max',
     xNote: 'X @jch47643085',

@@ -16,16 +16,16 @@ const faqs = {
     { q: '灵剪支持哪些内容类型？', a: '灵剪支持 7 种内容类型的自动识别：纯文本、链接（URL）、代码片段、富文本（RTF）、Markdown、图片。复制后自动分类，方便快速查找。' },
   ],
   en: [
-    { q: 'Is ClipNote safe? Will it upload my data?', a: 'All data is stored locally on your Mac. ClipNote never uploads any content online. Your clipboard data is fully under your control.' },
+    { q: 'Is CliperX safe? Will it upload my data?', a: 'All data is stored locally on your Mac. CliperX never uploads any content online. Your clipboard data is fully under your control.' },
     { q: 'How does the AI Assistant work?', a: 'The AI Assistant is powered by DeepSeek and appears as a popup next to your clipboard content. It auto-recommends actions based on content type: code → analyze, English → translate, long text → summarize, image → OCR. Supports multi-turn conversations.' },
-    { q: 'Does AI read my clipboard content?', a: 'Content is only sent to the AI service when you actively click an AI feature. ClipNote never scans or uploads clipboard data in the background. AI requests are encrypted and the server does not store user content.' },
+    { q: 'Does AI read my clipboard content?', a: 'Content is only sent to the AI service when you actively click an AI feature. CliperX never scans or uploads clipboard data in the background. AI requests are encrypted and the server does not store user content.' },
     { q: 'What are AI credits? How many for free users?', a: 'AI features use a credit system. Free users get 8 credits/day, Pro users get 80/day. Different actions cost different credits: translate 1, summarize/explain/polish 2, code analysis 3. Credits reset daily, extra credits can be purchased.' },
-    { q: 'Does Dynamic Island work on all Macs?', a: 'ClipNote\'s Dynamic Island is a software-simulated floating UI, not a hardware feature. It supports all Macs running macOS 14 (Sonoma) or later. macOS 15 (Sequoia) is recommended for the best experience.' },
-    { q: 'How is it different from the built-in Mac clipboard?', a: 'The Mac system clipboard only remembers the last copied item. ClipNote remembers up to 500 items and auto-categorizes content types (text, links, code, images, etc.).' },
-    { q: 'How does ClipNote compare to Maccy and Paste?', a: 'ClipNote features a unique Dynamic Island UI that auto-expands at the top of your screen. Maccy is a free open-source minimal tool, Paste is ¥299/year subscription. ClipNote free = 100 items, Pro = ¥18 one-time purchase — the best value macOS clipboard manager.' },
+    { q: 'Does Dynamic Island work on all Macs?', a: 'CliperX\'s Dynamic Island is a software-simulated floating UI, not a hardware feature. It supports all Macs running macOS 14 (Sonoma) or later. macOS 15 (Sequoia) is recommended for the best experience.' },
+    { q: 'How is it different from the built-in Mac clipboard?', a: 'The Mac system clipboard only remembers the last copied item. CliperX remembers up to 500 items and auto-categorizes content types (text, links, code, images, etc.).' },
+    { q: 'How does CliperX compare to Maccy and Paste?', a: 'CliperX features a unique Dynamic Island UI that auto-expands at the top of your screen. Maccy is a free open-source minimal tool, Paste is ¥299/year subscription. CliperX free = 100 items, Pro = ¥18 one-time purchase — the best value macOS clipboard manager.' },
     { q: 'Is ¥18 a one-time purchase? Any subscriptions?', a: 'Yes, ¥18 is a one-time purchase for permanent access to all Pro features. No subscriptions whatsoever.' },
-    { q: 'How do I install ClipNote?', a: 'Download the DMG installer from the website, open it and drag ClipNote to your Applications folder. Or install via Homebrew: brew install --cask hanhang-han/tap/clipnote. Apple Notarized — no security warnings on install.' },
-    { q: 'What content types does ClipNote support?', a: 'ClipNote auto-detects 7 content types: plain text, URLs, code snippets, rich text (RTF), Markdown, and images. Content is auto-categorized after copying for quick retrieval.' },
+    { q: 'How do I install CliperX?', a: 'Download the DMG installer from the website, open it and drag CliperX to your Applications folder. Or install via Homebrew: brew install --cask hanhang-han/tap/clipnote. Apple Notarized — no security warnings on install.' },
+    { q: 'What content types does CliperX support?', a: 'CliperX auto-detects 7 content types: plain text, URLs, code snippets, rich text (RTF), Markdown, and images. Content is auto-categorized after copying for quick retrieval.' },
   ],
 };
 

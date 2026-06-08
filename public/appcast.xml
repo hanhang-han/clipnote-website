@@ -6,6 +6,17 @@
     <description>灵剪更新日志</description>
     <language>zh-CN</language>
     <item>
+      <title>灵剪 3.2.0</title>
+      <sparkle:version>31</sparkle:version>
+      <sparkle:shortVersionString>3.2.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://api.cliperx.com/download"
+                 sparkle:edSignature="tIj2Umr/8oLXb+nJUje2DXR6tIRnj++4V71E487uEc7ueFYV6TpsvGdSGRMltt0sfVQF3Akax8a+T16ooUFNCw=="
+                 length="5821860"
+                 type="application/octet-stream" />
+      <description>商城重构 + SSE实时支付 + 分类引导 | Pro用户商城可见 | 试用7天修复 | 积分8折</description>
+    </item>
+    <item>
       <title>灵剪 3.1.1</title>
       <sparkle:version>30</sparkle:version>
       <sparkle:shortVersionString>3.1.1</sparkle:shortVersionString>

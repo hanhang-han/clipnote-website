@@ -27,7 +27,7 @@ export default function Features() {
     heading: lang === 'zh' ? '复制，永远存在岛上' : 'Copy once, always on the island',
     desc: lang === 'zh'
       ? '你只管复制，灵剪帮你记住一切'
-      : 'Just copy. ClipNote remembers everything.',
+      : 'Just copy. CliperX remembers everything.',
     more: lang === 'zh' ? '更多' : 'More',
   };
 
