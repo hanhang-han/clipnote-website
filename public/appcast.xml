@@ -6,15 +6,15 @@
     <description>灵剪更新日志</description>
     <language>zh-CN</language>
     <item>
-      <title>灵剪 3.0.9</title>
-      <sparkle:version>28</sparkle:version>
-      <sparkle:shortVersionString>3.0.9</sparkle:shortVersionString>
+      <title>灵剪 3.1.0</title>
+      <sparkle:version>29</sparkle:version>
+      <sparkle:shortVersionString>3.1.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://api.cliperx.com/download"
-                 sparkle:edSignature="CwM2LTHuPnnNqW/9rhWWN7As6+D3Iz8D1RHsAfoZugKuh8MLM9s90/BfixUYcM0B43d6nYrgSioJhv9tvMPEDQ=="
-                 length="5982922"
+                 sparkle:edSignature="9tLqVRZ9vN7eu8SG4ccnB9I+tBrJ3aZzEBGxOIvRFU5KdMuIazZs+SDvTnzhpw/jDVxWf9aG/wFPbOQ8rnfrDw=="
+                 length="5986427"
                  type="application/octet-stream" />
-      <description>支付防退出 + 兜底恢复 | Worker代理更新下载 | 修复签名验证</description>
+      <description>完整支付流程修复 | 回调自动通知UI | 积分订单持久化 | 价格动态配置</description>
     </item>
   </channel>
 </rss>
