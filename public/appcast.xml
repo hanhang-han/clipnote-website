@@ -6,15 +6,15 @@
     <description>灵剪更新日志</description>
     <language>zh-CN</language>
     <item>
-      <title>灵剪 3.0.7</title>
-      <sparkle:version>26</sparkle:version>
-      <sparkle:shortVersionString>3.0.7</sparkle:shortVersionString>
+      <title>灵剪 3.0.8</title>
+      <sparkle:version>27</sparkle:version>
+      <sparkle:shortVersionString>3.0.8</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://cliperx.com/灵剪.dmg"
-                 sparkle:edSignature="AVMOpt4FxOapYphVyEoTmAX0V7wKkhBWdpPzK2zHLfDBHYVg16aGkwYMooffbSTZH01FIkxJinXoEGfzQwVfDw=="
-                 length="5968891"
+                 sparkle:edSignature="F0UK/UC1KnX+dn8CQDU5EycxG75JJUTSGbv/lr52wsU7RqZujD+huNyJHqkpTfrcmF6g7SYWUfNad6vIHslFBA=="
+                 length="5976332"
                  type="application/octet-stream" />
-      <description>支付等待时保持灵动岛展开 | 修复 Pro 激活失败</description>
+      <description>动态价格配置 | 支付体验优化 | 修复月度会员激活</description>
     </item>
   </channel>
 </rss>
