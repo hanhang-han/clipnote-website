@@ -6,15 +6,15 @@
     <description>灵剪更新日志</description>
     <language>zh-CN</language>
     <item>
-      <title>灵剪 3.0.2</title>
-      <sparkle:version>21</sparkle:version>
-      <sparkle:shortVersionString>3.0.2</sparkle:shortVersionString>
+      <title>灵剪 3.0.3</title>
+      <sparkle:version>22</sparkle:version>
+      <sparkle:shortVersionString>3.0.3</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://funbox.chat/灵剪.dmg"
-                 sparkle:edSignature="FokWrGumwoGND+0WsUnzBOOMLolb4vmpmTJXnHkaYhvzf1W3mSTG0TkolAq5RFs8vYyRam+OkJ8Hrppt27UGBQ=="
-                 length="5838745"
+                 sparkle:edSignature="Ef7EEce7hMK/T+2Pbe3/hwwZ3QuJHlCEEA/PRYIphpGWRxo3lsfBFsQD0sOdcZqWkGe2hj6DMASFwX9LvWkGDg=="
+                 length="5841732"
                  type="application/octet-stream" />
-      <description>修复运行中数据丢失问题 | 移除定时WAL checkpoint | 诊断日志改用NSLog</description>
+      <description>数据库迁移到app专用目录 | 修复数据被其他进程覆盖 | 移除定时WAL checkpoint</description>
     </item>
   </channel>
 </rss>
