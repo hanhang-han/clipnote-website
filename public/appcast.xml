@@ -11,10 +11,10 @@
       <sparkle:shortVersionString>3.2.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://clipnote-api.renqingbu.workers.dev/download"
-                 sparkle:edSignature="ympiv9/ruZCtqFYF1zIsvRbIkKuW42iaarZusu839kfdEPVRsQPS76TI5BZSZdTVBwJkdX2qvlBoU8Cpo3UiDA=="
-                 length="8391364"
+                 sparkle:edSignature="gf/O8oA2l3graWD2NhcuI2CtwxgFQoT/aMXMZ+BkXHgyHbHUG+uxIHP+N9GeK5i0DplcQHO7a/wSpJ0yyQWOAQ=="
+                 length="8433390"
                  type="application/octet-stream" />
-      <description>AI修复 + 支付防收起优化 + 品牌更名 + Universal二进制支持Intel</description>
+      <description>AI修复 + Intel/Apple双芯片支持 + 支付防收起优化 + 品牌更名</description>
     </item>
     <item>
       <title>灵剪 3.1.1</title>

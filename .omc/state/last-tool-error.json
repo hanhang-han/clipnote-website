@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"npx esbuild src/index.ts --bundle --outfile=dist/worker.js --platform=browser --target=es2022 --format=esm --define:process.env={} 2>&1 && npx wrangler deploy --config /tmp/wrangler-deploy...",
-  "error": "Exit code 1\nnpm warn Unknown user config \"puppeteer_download_base_url\". This will stop working in the next major version of npm.\n✘ [ERROR] Could not resolve \"src/index.ts\"\n\n1 error",
-  "timestamp": "2026-06-08T20:34:48.429Z",
+  "tool_input_preview": "{\"command\":\"gh release delete v3.2.1 --repo hanhang-han/clipnote-website --yes 2>&1 && gh release create v3.2.1 /tmp/灵剪.dmg --repo hanhang-han/clipnote --title \\\"v3.2.1 - AI修复 + Intel支持 + 体验优化\\\" --not...",
+  "error": "Exit code 1\na release with the same tag name already exists: v3.2.1",
+  "timestamp": "2026-06-09T07:44:52.215Z",
   "retry_count": 1
 }
