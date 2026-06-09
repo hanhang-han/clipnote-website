@@ -71,6 +71,8 @@ export default function Hero() {
             <span className="text-[#444]">·</span>
             <span>macOS 14+</span>
             <span className="text-[#444]">·</span>
+            <span>{lang === 'zh' ? 'Intel / Apple 芯片' : 'Intel / Apple Silicon'}</span>
+            <span className="text-[#444]">·</span>
             <span>{lang === 'zh' ? 'Apple 公证' : 'Apple Notarized'}</span>
           </div>
 
