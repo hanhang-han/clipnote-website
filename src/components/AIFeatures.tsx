@@ -161,38 +161,38 @@ function FeatureShowcase({ feat, index, lang }: { feat: CoreFeature; index: numb
         <div className="text-[11px] text-[#F97316] tracking-wider uppercase mb-2">AI Chat</div>
         <div className="flex flex-col gap-2.5">
           <div className="self-end bg-[#1a1a1a] border border-[#222] px-4 py-2 max-w-[75%]" style={{ borderRadius: 2 }}>
-            <span className="text-[12px] text-[#888] font-light">{lang === 'zh' ? '这段代码的闭包是什么意思？' : 'What does the closure mean here?'}</span>
+            <span className="text-[12px] text-[#aaa] font-normal">{lang === 'zh' ? '这段代码的闭包是什么意思？' : 'What does the closure mean here?'}</span>
           </div>
           <div className="self-start bg-[#141414] border border-[#222] px-4 py-2 max-w-[85%]" style={{ borderRadius: 2 }}>
-            <span className="text-[12px] text-[#999] font-light">{lang === 'zh' ? '这是一个逃逸闭包（@escaping），用于异步回调。当网络请求完成后...' : 'This is an escaping closure (@escaping), used for async callbacks. When the network request completes...'}</span>
+            <span className="text-[12px] text-[#bbb] font-normal">{lang === 'zh' ? '这是一个逃逸闭包（@escaping），用于异步回调。当网络请求完成后...' : 'This is an escaping closure (@escaping), used for async callbacks. When the network request completes...'}</span>
           </div>
           <div className="self-end bg-[#1a1a1a] border border-[#222] px-4 py-2 max-w-[65%]" style={{ borderRadius: 2 }}>
-            <span className="text-[12px] text-[#888] font-light">{lang === 'zh' ? '那 weak self 是必须的吗？' : 'Is weak self required?'}</span>
+            <span className="text-[12px] text-[#aaa] font-normal">{lang === 'zh' ? '那 weak self 是必须的吗？' : 'Is weak self required?'}</span>
           </div>
           <div className="self-start bg-[#141414] border border-[#222] px-4 py-2 max-w-[80%]" style={{ borderRadius: 2 }}>
-            <span className="text-[12px] text-[#999] font-light">{lang === 'zh' ? '在逃逸闭包中推荐使用 weak self 避免循环引用...' : 'Recommended in escaping closures to avoid retain cycles...'}</span>
+            <span className="text-[12px] text-[#bbb] font-normal">{lang === 'zh' ? '在逃逸闭包中推荐使用 weak self 避免循环引用...' : 'Recommended in escaping closures to avoid retain cycles...'}</span>
           </div>
         </div>
         <div className="flex items-center gap-2 mt-auto pt-3 border-t border-[#222]">
-          <span className="text-[11px] text-[#666] font-mono">{lang === 'zh' ? '输入追问...' : 'Type follow-up...'}</span>
+          <span className="text-[11px] text-[#888] font-mono">{lang === 'zh' ? '输入追问...' : 'Type follow-up...'}</span>
         </div>
       </div>
     </div>
   ) : (
     <div className="w-full bg-[#0a0a0a] flex items-center justify-center" style={{ borderRadius: 2 }}>
-      <span className="text-[14px] text-[#666] font-light">{feat.title[lang]}</span>
+      <span className="text-[14px] text-[#888] font-normal">{feat.title[lang]}</span>
     </div>
   );
 
   const textEl = (
     <div className="flex flex-col justify-center">
-      <h3 className="text-[24px] font-normal mb-3">{feat.title[lang]}</h3>
-      <p className="text-[16px] text-[#888] font-light leading-relaxed mb-6">{feat.desc[lang]}</p>
+      <h3 className="text-[24px] font-medium mb-3">{feat.title[lang]}</h3>
+      <p className="text-[16px] text-[#bbb] font-normal leading-relaxed mb-6">{feat.desc[lang]}</p>
       <div className="flex flex-col gap-2.5">
         {feat.details[lang].map((d, j) => (
           <div key={j} className="flex items-center gap-3">
             <div className="w-[4px] h-[4px] rounded-full bg-[#F97316] shrink-0" />
-            <span className="text-[14px] text-[#999] font-light">{d}</span>
+            <span className="text-[15px] text-[#aaa] font-normal">{d}</span>
           </div>
         ))}
       </div>
@@ -227,7 +227,7 @@ export default function AIFeatures() {
         <div ref={revealRef} className="reveal text-center mb-20">
           <p className="text-xs tracking-[0.15em] uppercase text-[#F97316] mb-4">{t.badge}</p>
           <h2 className="text-[48px] font-normal tracking-tight mb-4">{t.heading}</h2>
-          <p className="text-[16px] text-[#888] max-w-lg mx-auto">{t.desc}</p>
+          <p className="text-[16px] text-[#bbb] max-w-lg mx-auto">{t.desc}</p>
         </div>
 
         {/* Core interaction showcases */}
@@ -243,8 +243,8 @@ export default function AIFeatures() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {capabilities.map((cap, i) => (
               <div key={i} className="bg-[#0a0a0a] border border-[#222] p-8" style={{ borderRadius: 2 }}>
-                <h4 className="text-[16px] text-[#ccc] font-light mb-3">{cap.title[lang]}</h4>
-                <p className="text-[14px] text-[#999] font-light leading-relaxed">{cap.scenario[lang]}</p>
+                <h4 className="text-[16px] text-[#ddd] font-medium mb-3">{cap.title[lang]}</h4>
+                <p className="text-[15px] text-[#aaa] font-normal leading-relaxed">{cap.scenario[lang]}</p>
               </div>
             ))}
           </div>
@@ -252,7 +252,7 @@ export default function AIFeatures() {
 
         {/* Summary */}
         <div className="text-center mt-20">
-          <p className="text-[20px] text-[#ccc] font-light leading-relaxed max-w-2xl mx-auto md:whitespace-nowrap">
+          <p className="text-[20px] text-[#ccc] font-normal leading-relaxed max-w-2xl mx-auto md:whitespace-nowrap">
             {lang === 'zh'
               ? '所有 AI 能力，就在你复制的地方。不用打开任何其他工具。'
               : 'All AI capabilities, right where you copy. No need to open anything else.'}

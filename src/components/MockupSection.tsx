@@ -32,7 +32,7 @@ export default function MockupSection() {
         <div ref={revealRef} className="reveal text-center mb-16">
           <p className="text-xs tracking-[0.15em] uppercase text-[#F97316] mb-4">{t.badge}</p>
           <h2 className="text-[48px] font-normal tracking-tight mb-4">{t.heading}</h2>
-          <p className="text-[16px] text-[#888] max-w-lg mx-auto">{t.desc}</p>
+          <p className="text-[16px] text-[#bbb] max-w-lg mx-auto">{t.desc}</p>
         </div>
 
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
@@ -53,7 +53,7 @@ export default function MockupSection() {
               <div className="w-full bg-[#0a0a0a]" style={{ aspectRatio: '1280/832', borderRadius: 2 }} />
             ) : (
               <div className="w-full bg-[#0a0a0a] flex items-center justify-center" style={{ aspectRatio: '1280/832', borderRadius: 2 }}>
-                <span className="text-[14px] text-[#666] font-light">
+                <span className="text-[14px] text-[#888] font-normal">
                   {lang === 'zh' ? '灵动岛交互预览' : 'Dynamic Island Preview'}
                 </span>
               </div>
@@ -64,8 +64,8 @@ export default function MockupSection() {
           <div className="w-full md:w-2/5 flex flex-col gap-8">
             {t.features.map((f, i) => (
               <div key={i}>
-                <h3 className="text-[16px] text-[#ccc] font-light mb-1">{f.title}</h3>
-                <p className="text-[14px] text-[#999] font-light leading-relaxed">{f.desc}</p>
+                <h3 className="text-[16px] text-[#ddd] font-medium mb-1">{f.title}</h3>
+                <p className="text-[15px] text-[#aaa] font-normal leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>

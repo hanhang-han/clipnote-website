@@ -30,8 +30,8 @@ export default function Scenarios() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-[#222]">
           {scenarios.map((s, i) => (
             <div key={i} className="bg-[#1a1a1a] p-10 hover:bg-[#1f1f1f] transition-colors">
-              <p className="text-[13px] text-[#777] tracking-wider uppercase mb-6">{s.role}</p>
-              <p className="text-[16px] text-[#aaa] font-light leading-relaxed">{s.solution}</p>
+              <p className="text-[13px] text-[#999] tracking-wider uppercase mb-6">{s.role}</p>
+              <p className="text-[16px] text-[#bbb] font-normal leading-relaxed">{s.solution}</p>
             </div>
           ))}
         </div>

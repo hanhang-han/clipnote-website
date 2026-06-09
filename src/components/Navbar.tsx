@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Download, Menu, X } from 'lucide-react';
 import { useLang } from '../i18n';
+import { isPromoVisible, onPromoChange } from './PromoBar';
 
 const navLinks = [
   { href: '#island', zh: '灵动岛', en: 'Island' },
@@ -13,6 +14,11 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { lang, toggle } = useLang();
+  const [promoUp, setPromoUp] = useState(isPromoVisible());
+
+  useEffect(() => {
+    return onPromoChange(() => setPromoUp(isPromoVisible()));
+  }, []);
 
   useEffect(() => {
     let ticking = false;
@@ -30,9 +36,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-[#111]/90 backdrop-blur-sm border-b border-[#222]' : 'bg-transparent border-b border-transparent'
-    }`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+      promoUp ? 'top-10' : 'top-0'
+    } ${scrolled ? 'bg-[#111]/90 backdrop-blur-sm border-b border-[#222]' : 'bg-transparent border-b border-transparent'}`}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 no-underline">

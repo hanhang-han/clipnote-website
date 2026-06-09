@@ -50,18 +50,18 @@ export default function FAQ() {
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between py-6 text-left cursor-pointer bg-transparent border-none"
               >
-                <h3 className="text-[16px] text-[#ccc] font-light pr-4">{faq.q}</h3>
-                <span className={`text-[18px] transition-colors shrink-0 ${openIndex === i ? 'text-[#F97316]' : 'text-[#666]'} font-light`}>
+                <h3 className="text-[16px] text-[#ddd] font-normal pr-4">{faq.q}</h3>
+                <span className={`text-[18px] transition-colors shrink-0 ${openIndex === i ? 'text-[#F97316]' : 'text-[#888]'} font-light`}>
                   {openIndex === i ? '−' : '+'}
                 </span>
               </button>
               <div className={`overflow-hidden transition-all duration-200 ${openIndex === i ? 'max-h-[500px] pb-6' : 'max-h-0'}`}>
-                <p className="text-[14px] text-[#888] font-light leading-relaxed">{faq.a}</p>
+                <p className="text-[15px] text-[#aaa] font-normal leading-relaxed">{faq.a}</p>
               </div>
             </div>
           ))}
         </div>
-        <p className="text-[13px] text-[#666] text-center mt-12 font-light">
+        <p className="text-[13px] text-[#888] text-center mt-12 font-normal">
           {lang === 'zh' ? '还有其他问题？邮件联系 hanhang789@gmail.com' : 'More questions? Email hanhang789@gmail.com'}
         </p>
       </div>

@@ -85,13 +85,13 @@ export default function Comparison() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Free */}
           <div className="bg-[#0a0a0a] border border-[#222] p-10" style={{ borderRadius: 2 }}>
-            <p className="text-[13px] text-[#999] tracking-wider uppercase mb-2">{t.freeLabel}</p>
-            <p className="text-[14px] text-[#666] font-light mb-8">{t.freeDesc}</p>
+            <p className="text-[13px] text-[#bbb] tracking-wider uppercase mb-2">{t.freeLabel}</p>
+            <p className="text-[14px] text-[#888] font-normal mb-8">{t.freeDesc}</p>
             <div className="space-y-4">
               {freeFeatures.map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <div className="w-[4px] h-[4px] rounded-full bg-[#666] shrink-0" />
-                  <span className="text-[14px] text-[#888] font-light">{item}</span>
+                  <span className="text-[14px] text-[#aaa] font-normal">{item}</span>
                 </div>
               ))}
             </div>
@@ -110,15 +110,15 @@ export default function Comparison() {
               <p className="text-[13px] text-[#F97316] tracking-wider uppercase mb-2">{t.proLabel}</p>
               <div className="mb-2">
                 {isBeforeDeadline && (
-                  <span className="text-[14px] text-[#666] font-light line-through mr-2">¥28</span>
+                  <span className="text-[14px] text-[#888] font-normal line-through mr-2">¥28</span>
                 )}
                 <span className="text-[32px] font-light leading-none text-white">{currentPrice}</span>
-                <span className="text-[13px] text-[#999] font-light ml-2">{t.buyout}</span>
+                <span className="text-[13px] text-[#aaa] font-normal ml-2">{t.buyout}</span>
               </div>
 
               {/* Countdown */}
               {isBeforeDeadline && countdown && (
-                <p className="text-[13px] text-[#999] font-light mb-6">
+                <p className="text-[13px] text-[#aaa] font-normal mb-6">
                   {lang === 'zh'
                     ? `限时优惠 · 剩余 ${countdown.d} 天 ${countdown.h} 小时`
                     : `Limited offer · ${countdown.d}d ${countdown.h}h remaining`}
@@ -129,7 +129,7 @@ export default function Comparison() {
                 {proFeatures.map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-[4px] h-[4px] rounded-full bg-[#F97316] shrink-0" />
-                    <span className="text-[14px] text-[#888] font-light">{item}</span>
+                    <span className="text-[14px] text-[#aaa] font-normal">{item}</span>
                   </div>
                 ))}
               </div>
@@ -164,7 +164,7 @@ export default function Comparison() {
           >
             {t.cta}
           </button>
-          <p className="text-[13px] text-[#666] mt-6 font-light">{t.footer}</p>
+          <p className="text-[13px] text-[#888] mt-6 font-normal">{t.footer}</p>
         </div>
       </div>
     </section>

@@ -47,7 +47,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20">
+    <section id="hero" className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-28">
       <div className="max-w-[640px] mx-auto mb-10">
         <h1 className="text-[48px] md:text-[60px] font-normal leading-[1.12] tracking-tight mb-6">
           {t.heading}
@@ -66,7 +66,7 @@ export default function Hero() {
             <span className="text-[11px] opacity-60 font-mono ml-1">.dmg</span>
           </button>
 
-          <div className="flex items-center gap-4 text-[13px] text-[#666] font-light">
+          <div className="flex items-center gap-4 text-[13px] text-[#999] font-normal">
             <span>{downloadCount.toLocaleString()} {t.downloads}</span>
             <span className="text-[#444]">·</span>
             <span>macOS 14+</span>
@@ -74,7 +74,7 @@ export default function Hero() {
             <span>{lang === 'zh' ? 'Apple 公证' : 'Apple Notarized'}</span>
           </div>
 
-          <div className="flex items-center gap-2 text-[12px] text-[#666] font-mono font-light mt-1 overflow-x-auto max-w-full">
+          <div className="flex items-center gap-2 text-[12px] text-[#888] font-mono font-normal mt-1 overflow-x-auto max-w-full">
             <span className="shrink-0">$</span>
             <span className="whitespace-nowrap">brew install --cask hanhang-han/tap/clipnote</span>
           </div>
@@ -113,7 +113,7 @@ export default function Hero() {
           </div>
         ) : (
           <div className="w-full bg-[#0a0a0a] flex items-center justify-center border border-[#222]" style={{ aspectRatio: '1280/832', borderRadius: 2 }}>
-            <span className="text-[14px] text-[#666] font-light">
+            <span className="text-[14px] text-[#888] font-normal">
               {lang === 'zh' ? '灵动岛交互预览' : 'Dynamic Island Preview'}
             </span>
           </div>
@@ -122,8 +122,8 @@ export default function Hero() {
 
       {/* Scroll hint */}
       <div className="mt-10 scroll-hint flex flex-col items-center gap-1.5">
-        <span className="text-[11px] text-[#555] font-light tracking-widest uppercase">{t.scrollHint}</span>
-        <span className="text-[12px] text-[#555]">↓</span>
+        <span className="text-[11px] text-[#777] font-light tracking-widest uppercase">{t.scrollHint}</span>
+        <span className="text-[12px] text-[#777]">↓</span>
       </div>
     </section>
   );

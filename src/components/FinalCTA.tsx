@@ -21,7 +21,7 @@ export default function FinalCTA() {
         <h2 className="text-[48px] font-normal tracking-tight mb-4">
           {t.heading1}<span className="text-[#F97316]">{t.heading2}</span>
         </h2>
-        <p className="text-[16px] text-[#888] font-light mb-12">{t.desc}</p>
+        <p className="text-[16px] text-[#bbb] font-normal mb-12">{t.desc}</p>
 
         <button
           onClick={() => window.location.href = 'https://clipnote-api.renqingbu.workers.dev/api/stats/dl'}
@@ -32,15 +32,15 @@ export default function FinalCTA() {
         </button>
 
         <div className="mt-10 flex justify-center gap-6">
-          <a href="https://xhslink.com/m/7OAhON5Terr" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[#999] font-light no-underline hover:text-[#888] transition-colors">
+          <a href="https://xhslink.com/m/7OAhON5Terr" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[#aaa] font-normal no-underline hover:text-white transition-colors">
             {t.xiaohongshu}
           </a>
           <span className="text-[13px] text-[#444]">·</span>
-          <a href="https://x.com/jch47643085" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[#999] font-light no-underline hover:text-[#888] transition-colors">
+          <a href="https://x.com/jch47643085" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[#aaa] font-normal no-underline hover:text-white transition-colors">
             {t.xNote}
           </a>
           <span className="text-[13px] text-[#444]">·</span>
-          <span className="text-[13px] text-[#666] font-light">{t.proTip}</span>
+          <span className="text-[13px] text-[#999] font-normal">{t.proTip}</span>
         </div>
       </div>
     </section>

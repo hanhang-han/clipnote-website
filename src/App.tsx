@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { LanguageProvider } from './i18n';
 import Navbar from './components/Navbar';
+import PromoBar from './components/PromoBar';
 import Hero from './components/Hero';
 import MockupSection from './components/MockupSection';
 import AIFeatures from './components/AIFeatures';
@@ -23,6 +24,7 @@ export default function App() {
     <LanguageProvider>
     <div className="min-h-screen bg-[#111] text-white">
       <Navbar />
+      <PromoBar />
       <main>
         <Hero />
         <MockupSection />
