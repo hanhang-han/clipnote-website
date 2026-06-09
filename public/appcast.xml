@@ -6,15 +6,15 @@
     <description>灵剪更新日志</description>
     <language>zh-CN</language>
     <item>
-      <title>灵剪 3.2.0</title>
-      <sparkle:version>31</sparkle:version>
-      <sparkle:shortVersionString>3.2.0</sparkle:shortVersionString>
+      <title>灵剪 3.2.1</title>
+      <sparkle:version>32</sparkle:version>
+      <sparkle:shortVersionString>3.2.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://clipnote-api.renqingbu.workers.dev/download"
-                 sparkle:edSignature="tIj2Umr/8oLXb+nJUje2DXR6tIRnj++4V71E487uEc7ueFYV6TpsvGdSGRMltt0sfVQF3Akax8a+T16ooUFNCw=="
-                 length="5821860"
+                 sparkle:edSignature="PQy9xjhQjPaB35u7JjZrwm8RV1WTU1JF8HPvs6lPE/57JzNypOGk1xAxwSxJ4K9j7LFNHOXo+0U92IaUiC5GAA=="
+                 length="5822103"
                  type="application/octet-stream" />
-      <description>商城重构 + SSE实时支付 + 分类引导 | Pro用户商城可见 | 试用7天修复 | 积分8折</description>
+      <description>AI修复 + 支付防收起优化 + 品牌更名 + Sparkle更新修复</description>
     </item>
     <item>
       <title>灵剪 3.1.1</title>

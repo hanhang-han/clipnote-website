@@ -36,7 +36,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 no-underline">
-          <img src="/icon.png?v=2" alt="CliperX" className="w-7 h-7" />
+          <img src="/icon.png?v=3" alt="CliperX" className="w-7 h-7" />
           <span className="text-[15px] font-light tracking-wide text-white">{lang === 'zh' ? '灵剪' : 'CliperX'}</span>
           <span className="text-[11px] font-light tracking-widest uppercase text-[#777] hidden sm:inline">
             {lang === 'zh' ? 'CliperX' : '灵剪'}
