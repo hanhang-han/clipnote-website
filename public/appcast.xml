@@ -6,6 +6,17 @@
     <description>灵剪更新日志</description>
     <language>zh-CN</language>
     <item>
+      <title>灵剪 3.3.0</title>
+      <sparkle:version>33</sparkle:version>
+      <sparkle:shortVersionString>3.3.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://clipnote-api.renqingbu.workers.dev/download"
+                 sparkle:edSignature="vb6Pr2gk+vXP43O7XC432upRoemS+4AUtEIRYMf/VG8u1xeiIdP4Y2Vu44qPOFyG3e+e91T0QW5ZZFQHPbF+CQ=="
+                 length="8453029"
+                 type="application/octet-stream" />
+      <description>商城重设计 + 响应式布局 + 面板尺寸优化 + 字体可读性提升</description>
+    </item>
+    <item>
       <title>灵剪 3.2.1</title>
       <sparkle:version>32</sparkle:version>
       <sparkle:shortVersionString>3.2.1</sparkle:shortVersionString>
