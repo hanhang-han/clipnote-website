@@ -11,11 +11,11 @@ export default function Footer() {
           {lang === 'zh' ? '联系我们' : 'Contact'}
         </a>
         <span className="text-[13px] text-[#444]">·</span>
-        <a href="#privacy" className="text-[13px] text-[#aaa] font-normal no-underline hover:text-white transition-colors">
+        <a href="/privacy.html" className="text-[13px] text-[#aaa] font-normal no-underline hover:text-white transition-colors">
           {lang === 'zh' ? '隐私政策' : 'Privacy'}
         </a>
         <span className="text-[13px] text-[#444]">·</span>
-        <a href="#terms" className="text-[13px] text-[#aaa] font-normal no-underline hover:text-white transition-colors">
+        <a href="/terms.html" className="text-[13px] text-[#aaa] font-normal no-underline hover:text-white transition-colors">
           {lang === 'zh' ? '用户协议' : 'Terms'}
         </a>
       </div>

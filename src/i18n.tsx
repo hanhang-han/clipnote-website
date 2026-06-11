@@ -11,10 +11,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>(() => {
     try {
       const saved = localStorage.getItem('clipnote-lang');
-      return saved === 'en' ? 'en' : 'zh';
-    } catch {
-      return 'zh';
-    }
+      if (saved === 'en' || saved === 'zh') return saved;
+    } catch {}
+    const browserLang = navigator.language || '';
+    return browserLang.startsWith('zh') ? 'zh' : 'en';
   });
 
   const toggle = () => {

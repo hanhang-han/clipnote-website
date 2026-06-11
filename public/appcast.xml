@@ -6,11 +6,22 @@
     <description>灵剪更新日志</description>
     <language>zh-CN</language>
     <item>
+      <title>灵剪 3.4.0</title>
+      <sparkle:version>34</sparkle:version>
+      <sparkle:shortVersionString>3.4.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://api.cliperx.com/download"
+                 sparkle:edSignature="pt73wfCnc9LsPsJyZXrKn6UPSg/dyByV3CvFBfh9MOXUShCTOJxj/Q3IVfUmNxw3JMi34r7hA3llbhpkdmFjCg=="
+                 length="5935170"
+                 type="application/octet-stream" />
+      <description>Pro无限制存储 + 按天折叠分组 + 状态栏图标控制 + 文件AI推荐 + 存储概览重设计 + 面板拖拽移动</description>
+    </item>
+    <item>
       <title>灵剪 3.3.0</title>
       <sparkle:version>33</sparkle:version>
       <sparkle:shortVersionString>3.3.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <enclosure url="https://clipnote-api.renqingbu.workers.dev/download"
+      <enclosure url="https://api.cliperx.com/download"
                  sparkle:edSignature="vb6Pr2gk+vXP43O7XC432upRoemS+4AUtEIRYMf/VG8u1xeiIdP4Y2Vu44qPOFyG3e+e91T0QW5ZZFQHPbF+CQ=="
                  length="8453029"
                  type="application/octet-stream" />
@@ -21,7 +32,7 @@
       <sparkle:version>32</sparkle:version>
       <sparkle:shortVersionString>3.2.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <enclosure url="https://clipnote-api.renqingbu.workers.dev/download"
+      <enclosure url="https://api.cliperx.com/download"
                  sparkle:edSignature="gf/O8oA2l3graWD2NhcuI2CtwxgFQoT/aMXMZ+BkXHgyHbHUG+uxIHP+N9GeK5i0DplcQHO7a/wSpJ0yyQWOAQ=="
                  length="8433390"
                  type="application/octet-stream" />
