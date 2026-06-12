@@ -137,14 +137,14 @@ export default function Comparison() {
               {/* Dual CTA */}
               <div className="mt-8 flex flex-col gap-3">
                 <button
-                  onClick={() => window.location.href = 'https://clipnote-api.renqingbu.workers.dev/api/stats/dl'}
+                  onClick={() => window.location.href = 'https://api.cliperx.com/api/stats/dl'}
                   className="bg-[#F97316] text-[#111] border-none px-6 py-3.5 text-[14px] font-light tracking-wider cursor-pointer hover:opacity-85 transition-opacity"
                   style={{ borderRadius: 2 }}
                 >
                   {lang === 'zh' ? '免费试用 7 天' : 'Start 7-day trial'}
                 </button>
                 <button
-                  onClick={() => window.location.href = 'https://clipnote-api.renqingbu.workers.dev/api/stats/dl'}
+                  onClick={() => window.location.href = 'https://api.cliperx.com/api/stats/dl'}
                   className="bg-transparent text-[#F97316] border border-[#F97316]/40 px-6 py-3 text-[13px] font-light tracking-wider cursor-pointer hover:bg-[#F97316]/10 transition-all"
                   style={{ borderRadius: 2 }}
                 >
@@ -158,7 +158,7 @@ export default function Comparison() {
         {/* Bottom CTA */}
         <div className="text-center mt-16">
           <button
-            onClick={() => window.location.href = 'https://clipnote-api.renqingbu.workers.dev/api/stats/dl'}
+            onClick={() => window.location.href = 'https://api.cliperx.com/api/stats/dl'}
             className="bg-[#F97316] text-[#111] border-none px-10 py-4 text-[16px] font-light tracking-wider cursor-pointer hover:opacity-85 transition-opacity"
             style={{ borderRadius: 2 }}
           >

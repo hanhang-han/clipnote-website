@@ -6,13 +6,24 @@
     <description>灵剪更新日志</description>
     <language>zh-CN</language>
     <item>
+      <title>灵剪 3.5.0</title>
+      <sparkle:version>35</sparkle:version>
+      <sparkle:shortVersionString>3.5.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://api.cliperx.com/download"
+                 sparkle:edSignature="FF+Z9YcEK7T7M9tkMF99CvVcTnaKfKuuuplttbP+xINabvEtSRqXySjwzun/90vlpZEeVRCB6T1usBBHA2MbCg=="
+                 length="8909219"
+                 type="application/octet-stream" />
+      <description>5步引导重设计 + 版本升级引导 + 面板resize修复 + 状态栏空状态修复</description>
+    </item>
+    <item>
       <title>灵剪 3.4.0</title>
       <sparkle:version>34</sparkle:version>
       <sparkle:shortVersionString>3.4.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://api.cliperx.com/download"
-                 sparkle:edSignature="HDj3OWjCMH0xSNQxKjWrIht/NuTTFCJCMaAMz+BZQ2HWxpZmv5+n3G8XWij0gGtAJAwOBquVzs7JS4UM5MM0BQ=="
-                 length="8637420"
+                 sparkle:edSignature="PmijT42WrHOH36LhN8Spv+KxMojGhdIl5Wvnfl9ieaJIGCLL67lInquXalaOsQh9o7O2uSXFbMA4EnL01xqJDQ=="
+                 length="8635451"
                  type="application/octet-stream" />
       <description>Pro无限制存储 + 按天折叠分组 + 状态栏图标控制 + 文件AI推荐 + 存储概览重设计 + 面板拖拽移动</description>
     </item>

@@ -64,7 +64,7 @@ export default function Navbar() {
             {lang === 'zh' ? 'EN' : '中'}
           </button>
           <button
-            onClick={() => window.location.href = 'https://clipnote-api.renqingbu.workers.dev/api/stats/dl'}
+            onClick={() => window.location.href = 'https://api.cliperx.com/api/stats/dl'}
             className="flex items-center gap-2 text-[#F97316] border border-[#F97316] px-4 py-1.5 text-[13px] font-light tracking-wider hover:bg-[#F97316] hover:text-[#111] transition-all cursor-pointer bg-transparent"
           >
             <Download size={14} />
@@ -107,7 +107,7 @@ export default function Navbar() {
               </a>
             ))}
             <button
-              onClick={() => window.location.href = 'https://clipnote-api.renqingbu.workers.dev/api/stats/dl'}
+              onClick={() => window.location.href = 'https://api.cliperx.com/api/stats/dl'}
               className="flex items-center justify-center gap-2 text-[#F97316] border border-[#F97316] px-4 py-2.5 text-[13px] font-light tracking-wider hover:bg-[#F97316] hover:text-[#111] transition-all cursor-pointer bg-transparent mt-2"
             >
               <Download size={14} />

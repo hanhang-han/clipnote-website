@@ -24,7 +24,7 @@ export default function FinalCTA() {
         <p className="text-[16px] text-[#bbb] font-normal mb-12">{t.desc}</p>
 
         <button
-          onClick={() => window.location.href = 'https://clipnote-api.renqingbu.workers.dev/api/stats/dl'}
+          onClick={() => window.location.href = 'https://api.cliperx.com/api/stats/dl'}
           className="bg-[#F97316] text-[#111] border-none px-10 py-4 text-[16px] font-light tracking-wider cursor-pointer hover:opacity-85 transition-opacity"
           style={{ borderRadius: 2 }}
         >

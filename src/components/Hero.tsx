@@ -57,7 +57,7 @@ export default function Hero() {
         {/* Download area */}
         <div className="flex flex-col items-center gap-4">
           <button
-            onClick={() => window.location.href = 'https://clipnote-api.renqingbu.workers.dev/api/stats/dl'}
+            onClick={() => window.location.href = 'https://api.cliperx.com/api/stats/dl'}
             className="flex items-center gap-3 bg-[#F97316] text-[#111] border-none px-8 py-4 text-[15px] font-light tracking-wider cursor-pointer hover:opacity-85 transition-opacity"
             style={{ borderRadius: 2 }}
           >
