@@ -1,7 +1,0 @@
-{
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"curl -s \\\"https://api.cliperx.com/api/stats/dl\\\" -o /dev/null -w \\\"HTTP %{http_code}, Redirect: %{redirect_url}, Size: %{size_download}\\\" -L --max-redirs 0 2>&1\",\"timeout\":15000,\"descripti...",
-  "error": "Exit code 47\nHTTP 302, Redirect: https://api.cliperx.com/download, Size: 0",
-  "timestamp": "2026-06-12T04:16:58.834Z",
-  "retry_count": 2
-}

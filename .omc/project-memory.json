@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1779462411307,
-  "projectRoot": "/Users/hanhang/Desktop/work/home/developer/clipnote/website",
+  "lastScanned": 1781315126894,
+  "projectRoot": "/private/tmp/clipnote-website",
   "techStack": {
     "languages": [
       {
@@ -41,6 +41,11 @@
         "name": "esbuild",
         "version": "0.25.0",
         "category": "build"
+      },
+      {
+        "name": "playwright",
+        "version": "1.60.0",
+        "category": "testing"
       }
     ],
     "packageManager": "npm",
@@ -53,10 +58,11 @@
     "devCommand": "npm run dev",
     "scripts": {
       "dev": "vite --port=3000 --host=0.0.0.0",
-      "build": "vite build",
-      "preview": "vite preview",
+      "build": "vite build && node scripts/prerender.mjs",
+      "preview": "npm run build && wrangler dev",
       "clean": "rm -rf dist",
-      "lint": "tsc --noEmit"
+      "lint": "tsc --noEmit",
+      "deploy": "npm run build && wrangler deploy"
     }
   },
   "conventions": {
@@ -70,44 +76,68 @@
     "workspaces": [],
     "mainDirectories": [
       "public",
+      "scripts",
       "src"
     ],
-    "gitBranches": null
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
   },
   "customNotes": [],
   "directoryMap": {
     "dist": {
       "path": "dist",
       "purpose": "Distribution/build output",
-      "fileCount": 5,
-      "lastAccessed": 1779462411294,
+      "fileCount": 19,
+      "lastAccessed": 1781315126871,
       "keyFiles": [
-        "favicon.svg",
-        "index.html",
-        "robots.txt",
-        "sitemap.xml",
-        "灵剪.dmg"
+        "CNAME",
+        "_headers",
+        "appcast.xml",
+        "baidu_verify_codeva-2lGChLD4Tr.html",
+        "favicon-96.png"
+      ]
+    },
+    "functions": {
+      "path": "functions",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781315126872,
+      "keyFiles": [
+        "[[path]].ts"
       ]
     },
     "public": {
       "path": "public",
       "purpose": "Public files",
-      "fileCount": 4,
-      "lastAccessed": 1779462411295,
+      "fileCount": 16,
+      "lastAccessed": 1781315126872,
       "keyFiles": [
-        "favicon.svg",
-        "robots.txt",
-        "sitemap.xml",
-        "灵剪.dmg"
+        "CNAME",
+        "_headers",
+        "appcast.xml",
+        "baidu_verify_codeva-2lGChLD4Tr.html",
+        "favicon-96.png"
+      ]
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 1,
+      "lastAccessed": 1781315126872,
+      "keyFiles": [
+        "prerender.mjs"
       ]
     },
     "src": {
       "path": "src",
       "purpose": "Source code",
-      "fileCount": 3,
-      "lastAccessed": 1779462411297,
+      "fileCount": 4,
+      "lastAccessed": 1781315126873,
       "keyFiles": [
         "App.tsx",
+        "i18n.tsx",
         "index.css",
         "main.tsx"
       ]
@@ -116,21 +146,21 @@
       "path": "dist/assets",
       "purpose": "Static assets",
       "fileCount": 2,
-      "lastAccessed": 1779462411297,
+      "lastAccessed": 1781315126873,
       "keyFiles": [
-        "index-DKOOVNBm.js",
-        "index-DqtTBczf.css"
+        "index-BSeHZ8Nh.js",
+        "index-XPboblc4.css"
       ]
     },
     "src/components": {
       "path": "src/components",
       "purpose": "UI components",
-      "fileCount": 5,
-      "lastAccessed": 1779462411297,
+      "fileCount": 12,
+      "lastAccessed": 1781315126874,
       "keyFiles": [
+        "AIFeatures.tsx",
         "Comparison.tsx",
-        "Features.tsx",
-        "Hero.tsx"
+        "FAQ.tsx"
       ]
     }
   },
