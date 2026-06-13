@@ -11,8 +11,8 @@
       <sparkle:shortVersionString>3.5.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://api.cliperx.com/download"
-                 sparkle:edSignature="0eng793N46SeZVDQsxkRpRyB7e35oOIyICuuXLsnEvHf/+4gCgsdj8JqCoLnPA9C/VXgXxgZJmiQ6ZrlW1b/Aw=="
-                 length="9165368"
+                 sparkle:edSignature="0O0qqiSf2fkcloTXQ4NS5+vRWOzTVDOGh5mGWLGvVQzaKJWYsk4Cv6+UzJ1badMeTvk1WcXclj92vxdHTY0xAw=="
+                 length="9175509"
                  type="application/octet-stream" />
       <description>Pro 权益恢复修复 + Keychain 持久化 + 管理后台重设计 + AI 面板重设计</description>
     </item>
