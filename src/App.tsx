@@ -1,15 +1,12 @@
 import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './i18n';
 import Navbar from './components/Navbar';
 import PromoBar from './components/PromoBar';
-import Hero from './components/Hero';
-import MockupSection from './components/MockupSection';
-import AIFeatures from './components/AIFeatures';
-import Features from './components/Features';
-import Comparison from './components/Comparison';
-import FAQ from './components/FAQ';
-import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import Docs from './pages/Docs';
+import Download from './pages/Download';
 
 export default function App() {
   useEffect(() => {
@@ -22,20 +19,19 @@ export default function App() {
 
   return (
     <LanguageProvider>
-    <div className="min-h-screen bg-[#111] text-white">
-      <Navbar />
-      <PromoBar />
-      <main>
-        <Hero />
-        <MockupSection />
-        <AIFeatures />
-        <Features />
-        <Comparison />
-        <FAQ />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </div>
+      <div className="min-h-screen bg-[#111] text-white">
+        <Navbar />
+        <PromoBar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/docs" element={<Docs />} />
+            <Route path="/download" element={<Download />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </LanguageProvider>
   );
 }

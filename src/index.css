@@ -35,6 +35,12 @@ body {
   video { display: none !important; }
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
+  .hero-title, .hero-subtitle, .hero-cta-enter {
+    opacity: 1 !important;
+    filter: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 /* Hero video fade-in */
@@ -45,6 +51,85 @@ body {
 .hero-video-enter {
   opacity: 0;
   animation: heroFadeIn 1.2s cubic-bezier(0.25, 0.1, 0.25, 1) 0.5s forwards;
+}
+
+/* === Hero 入场动画（借鉴 deckclip 风格） === */
+
+/* 主标题：fade + slide up（强 overshoot 缓动） */
+@keyframes heroTitleEnter {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-title {
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: 0.48s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both heroTitleEnter;
+}
+
+/* 副标题：fade + slide + blur 解除（错峰 40ms） */
+@keyframes heroSubtitleEnter {
+  from { opacity: 0; filter: blur(8px); transform: translateY(8px); }
+  to   { opacity: 1; filter: blur(0);   transform: translateY(0); }
+}
+.hero-subtitle {
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  animation: 0.52s cubic-bezier(0.22, 0.8, 0.2, 1) 0.18s both heroSubtitleEnter;
+}
+
+/* CTA 区：fade + slide（按钮 / 下载统计 / Homebrew，依次错峰） */
+@keyframes heroCtaEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-cta-enter {
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: 0.48s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both heroCtaEnter;
+}
+.hero-cta-enter:nth-of-type(2) { animation-delay: 0.36s; }
+.hero-cta-enter:nth-of-type(3) { animation-delay: 0.44s; }
+
+/* 按钮 hover：弹性 lift + scale + 阴影变深（GPU 加速） */
+.btn-smooth {
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s;
+  transform: translateZ(0);
+  box-shadow: 0 10px 24px -14px rgba(249, 115, 22, 0.5);
+}
+.btn-smooth:hover {
+  transform: translateZ(0) translateY(-2px) scale(1.03);
+  box-shadow: 0 16px 32px -18px rgba(249, 115, 22, 0.7);
+}
+.btn-smooth:active {
+  transform: translateZ(0) scale(0.98);
+}
+
+/* Feature 卡片 hover lift + icon 上跳 */
+.feature-card {
+  will-change: transform;
+  transform: translateZ(0);
+  cursor: default;
+}
+.feature-card:hover {
+  transform: translateZ(0) translateY(-4px);
+}
+.feature-card:hover .feature-icon {
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* Section scroll reveal 增强（更明显的位移 + 错峰） */
+.reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Scroll hint pulse */

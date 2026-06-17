@@ -4,10 +4,12 @@ import { useLang } from '../i18n';
 import { isPromoVisible, onPromoChange } from './PromoBar';
 
 const navLinks = [
-  { href: '#island', zh: '灵动岛', en: 'Island' },
-  { href: '#ai', zh: 'AI 助手', en: 'AI Assistant' },
-  { href: '#features', zh: '功能', en: 'Features' },
-  { href: '#comparison', zh: '价格', en: 'Price' },
+  { href: '/#island', zh: '灵动岛', en: 'Island' },
+  { href: '/#ai', zh: 'AI 助手', en: 'AI Assistant' },
+  { href: '/#features', zh: '功能', en: 'Features' },
+  { href: '/#comparison', zh: '价格', en: 'Price' },
+  { href: '/docs', zh: '文档', en: 'Docs' },
+  { href: '/download', zh: '下载', en: 'Download' },
 ];
 
 export default function Navbar() {
@@ -36,9 +38,13 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${
       promoUp ? 'top-10' : 'top-0'
-    } ${scrolled ? 'bg-[#111]/90 backdrop-blur-sm border-b border-[#222]' : 'bg-transparent border-b border-transparent'}`}>
+    } ${
+      scrolled
+        ? 'bg-[#111]/70 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
+        : 'bg-transparent border-b border-transparent'
+    }`}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 no-underline">

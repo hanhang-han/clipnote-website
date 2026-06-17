@@ -47,18 +47,47 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-28">
-      <div className="max-w-[640px] mx-auto mb-10">
-        <h1 className="text-[48px] md:text-[60px] font-normal leading-[1.12] tracking-tight mb-6">
+    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-28 overflow-hidden">
+      {/* deckclip 风格装饰背景 */}
+      {/* Grid 网格（中心可见，边缘 mask 渐隐） */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none opacity-[0.4]"
+        style={{
+          backgroundImage:
+            'linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)',
+          backgroundSize: '64px 64px',
+          maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)',
+        }}
+      />
+      {/* Radial glow（顶部橙色发光） */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(120% 70% at 50% 0%, rgba(249,115,22,0.12) 0%, transparent 72%)',
+        }}
+      />
+      {/* Blur blob（右下角橙色光斑） */}
+      <div
+        aria-hidden="true"
+        className="absolute -bottom-20 -right-20 w-[400px] h-[400px] rounded-full blur-3xl opacity-[0.06] pointer-events-none"
+        style={{ background: '#F97316', transform: 'translate(25%, 25%)' }}
+      />
+
+      <div className="relative max-w-[640px] mx-auto mb-10">
+        <h1 className="hero-title text-[48px] md:text-[60px] font-normal leading-[1.12] tracking-tight mb-6">
           {t.heading}
         </h1>
-        <p className="text-[16px] text-[#bbb] mb-10 leading-relaxed">{t.subtitle}</p>
+        <p className="hero-subtitle text-[16px] text-[#bbb] mb-10 leading-relaxed">{t.subtitle}</p>
 
         {/* Download area */}
-        <div className="flex flex-col items-center gap-4">
+        <div className="hero-cta-enter flex flex-col items-center gap-4">
           <button
             onClick={() => window.location.href = 'https://api.cliperx.com/api/stats/dl'}
-            className="flex items-center gap-3 bg-[#F97316] text-[#111] border-none px-8 py-4 text-[15px] font-light tracking-wider cursor-pointer hover:opacity-85 transition-opacity"
+            className="btn-smooth flex items-center gap-3 bg-[#F97316] text-[#111] border-none px-8 py-4 text-[15px] font-light tracking-wider cursor-pointer"
             style={{ borderRadius: 2 }}
           >
             <Download size={18} strokeWidth={1.5} />
@@ -66,7 +95,7 @@ export default function Hero() {
             <span className="text-[11px] opacity-60 font-mono ml-1">.dmg</span>
           </button>
 
-          <div className="flex items-center gap-4 text-[13px] text-[#999] font-normal">
+          <div className="hero-cta-enter flex items-center gap-4 text-[13px] text-[#999] font-normal">
             <span>{downloadCount.toLocaleString()} {t.downloads}</span>
             <span className="text-[#444]">·</span>
             <span>macOS 14+</span>
@@ -76,7 +105,7 @@ export default function Hero() {
             <span>{lang === 'zh' ? 'Apple 公证' : 'Apple Notarized'}</span>
           </div>
 
-          <div className="flex items-center gap-2 text-[12px] text-[#888] font-mono font-normal mt-1 overflow-x-auto max-w-full">
+          <div className="hero-cta-enter flex items-center gap-2 text-[12px] text-[#888] font-mono font-normal mt-1 overflow-x-auto max-w-full">
             <span className="shrink-0">$</span>
             <span className="whitespace-nowrap">brew install --cask hanhang-han/tap/clipnote</span>
           </div>

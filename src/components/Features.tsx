@@ -42,8 +42,14 @@ export default function Features() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {features.map((f, i) => (
-            <div key={i} className="bg-[#0a0a0a] border border-[#222] p-8" style={{ borderRadius: 2 }}>
-              <f.Icon size={24} strokeWidth={1.5} className="text-[#F97316] mb-4" />
+            <div
+              key={i}
+              className="feature-card bg-[#0a0a0a] border border-[#222] p-8 transition-all duration-500 hover:border-[#F97316]/40 hover:bg-[#0e0e0e]"
+              style={{ borderRadius: 2, transitionDelay: `${i * 60}ms` }}
+            >
+              <div className="feature-icon transition-transform duration-500">
+                <f.Icon size={24} strokeWidth={1.5} className="text-[#F97316] mb-4" />
+              </div>
               <h3 className="text-[18px] text-[#ccc] font-normal mb-3">{f.title}</h3>
               <p className="text-[15px] text-[#aaa] font-normal leading-relaxed">{f.desc}</p>
             </div>

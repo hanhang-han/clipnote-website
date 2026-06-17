@@ -21,34 +21,34 @@ async function prerender() {
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
 
-  // 3. Render the page
-  console.log('[prerender] Rendering / ...');
-  await page.goto(`http://localhost:${PORT}/`, { waitUntil: 'networkidle', timeout: 30000 });
+  const routes = ['/', '/docs', '/download'];
+  const templatePath = resolve(DIST, 'index.html');
+  const template = readFileSync(templatePath, 'utf-8');
 
-  // Wait for animations & dynamic content
-  await page.waitForTimeout(2000);
+  for (const route of routes) {
+    console.log(`[prerender] Rendering ${route} ...`);
+    await page.goto(`http://localhost:${PORT}${route}`, { waitUntil: 'networkidle', timeout: 30000 });
+    await page.waitForTimeout(2000);
 
-  const renderedHtml = await page.content();
+    const renderedHtml = await page.content();
+    const bodyMatch = renderedHtml.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+    const renderedBody = bodyMatch ? bodyMatch[1] : '';
 
-  // 4. Read original index.html (has meta tags, JSON-LD, etc.)
-  const originalPath = resolve(DIST, 'index.html');
-  const original = readFileSync(originalPath, 'utf-8');
+    const final = template.replace(
+      /(<div\s+id="root"[^>]*>)([\s\S]*?)(<\/div>)/i,
+      `$1${renderedBody.replace(/<div\s+id="root"[^>]*>[\s\S]*?<\/div>/, '')}$3`
+    );
 
-  // 5. Extract rendered body content
-  const bodyMatch = renderedHtml.match(/<body[^>]*>([\s\S]*)<\/body>/i);
-  const renderedBody = bodyMatch ? bodyMatch[1] : '';
+    if (route === '/') {
+      writeFileSync(templatePath, final, 'utf-8');
+      console.log(`[prerender] Saved prerendered index.html`);
+    } else {
+      const outPath = resolve(DIST, `${route.slice(1)}.html`);
+      writeFileSync(outPath, final, 'utf-8');
+      console.log(`[prerender] Saved prerendered ${route}.html`);
+    }
+  }
 
-  // 6. Inject rendered content into original HTML
-  // Replace the root div's content with prerendered HTML
-  const final = original.replace(
-    /(<div\s+id="root"[^>]*>)([\s\S]*?)(<\/div>)/i,
-    `$1${renderedBody.replace(/<div\s+id="root"[^>]*>[\s\S]*?<\/div>/, '')}$3`
-  );
-
-  writeFileSync(originalPath, final, 'utf-8');
-  console.log('[prerender] Saved prerendered index.html');
-
-  // 7. Cleanup
   await browser.close();
   server.close();
   console.log('[prerender] Done');

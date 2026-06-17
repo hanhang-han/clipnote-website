@@ -11,3 +11,8 @@ coverage/
 .wrangler
 .dev.vars*
 !.dev.vars.example
+
+# OMC temp files
+.omc/
+# Playwright test scripts
+snap.mjs
