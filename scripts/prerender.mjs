@@ -2,13 +2,28 @@ import { chromium } from 'playwright';
 import { createServer } from 'http';
 import pkg from 'serve-handler';
 const handler = pkg.default || pkg;
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, copyFileSync, existsSync } from 'fs';
 import { resolve } from 'path';
 
 const DIST = resolve(import.meta.dirname, '../dist');
 const PORT = 9876;
 
 async function prerender() {
+  const routes = ['/', '/docs', '/download'];
+  const templatePath = resolve(DIST, 'index.html');
+
+  // 提前为每个路由创建占位 .html（让 serve-handler 能找到，避免 404 fallback）
+  // 内容就是 index.html（SPA 入口），React Router 会渲染对应路由
+  for (const route of routes) {
+    if (route !== '/') {
+      const outPath = resolve(DIST, `${route.slice(1)}.html`);
+      if (!existsSync(outPath)) {
+        copyFileSync(templatePath, outPath);
+        console.log(`[prerender] Created placeholder ${route}.html`);
+      }
+    }
+  }
+
   // 1. Start static server from dist/
   const server = createServer((req, res) =>
     handler(req, res, { public: DIST, cleanUrls: true })
@@ -21,8 +36,6 @@ async function prerender() {
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
 
-  const routes = ['/', '/docs', '/download'];
-  const templatePath = resolve(DIST, 'index.html');
   const template = readFileSync(templatePath, 'utf-8');
 
   for (const route of routes) {
