@@ -43,7 +43,6 @@ export default function Hero() {
       : 'Copy to save. AI translates, summarizes, analyzes. Dynamic Island UI, zero footprint.',
     cta: lang === 'zh' ? '免费下载' : 'Free Download',
     downloads: lang === 'zh' ? '次下载' : 'downloads',
-    scrollHint: lang === 'zh' ? '下滑看更多' : 'Scroll for more',
   };
 
   return (
@@ -151,11 +150,6 @@ export default function Hero() {
         )}
       </div>
 
-      {/* Scroll hint */}
-      <div className="mt-10 scroll-hint flex flex-col items-center gap-1.5">
-        <span className="text-[11px] text-[#777] font-light tracking-widest uppercase">{t.scrollHint}</span>
-        <span className="text-[12px] text-[#777]">↓</span>
-      </div>
     </section>
   );
 }
