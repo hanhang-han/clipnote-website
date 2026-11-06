@@ -1,4 +1,4 @@
-import { useEffect, useRef, ReactNode } from 'react';
+import { useEffect, useRef, ReactNode, JSX } from 'react';
 import { useReveal } from '../hooks/useScrollReveal';
 
 interface RevealProps {

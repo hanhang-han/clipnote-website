@@ -16,3 +16,5 @@ coverage/
 .omc/
 # Playwright test scripts
 snap.mjs
+
+.prerender/

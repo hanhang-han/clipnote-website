@@ -1,127 +1,116 @@
-import { useState, useEffect } from 'react';
-import { Download, Menu, X } from 'lucide-react';
-import { useLang } from '../i18n';
-import { isPromoVisible, onPromoChange } from './PromoBar';
-
-const navLinks = [
-  { href: '/#island', zh: '灵动岛', en: 'Island' },
-  { href: '/#ai', zh: 'AI 助手', en: 'AI Assistant' },
-  { href: '/#features', zh: '功能', en: 'Features' },
-  { href: '/#comparison', zh: '价格', en: 'Price' },
-  { href: '/docs', zh: '文档', en: 'Docs' },
-  { href: '/download', zh: '下载', en: 'Download' },
-];
-
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ArrowDown, Menu, X } from "lucide-react";
+import { useLang } from "../i18n";
+import { DOWNLOAD_URL } from "../lib/site";
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
   const { lang, toggle } = useLang();
-  const [promoUp, setPromoUp] = useState(isPromoVisible());
-
+  const { pathname } = useLocation();
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
-    return onPromoChange(() => setPromoUp(isPromoVisible()));
+    const handle = () => setScrolled(window.scrollY > 36);
+    handle();
+    window.addEventListener("scroll", handle, { passive: true });
+    return () => window.removeEventListener("scroll", handle);
   }, []);
-
   useEffect(() => {
-    let ticking = false;
-    const handler = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 20);
-          ticking = false;
-        });
-        ticking = true;
+    setOpen(false);
+  }, [pathname]);
+  useEffect(() => {
+    if (!open) return;
+    const escape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        document.getElementById("menu-toggle")?.focus();
       }
     };
-    window.addEventListener('scroll', handler, { passive: true });
-    return () => window.removeEventListener('scroll', handler);
-  }, []);
-
+    document.addEventListener("keydown", escape);
+    return () => document.removeEventListener("keydown", escape);
+  }, [open]);
+  const links = [
+    { href: "/#memories", zh: "记住什么", en: "What", color: "orange" },
+    { href: "/#why", zh: "为什么灵剪", en: "Why", color: "yellow" },
+    { href: "/#how", zh: "如何开始", en: "How", color: "pink" },
+  ];
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${
-      promoUp ? 'top-10' : 'top-0'
-    } ${
-      scrolled
-        ? 'bg-[#111]/70 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
-        : 'bg-transparent border-b border-transparent'
-    }`}>
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 no-underline">
-          <img src="/icon.png?v=3" alt="CliperX" className="w-7 h-7" />
-          <span className="text-[15px] font-light tracking-wide text-white">{lang === 'zh' ? '灵剪' : 'CliperX'}</span>
-          <span className="text-[11px] font-light tracking-widest uppercase text-[#777] hidden sm:inline">
-            {lang === 'zh' ? 'CliperX' : '灵剪'}
-          </span>
-        </a>
-
-        {/* Desktop nav */}
-        <div className="hidden sm:flex items-center gap-8 text-[15px] font-light">
-          {navLinks.map(link => (
-            <a key={link.href} href={link.href} className="text-[#888] hover:text-white transition-colors no-underline">
-              {link[lang]}
-            </a>
+    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
+      <nav
+        className="nav-inner"
+        aria-label={lang === "zh" ? "主导航" : "Main navigation"}
+      >
+        <Link
+          to="/"
+          className="brand"
+          aria-label={lang === "zh" ? "CliperX 首页" : "CliperX home"}
+        >
+          <img src="/icon.png" width="34" height="34" alt="" />
+          <span>{lang === "zh" ? "灵剪" : "CliperX"}</span>
+        </Link>
+        <div className="nav-center">
+          {links.map((l) => (
+            <Link to={l.href} key={l.href}>
+              <i className={`nav-dot ${l.color}`} />
+              {l[lang]}
+            </Link>
           ))}
+        </div>
+        <div className="nav-right">
+          <Link className="nav-price" to="/#comparison">
+            {lang === "zh" ? "价格" : "Pricing"}
+          </Link>
           <button
+            className="language-toggle"
             onClick={toggle}
-            aria-label={lang === 'zh' ? 'Switch to English' : '切换到中文'}
-            className="text-[12px] text-[#888] hover:text-white transition-colors cursor-pointer bg-transparent border border-[#333] px-2 py-1 tracking-wider"
+            aria-label={lang === "zh" ? "Switch to English" : "切换中文"}
           >
-            {lang === 'zh' ? 'EN' : '中'}
+            {lang === "zh" ? "EN" : "中文"}
           </button>
+          <a className="pill-button small" href={DOWNLOAD_URL}>
+            {lang === "zh" ? "免费下载" : "Download"}
+            <ArrowDown size={16} />
+          </a>
           <button
-            onClick={() => window.location.href = 'https://api.cliperx.com/api/stats/dl'}
-            className="flex items-center gap-2 text-[#F97316] border border-[#F97316] px-4 py-1.5 text-[13px] font-light tracking-wider hover:bg-[#F97316] hover:text-[#111] transition-all cursor-pointer bg-transparent"
+            id="menu-toggle"
+            className="menu-toggle"
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={
+              open
+                ? lang === "zh"
+                  ? "关闭菜单"
+                  : "Close menu"
+                : lang === "zh"
+                  ? "打开菜单"
+                  : "Open menu"
+            }
           >
-            <Download size={14} />
-            {lang === 'zh' ? '免费下载' : 'Free Download'}
+            {open ? <X /> : <Menu />}
           </button>
         </div>
-
-        {/* Mobile menu button */}
-        <div className="sm:hidden flex items-center gap-3">
-          <button onClick={toggle} aria-label={lang === 'zh' ? 'Switch to English' : '切换到中文'} className="text-[12px] text-[#888] hover:text-white transition-colors cursor-pointer bg-transparent border border-[#333] px-2 py-1 tracking-wider">
-            {lang === 'zh' ? 'EN' : '中'}
-          </button>
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? (lang === 'zh' ? '关闭菜单' : 'Close menu') : (lang === 'zh' ? '打开菜单' : 'Open menu')}
-            className="text-[#888] hover:text-white transition-colors cursor-pointer bg-transparent border-none"
-          >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile backdrop */}
-      {mobileOpen && (
-        <div className="fixed inset-0 top-16 z-40 sm:hidden" onClick={() => setMobileOpen(false)} />
+      </nav>
+      {open && (
+        <nav
+          id="mobile-nav"
+          className="mobile-nav"
+          aria-label={lang === "zh" ? "移动导航" : "Mobile navigation"}
+        >
+          {links.map((l) => (
+            <Link key={l.href} to={l.href} onClick={() => setOpen(false)}>
+              <i className={`nav-dot ${l.color}`} />
+              {l[lang]}
+            </Link>
+          ))}
+          <Link to="/#comparison" onClick={() => setOpen(false)}>
+            {lang === "zh" ? "价格" : "Pricing"}
+          </Link>
+          <Link to="/docs">{lang === "zh" ? "使用指南" : "Guide"}</Link>
+          <Link to="/download">
+            {lang === "zh" ? "下载与安装" : "Installation"}
+          </Link>
+        </nav>
       )}
-
-      {/* Mobile dropdown */}
-      {mobileOpen && (
-        <div className="sm:hidden bg-[#111] border-b border-[#222] px-6 pb-6">
-          <div className="flex flex-col gap-4">
-            {navLinks.map(link => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-[15px] text-[#888] hover:text-white transition-colors no-underline font-light"
-              >
-                {link[lang]}
-              </a>
-            ))}
-            <button
-              onClick={() => window.location.href = 'https://api.cliperx.com/api/stats/dl'}
-              className="flex items-center justify-center gap-2 text-[#F97316] border border-[#F97316] px-4 py-2.5 text-[13px] font-light tracking-wider hover:bg-[#F97316] hover:text-[#111] transition-all cursor-pointer bg-transparent mt-2"
-            >
-              <Download size={14} />
-              {lang === 'zh' ? '免费下载' : 'Free Download'}
-            </button>
-          </div>
-        </div>
-      )}
-    </nav>
+    </header>
   );
 }

@@ -2,217 +2,100 @@
 <html lang="zh-CN" dir="ltr">
   <head>
     <meta charset="UTF-8" />
+    <meta name="cliperx-design" content="memory-2026" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>灵剪 CliperX - macOS 灵动岛 AI 剪贴板 | Jack 记忆管家 | 工作流自动整理</title>
-    <meta name="description" content="灵剪(CliperX)是 macOS 灵动岛剪贴板管理工具。Jack AI 记忆管家自动整理工作流、智能搜索、AI 翻译总结。免费版100条记录，Pro ¥8/月或 ¥28 终身。" />
-    <meta name="keywords" content="灵剪,CliperX,macOS剪贴板,剪贴板管理,剪贴板管理工具,灵动岛,clipboard manager,mac clipboard,AI剪贴板,剪贴板历史,mac工具,剪贴板助手,macOS剪贴板管理,免费剪贴板工具,一次性买断,剪贴板AI助手,Mac剪贴板买断,Paste替代品,Maccy替代品,CleanClip替代品,mac剪贴板非订阅,homebrew clipnote" />
-    <meta name="author" content="灵剪 CliperX" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="theme-color" content="#fffdfa" />
+    <title>灵剪 CliperX — 你的个人 AI 记忆空间</title>
+    <meta
+      name="description"
+      content="灵剪 CliperX 为 Mac 留住复制过的文字、链接、图片和代码。灵动岛交互、全文搜索、AI 翻译总结，让好想法随时找得回。免费下载，支持 macOS 14+。"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="baidu-site-verification" content="codeva-8QLyzDA04l" />
     <link rel="canonical" href="https://cliperx.com/" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon-96.png" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-
-    <!-- Hreflang -->
-    <link rel="alternate" hreflang="zh-CN" href="https://cliperx.com/" />
+    <link
+      rel="alternate"
+      hreflang="zh-CN"
+      href="https://cliperx.com/?lang=zh"
+    />
     <link rel="alternate" hreflang="en" href="https://cliperx.com/?lang=en" />
     <link rel="alternate" hreflang="x-default" href="https://cliperx.com/" />
-
-    <!-- Preload critical assets -->
-    <link rel="preload" as="image" href="/videos/hero-poster.png" fetchpriority="high" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://clipnote-api.renqingbu.workers.dev" />
-
-    <!-- Open Graph -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/memory-collection.jpg"
+      fetchpriority="high"
+    />
+    <link rel="dns-prefetch" href="https://api.cliperx.com" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://cliperx.com/" />
-    <meta property="og:title" content="灵剪 CliperX - macOS 灵动岛 AI 剪贴板 | Jack 记忆管家" />
-    <meta property="og:description" content="Jack AI 记忆管家自动整理工作流、智能搜索、AI 翻译总结。免费版 100 条，Pro ¥8/月或 ¥28 终身。" />
+    <meta property="og:title" content="灵剪 CliperX — 好想法，都值得被记住。" />
+    <meta
+      property="og:description"
+      content="文字、链接、图片、代码与灵感。你复制过的，都成为随时找得回的记忆。为 Mac 而设计，免费下载。"
+    />
     <meta property="og:image" content="https://cliperx.com/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="zh_CN" />
-    <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:site_name" content="灵剪 CliperX" />
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="灵剪 CliperX - macOS 灵动岛 AI 剪贴板 | Jack 记忆管家" />
-    <meta name="twitter:description" content="Jack AI 记忆管家自动整理工作流、智能搜索、AI 翻译。免费试用 7 天，Pro ¥8/月 ¥28 终身。" />
+    <meta name="twitter:title" content="灵剪 CliperX — 你的个人 AI 记忆空间" />
+    <meta
+      name="twitter:description"
+      content="让复制过的好想法，随时找得回。灵动岛、剪贴板历史、搜索与 AI。"
+    />
     <meta name="twitter:image" content="https://cliperx.com/og-image.png" />
-
-    <!-- JSON-LD: SoftwareApplication -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "灵剪",
-      "alternateName": ["CliperX", "灵剪 CliperX", "CliperX macOS"],
-      "description": "macOS 灵动岛 AI 剪贴板管理工具。Jack AI 记忆管家自动整理工作流、智能搜索、翻译总结。免费版 100 条，Pro ¥8/月或 ¥28 终身。",
-      "url": "https://cliperx.com",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "macOS 14.0",
-      "softwareVersion": "4.0.3",
-      "inLanguage": ["zh-CN", "en"],
-      "downloadUrl": "https://cliperx.com/灵剪.dmg",
-      "author": {
-        "@type": "Organization",
-        "name": "CliperX",
-        "url": "https://cliperx.com"
-      },
-      "offers": [
-        {
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "CliperX 灵剪",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "macOS 14.0 or later",
+        "url": "https://cliperx.com",
+        "downloadUrl": "https://api.cliperx.com/api/stats/dl",
+        "description": "为 Mac 留住复制过的文字、链接、图片与代码。灵动岛交互、搜索和 AI。",
+        "offers": {
           "@type": "Offer",
-          "name": "免费版",
           "price": "0",
           "priceCurrency": "CNY",
-          "category": "Free",
-          "description": "100条剪贴板历史、灵动岛交互、基础AI功能、置顶收藏"
-        },
-        {
-          "@type": "Offer",
-          "name": "Pro版",
-          "price": "8",
-          "priceCurrency": "CNY",
-          "category": "Subscription",
-          "description": "500条历史、全文搜索、AI对话充足额度、工作流自动整理、今日摘要、归档导出便签。¥28终身买断可选。"
-        },
-        {
-          "@type": "Offer",
-          "name": "Ultra版",
-          "price": "25",
-          "priceCurrency": "CNY",
-          "category": "Subscription",
-          "description": "无限历史、无限AI对话、Agent V2联网搜索、Jack主动推送、优先客服支持"
+          "name": "免费版"
         }
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "236",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "featureList": [
-        "灵动岛交互体验",
-        "Jack AI 记忆管家（多轮对话、联网搜索、代码分析）",
-        "工作流自动整理",
-        "今日摘要",
-        "智能剪贴板记录",
-        "极速全文搜索",
-        "智能分类（文本/链接/代码/图片/富文本/Markdown）",
-        "便签功能",
-        "多格式导出（TXT/JSON/Markdown）",
-        "开机启动",
-        "全局快捷键"
-      ],
-      "screenshot": "https://cliperx.com/videos/hero-poster.png",
-      "video": {
-        "@type": "VideoObject",
-        "name": "CliperX 灵动岛演示",
-        "description": "CliperX 灵动岛剪贴板管理工具在 macOS 上的使用演示",
-        "thumbnailUrl": "https://cliperx.com/videos/hero-poster.png",
-        "contentUrl": "https://cliperx.com/videos/hero-island.mp4",
-        "uploadDate": "2026-06-01"
       }
-    }
     </script>
-
-    <!-- JSON-LD: FAQPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "灵剪安全吗？会不会上传我的数据？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "所有数据仅存储在你的本地 Mac 上，灵剪不会联网上传任何内容。剪贴板数据完全由你自己掌控。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "AI 会读取我的剪贴板内容吗？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "只有在主动点击 AI 功能时，内容才会发送到 AI 服务进行处理。灵剪不会在后台自动扫描或上传你的剪贴板数据。AI 请求通过加密连接传输，服务端不存储用户内容。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Pro 和 Ultra 有什么区别？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "免费版100条记录。Pro（¥8/月或¥28终身）500条、工作流整理、今日摘要。Ultra（¥25/月）无限历史、无限AI、Agent V2联网搜索。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "灵剪和 Mac 自带的剪贴板有什么区别？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Mac 系统剪贴板只能记住最近 1 条复制内容。灵剪可以记住最多 500 条，并且自动识别内容类型进行智能分类。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "有免费试用吗？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "有 7 天免费 Pro 试用，到期自动恢复免费版，不自动扣费。Pro ¥8/月或 ¥28 终身买断。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "怎么安装灵剪？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "官网下载 DMG 安装包，双击打开后将灵剪拖入应用程序文件夹即可。也可以用 Homebrew 安装：brew install --cask hanhang-han/tap/clipnote。已通过 Apple 公证。"
-          }
-        }
-      ]
-    }
-    </script>
-
     <script type="module" src="/src/main.tsx"></script>
     <style>
-      #root:empty{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#111}
-      #root:empty::after{content:'灵剪 CliperX';font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:28px;color:#666;animation:pulse 1.5s ease-in-out infinite}
-      @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+      body {
+        margin: 0;
+        background: #fffdfa;
+      }
+      #root:empty {
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+      }
+      #root:empty::after {
+        content: "灵剪 CliperX";
+        font:
+          24px "Songti SC",
+          serif;
+        color: #8c7e70;
+      }
     </style>
   </head>
   <body>
     <div id="root"></div>
-    <noscript>
-      <h1>灵剪 CliperX - macOS 灵动岛 AI 剪贴板</h1>
-      <p>灵剪(CliperX)是 macOS 灵动岛剪贴板管理工具。Jack AI 记忆管家自动整理工作流、智能搜索、翻译总结。</p>
-      <h2>核心功能</h2>
-      <ul>
-        <li>灵动岛交互 - 鼠标移到屏幕顶部自动展开，离开自动收起</li>
-        <li>Jack AI 记忆管家 - 多轮对话、联网搜索、代码分析</li>
-        <li>工作流自动整理 - AI 识别项目主题，内容自动归并</li>
-        <li>今日摘要 - 每日自动生成工作摘要</li>
-        <li>智能分类 - 7种内容类型自动识别</li>
-        <li>极速搜索 - 全文检索，毫秒响应</li>
-        <li>便签 + 多格式导出</li>
-      </ul>
-      <h2>定价</h2>
-      <p>免费版：100条剪贴板历史、灵动岛交互、基础AI功能</p>
-      <p>Pro版：¥8/月或 ¥28 终身 - 500条历史、工作流整理、今日摘要、便签</p>
-      <p>Ultra版：¥25/月 - 无限历史、无限AI、Agent V2 联网搜索、主动推送</p>
-      <h2>安装方式</h2>
-      <p>官网下载 DMG，或 Homebrew：brew install --cask hanhang-han/tap/clipnote</p>
-      <h2>常见问题</h2>
-      <h3>灵剪安全吗？</h3>
-      <p>所有数据仅存储在你的本地 Mac 上，不会联网上传。</p>
-      <h3>Jack AI 会读取我的剪贴板吗？</h3>
-      <p>只有在主动点击 AI 功能时才会发送。不后台扫描或上传。</p>
-      <h3>有免费试用吗？</h3>
-      <p>7 天免费 Pro 试用，到期不自动扣费。</p>
-    </noscript>
+    <noscript
+      ><p style="text-align: center; padding: 20px">
+        交互搜索和语言切换需要 JavaScript。<a
+          href="https://api.cliperx.com/api/stats/dl"
+          >下载灵剪</a
+        >
+        · <a href="/privacy.html">隐私政策</a>
+      </p></noscript
+    >
   </body>
 </html>

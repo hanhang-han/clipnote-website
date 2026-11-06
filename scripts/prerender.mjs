@@ -1,73 +1,54 @@
-import { chromium } from 'playwright';
-import { createServer } from 'http';
-import pkg from 'serve-handler';
-const handler = pkg.default || pkg;
-import { readFileSync, writeFileSync, copyFileSync, existsSync } from 'fs';
-import { resolve } from 'path';
-
-const DIST = resolve(import.meta.dirname, '../dist');
-const PORT = 9876;
-
-async function prerender() {
-  const routes = ['/', '/docs', '/download'];
-  const templatePath = resolve(DIST, 'index.html');
-
-  // 提前为每个路由创建占位 .html（让 serve-handler 能找到，避免 404 fallback）
-  // 内容就是 index.html（SPA 入口），React Router 会渲染对应路由
-  for (const route of routes) {
-    if (route !== '/') {
-      const outPath = resolve(DIST, `${route.slice(1)}.html`);
-      if (!existsSync(outPath)) {
-        copyFileSync(templatePath, outPath);
-        console.log(`[prerender] Created placeholder ${route}.html`);
+// Deterministic static rendering: no browser, network, analytics, or video requests.
+import { build } from "esbuild";
+import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
+import { resolve } from "node:path";
+import { pathToFileURL } from "node:url";
+const root = resolve(import.meta.dirname, "..");
+const entry = resolve(root, ".prerender/entry.mjs");
+const dist = resolve(root, "dist");
+const routes = [
+  ["/", "灵剪 CliperX — 你的个人 AI 记忆空间"],
+  ["/docs", "使用指南 — 灵剪 CliperX"],
+  ["/download", "下载灵剪 — CliperX for Mac"],
+  ["/404", "页面未找到 — 灵剪 CliperX"],
+];
+try {
+  await build({
+    entryPoints: [resolve(root, "src/entry-server.tsx")],
+    outfile: entry,
+    bundle: true,
+    platform: "node",
+    format: "esm",
+    packages: "external",
+    jsx: "automatic",
+    logLevel: "warning",
+  });
+  const { render } = await import(pathToFileURL(entry).href);
+  const template = await readFile(resolve(dist, "index.html"), "utf8");
+  if (!template.includes('<div id="root"></div>'))
+    throw new Error("Missing empty root in Vite output");
+  for (const [route, title] of routes) {
+    const html = template
+      .replace(
+        '<div id="root"></div>',
+        () => `<div id="root">${render(route)}</div>`,
+      )
+      .replace(/<title>.*?<\/title>/s, `<title>${title}</title>`)
+      .replace(
+        'href="https://cliperx.com/"',
+        `href="https://cliperx.com${route === "/404" ? "/" : route}"`,
+      );
+    if (route === "/") await writeFile(resolve(dist, "index.html"), html);
+    else {
+      await writeFile(resolve(dist, `${route.slice(1)}.html`), html);
+      if (route !== "/404") {
+        const dir = resolve(dist, route.slice(1));
+        await mkdir(dir, { recursive: true });
+        await writeFile(resolve(dir, "index.html"), html);
       }
     }
+    console.log(`[prerender] ${route}`);
   }
-
-  // 1. Start static server from dist/
-  const server = createServer((req, res) =>
-    handler(req, res, { public: DIST, cleanUrls: true })
-  );
-
-  await new Promise(r => server.listen(PORT, r));
-  console.log(`[prerender] Serving ${DIST} on http://localhost:${PORT}`);
-
-  // 2. Launch headless browser
-  const browser = await chromium.launch({ headless: true });
-  const page = await browser.newPage();
-
-  const template = readFileSync(templatePath, 'utf-8');
-
-  for (const route of routes) {
-    console.log(`[prerender] Rendering ${route} ...`);
-    await page.goto(`http://localhost:${PORT}${route}`, { waitUntil: 'networkidle', timeout: 30000 });
-    await page.waitForTimeout(2000);
-
-    const renderedHtml = await page.content();
-    const bodyMatch = renderedHtml.match(/<body[^>]*>([\s\S]*)<\/body>/i);
-    const renderedBody = bodyMatch ? bodyMatch[1] : '';
-
-    const final = template.replace(
-      /(<div\s+id="root"[^>]*>)([\s\S]*?)(<\/div>)/i,
-      `$1${renderedBody.replace(/<div\s+id="root"[^>]*>[\s\S]*?<\/div>/, '')}$3`
-    );
-
-    if (route === '/') {
-      writeFileSync(templatePath, final, 'utf-8');
-      console.log(`[prerender] Saved prerendered index.html`);
-    } else {
-      const outPath = resolve(DIST, `${route.slice(1)}.html`);
-      writeFileSync(outPath, final, 'utf-8');
-      console.log(`[prerender] Saved prerendered ${route}.html`);
-    }
-  }
-
-  await browser.close();
-  server.close();
-  console.log('[prerender] Done');
+} finally {
+  await rm(resolve(root, ".prerender"), { recursive: true, force: true });
 }
-
-prerender().catch(err => {
-  console.error('[prerender] Failed:', err);
-  process.exit(1);
-});
