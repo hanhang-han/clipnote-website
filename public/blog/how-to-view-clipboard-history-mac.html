@@ -23,7 +23,7 @@
   "headline": "Mac怎么查看剪贴板历史记录？4种方法详解（2026）",
   "description": "Mac电脑怎么查看剪贴板历史记录？详细介绍4种方法：系统自带方式、终端命令、第三方工具推荐、Homebrew安装。帮你找回之前复制的内容。",
   "datePublished": "2026-06-08",
-  "dateModified": "2026-06-08",
+  "dateModified": "2026-11-16",
   "author": {
     "@type": "Organization",
     "name": "CliperX"
@@ -88,14 +88,18 @@ footer { padding: 40px 0; border-top: 1px solid #222; text-align: center; color:
   </header>
 
   <article>
-    <h1>Mac怎么查看剪贴板历史记录？4种方法详解（2026）</h1>
+    <h1>Mac怎么查看剪贴板历史记录？4种方法详解（2026）</h1><p class="meta">更新于 2026年11月16日 · 本文由 CliperX 开发团队维护。CliperX 价格与权益已按当前官网更新；其他产品信息来自较早整理，购买前请在各产品官网核实。</p>
+<p>CliperX 当前提供免费版；Pro 为 ¥8/月或 ¥28 终身买断，Ultra 为 ¥25/月。Pro 买断不等于无限 AI 或包含 Ultra 权益，具体额度和购买条件以 App 与商店展示为准。 <a href="/#comparison">查看当前方案</a>。</p>
     <div class="meta">发布于 2026年6月8日 &middot; 阅读约 5 分钟</div>
 
-    <p>你有没有遇到过这样的场景：刚复制了一段重要的文字，结果不小心又复制了别的东西，之前的内容就被覆盖了？Mac 系统默认的剪贴板只能记住你<strong>最后一次复制</strong>的内容，一旦覆盖就无法找回。</p>
+    <p>你有没有遇到过这样的场景：刚复制了一段重要的文字，结果不小心又复制了别的东西，之前的内容就被覆盖了？能否找回历史取决于系统版本与是否已启用记录功能：macOS Tahoe 26 的聚焦已提供剪贴板历史，不能再笼统地说 Mac 只能保存一条记录。</p>
 
     <p>这其实是很多 Mac 用户都会遇到的问题。好在，查看剪贴板历史记录并不是没有方法。本文将详细介绍 <strong>4 种查看 Mac 剪贴板历史的方法</strong>，从系统自带功能到第三方工具，总有一种适合你。</p>
 
-    <h2>方法一：使用 Mac 自带的剪贴板查看器</h2>
+    <h2>方法一：使用系统自带功能（先看 macOS 版本）</h2>
+    <h3>macOS Tahoe 26：在聚焦中查看历史</h3>
+    <p>按 Command–空格键打开聚焦，再按 Command–4 进入剪贴板。首次使用时按系统提示选择是否允许剪贴板搜索；然后搜索、复制或清除历史记录。剪贴板可能包含敏感内容，请谨慎启用。参见 <a href="https://support.apple.com/zh-hans/guide/mac-help/mchl40d5b86b/mac">Apple 官方操作说明</a>与<a href="https://support.apple.com/zh-cn/122868">macOS Tahoe 26 功能说明</a>。</p>
+    <h3>旧系统或只需查看当前内容：访达剪贴板查看器</h3>
 
     <p>macOS 其实内置了一个剪贴板查看功能，只是藏得比较深，很多用户并不知道。</p>
 
@@ -109,7 +113,7 @@ footer { padding: 40px 0; border-top: 1px solid #222; text-align: center; color:
     <p>这时会弹出一个窗口，显示你当前剪贴板中的内容。</p>
 
     <h3>局限性</h3>
-    <p>这个方法虽然不需要安装任何额外软件，但有一个致命的缺点：<strong>它只能显示你最后一次复制的内容</strong>。如果你想查看更早之前的复制记录，它是完全无能为力的。macOS 的系统剪贴板本质上是一个单次缓冲区，新内容会直接覆盖旧内容。</p>
+    <p>这个方法虽然不需要安装任何额外软件，但有一个致命的缺点：<strong>它只能显示你最后一次复制的内容</strong>。如果你想查看更早之前的复制记录，它是完全无能为力的。这里说的是访达的当前内容查看器，不是 Tahoe 26 的聚焦历史功能。</p>
 
     <p>所以，如果你需要查看历史复制记录，这个方法并不够用。</p>
 
@@ -123,7 +127,7 @@ footer { padding: 40px 0; border-top: 1px solid #222; text-align: center; color:
 
     <pre><code>pbpaste</code></pre>
 
-    <p>如果你想持续监控剪贴板的变化，可以配合 <code>watch</code> 命令使用：</p>
+    <p>如果你想持续监控剪贴板的变化，可以配合另行安装的 <code>watch</code> 命令使用（macOS 默认不附带该命令）：</p>
 
     <pre><code># 每2秒刷新一次剪贴板内容
 watch -n 2 pbpaste</code></pre>
@@ -168,7 +172,7 @@ pbpaste >> clipboard_log.txt</code></pre>
       <tbody>
         <tr>
           <td><span class="highlight">CliperX</span></td>
-          <td>¥18 买断</td>
+          <td>Pro ¥28 买断</td>
           <td>灵动岛交互、AI 助手、500条历史</td>
           <td>★★★★★</td>
         </tr>
@@ -192,9 +196,9 @@ pbpaste >> clipboard_log.txt</code></pre>
     <p>在众多剪贴板管理工具中，<strong><a href="https://cliperx.com">CliperX</a></strong> 是一款非常有特色的 macOS 原生应用。它的核心优势在于：</p>
 
     <ul>
-      <li><strong>灵动岛交互</strong>：利用 macOS 的灵动岛（Dynamic Island）设计，复制内容时会在屏幕顶部弹出简洁的预览，不打断你的工作流</li>
+      <li><strong>灵动岛交互</strong>：以屏幕顶部的软件灵动岛（Dynamic Island）交互设计，复制内容时会在屏幕顶部弹出简洁的预览，不打断你的工作流</li>
       <li><strong>AI 智能助手</strong>：内置 AI 功能，可以对复制的内容进行翻译、总结、改写等操作，大幅提升效率</li>
-      <li><strong>一次买断</strong>：¥18 即可永久使用所有功能，无需担心订阅续费</li>
+      <li><strong>一次买断</strong>：Pro 支持 ¥28 终身买断；不包含 Ultra 或无限 AI 权益，详情见 App 与商店</li>
       <li><strong>500 条历史记录</strong>：自动保存最近 500 条复制内容</li>
       <li><strong>快捷键支持</strong>：全局快捷键快速唤起，操作流畅</li>
     </ul>
@@ -237,8 +241,9 @@ brew install --cask hanhang-han/tap/clipnote</code></pre>
         </tr>
       </thead>
       <tbody>
+        <tr><td>Tahoe 26 聚焦历史</td><td>支持历史搜索</td><td>简单</td><td>使用受支持系统的用户</td></tr>
         <tr>
-          <td>系统自带查看器</td>
+          <td>访达当前剪贴板查看器</td>
           <td>仅当前内容</td>
           <td>简单</td>
           <td>临时查看</td>
@@ -270,7 +275,7 @@ brew install --cask hanhang-han/tap/clipnote</code></pre>
 
     <div class="faq-item">
       <h3>Mac 系统剪贴板能保存多少条记录？</h3>
-      <p>macOS 系统剪贴板默认只能保存<strong>1条</strong>记录，即你最后一次复制的内容。新的复制会直接覆盖旧内容。这也是为什么需要第三方工具来扩展这一功能。</p>
+      <p>访达查看器和 <code>pbpaste</code> 读取当前剪贴板；macOS Tahoe 26 的聚焦另有剪贴板历史。记录范围取决于系统版本和设置，不应把当前内容与历史混为一谈。</p>
     </div>
 
     <div class="faq-item">
@@ -280,7 +285,7 @@ brew install --cask hanhang-han/tap/clipnote</code></pre>
 
     <div class="faq-item">
       <h3>剪贴板工具安全吗？会泄露隐私吗？</h3>
-      <p>正规的剪贴板管理工具都会在本地存储数据，不会上传到云端（除非你主动开启了同步功能）。建议从官方渠道或 App Store 下载，避免使用来源不明的软件。如果你处理敏感信息（如密码），可以设置排除规则，让工具不记录特定应用的复制内容。</p>
+      <p>CliperX 的剪贴板历史保存在本地；使用云端 AI 时，相关内容需要发送给 AI 服务处理。使用前请阅读隐私政策，不要将密码或其他敏感资料交给云端 AI。其他工具的数据处理方式应分别查看其官方隐私说明。</p>
     </div>
 
     <div class="faq-item">
@@ -290,8 +295,9 @@ brew install --cask hanhang-han/tap/clipnote</code></pre>
 
     <div class="faq-item">
       <h3>免费的剪贴板工具够用吗？</h3>
-      <p>对于基本需求，免费工具如 Maccy 已经足够。但如果你需要更多高级功能（如 AI 辅助、智能分类、富文本预览等），付费工具能提供更好的体验。CliperX 以 ¥18 的买断价格提供了 AI 功能和灵动岛交互，性价比很高。</p>
+      <p>对于基本需求，免费工具如 Maccy 已经足够。但如果你需要更多高级功能（如 AI 辅助、智能分类、富文本预览等），付费工具能提供更好的体验。CliperX 以 ¥28 的买断价格提供了 AI 功能和灵动岛交互，性价比很高。</p>
     </div>
+<p>准备选择专门的管理工具？可继续阅读 <a href="/blog/best-clipboard-manager-mac.html">Mac 剪贴板软件推荐：7 款工具的功能、价格与选择方法</a>，先区分系统历史、免费工具和付费工作流。</p>
   </article>
 
   <footer>

@@ -1,15 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /assets/
-Disallow: /demo-*
-
-User-agent: Baiduspider
-Allow: /
-Disallow: /api/
-Disallow: /assets/
-
-User-agent: Googlebot
-Allow: /
+Disallow: /demo-
 
 Sitemap: https://cliperx.com/sitemap.xml

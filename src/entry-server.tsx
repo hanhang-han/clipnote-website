@@ -8,3 +8,5 @@ export function render(path: string) {
     </StaticRouter>,
   );
 }
+
+export { seoFor } from "./lib/seo";

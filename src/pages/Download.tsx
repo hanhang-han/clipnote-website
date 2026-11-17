@@ -1,3 +1,4 @@
+import { localizedPath } from "../lib/seo";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowUpRight, Check, Copy } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -142,11 +143,11 @@ export default function DownloadPage() {
               {zh ? "历史版本与更新记录" : "Releases & changelog"}
               <ArrowUpRight size={15} />
             </a>
-            <Link className="text-link" to="/docs">
+            <Link className="text-link" to={localizedPath("/docs", lang)}>
               {zh ? "安装与使用指南" : "Installation & guide"}
               <ArrowUpRight size={15} />
             </Link>
-            <a className="text-link" href="/#comparison">
+            <a className="text-link" href={localizedPath("/#comparison", lang)}>
               {zh ? "比较各个版本" : "Compare plans"}
               <ArrowUpRight size={15} />
             </a>

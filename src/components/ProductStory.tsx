@@ -1,3 +1,4 @@
+import { localizedPath } from "../lib/seo";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -83,7 +84,7 @@ export default function ProductStory() {
                 ? "灵动岛安静地待在屏幕顶部。需要时展开，离开时收起。你熟悉的 ⌘ C，就是记忆的入口。"
                 : "Your clipboard lives quietly at the top of your Mac. Open it when you need it, tuck it away when you don’t. The familiar ⌘ C is all it takes."}
             </p>
-            <Link className="text-link" to="/docs">
+            <Link className="text-link" to={localizedPath("/docs", lang)}>
               {zh ? "了解灵动岛交互" : "Explore Dynamic Island"}
               <ArrowUpRight size={16} />
             </Link>
@@ -103,7 +104,7 @@ export default function ProductStory() {
             <video
               ref={video}
               src="/videos/hero-island.mp4"
-              poster="/videos/hero-poster.png"
+              poster="/videos/hero-poster.webp"
               preload="none"
               playsInline
               muted

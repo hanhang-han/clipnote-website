@@ -195,10 +195,10 @@ export default function Docs() {
         <span className="eyebrow">
           {zh ? "一点指引，轻松开始" : "A little guidance to get going"}
         </span>
-        <h1>{zh ? "熟悉你的记忆空间。" : "Meet your memory space."}</h1>
+        <h1>{zh ? "CliperX 使用指南：安装、快捷键与剪贴板搜索" : "CliperX guide: installation, shortcuts and clipboard search"}</h1>
         <p>
           {zh
-            ? "从安装到日常使用，都在这里。"
+            ? "从安装和首次复制，到搜索历史与排查快捷键问题。先用不含敏感信息的内容测试，再按需开启 AI。"
             : "From the first install to your everyday flow."}
         </p>
       </header>
@@ -207,6 +207,7 @@ export default function Docs() {
           className="doc-sidebar"
           aria-label={zh ? "文档章节" : "Guide chapters"}
         >
+          <a href="#quick-check">{zh ? "首次使用检查" : "First-use check"}</a>
           {sections.map((s) => (
             <a key={s.id} href={`#${s.id}`}>
               {s.title}
@@ -214,6 +215,16 @@ export default function Docs() {
           ))}
         </nav>
         <div className="doc-content">
+          <section id="quick-check">
+            <h2>{zh ? "先完成一次复制与找回" : "Try copying and finding a clip"}</h2>
+            <ol>
+              <li>{zh ? "安装并启动 App，按引导完成设置。复制一段普通测试文字，不使用密码或客户资料。" : "Install and launch the app, then follow setup. Copy a harmless sample, not a password or customer data."}</li>
+              <li>{zh ? "按 ⌘ ⇧ V 唤起界面，用关键词查找刚才的文字。快捷键若已调整，以设置为准。" : "Press ⌘ ⇧ V and search for your sample. If you changed the shortcut, use your configured key combination."}</li>
+              <li>{zh ? "在常用编辑器里尝试粘贴，确认内容与格式符合预期。" : "Try pasting into your usual editor and check the content and formatting."}</li>
+            </ol>
+            <p><a href={zh ? "/download" : "/en/download/"}>{zh ? "下载与安装说明" : "Download and installation"}</a></p>
+          </section>
+
           {sections.map((s) => (
             <section id={s.id} key={s.id}>
               <h2>{s.title}</h2>
@@ -237,6 +248,14 @@ export default function Docs() {
               )}
             </section>
           ))}
+          <section id="more-guides">
+            <h2>{zh ? "继续阅读" : "More guides (Chinese)"}</h2>
+            <ul>
+              <li><a href="/blog/how-to-view-clipboard-history-mac.html">{zh ? "Mac 剪贴板历史在哪里？系统功能与查看方法" : "Finding clipboard history on macOS"}</a></li>
+              <li><a href="/blog/best-clipboard-manager-mac.html">{zh ? "7 款剪贴板工具的选择方法" : "Choosing a clipboard manager"}</a></li>
+              <li><a href="/compare/paste.html">{zh ? "CliperX 与 Paste：费用、AI 和设备需求" : "CliperX vs Paste: plans, AI and devices"}</a></li>
+            </ul>
+          </section>
         </div>
       </div>
     </>

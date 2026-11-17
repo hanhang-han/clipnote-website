@@ -1,49 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://cliperx.com/</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cliperx.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://cliperx.com/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cliperx.com/" />
-    <lastmod>2026-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
-    <loc>https://cliperx.com/compare/paste</loc>
-    <lastmod>2026-06-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://cliperx.com/docs</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cliperx.com/docs" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://cliperx.com/en/docs/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cliperx.com/docs" />
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
-    <loc>https://cliperx.com/compare/maccy</loc>
-    <lastmod>2026-06-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://cliperx.com/download</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cliperx.com/download" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://cliperx.com/en/download/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cliperx.com/download" />
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
-    <loc>https://cliperx.com/compare/cleanclip</loc>
-    <lastmod>2026-06-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://cliperx.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cliperx.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://cliperx.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cliperx.com/" />
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
-    <loc>https://cliperx.com/blog/how-to-view-clipboard-history-mac</loc>
-    <lastmod>2026-06-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://cliperx.com/en/docs/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cliperx.com/docs" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://cliperx.com/en/docs/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cliperx.com/docs" />
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
-    <loc>https://cliperx.com/blog/best-clipboard-manager-mac</loc>
-    <lastmod>2026-06-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://cliperx.com/en/download/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cliperx.com/download" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://cliperx.com/en/download/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cliperx.com/download" />
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
-    <loc>https://cliperx.com/blog/clipboard-manager-one-time-purchase</loc>
-    <lastmod>2026-06-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://cliperx.com/blog/best-clipboard-manager-mac.html</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://cliperx.com/blog/clipboard-manager-one-time-purchase.html</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://cliperx.com/blog/how-to-view-clipboard-history-mac.html</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://cliperx.com/compare/cleanclip.html</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://cliperx.com/compare/maccy.html</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://cliperx.com/compare/paste.html</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://cliperx.com/workshop</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cliperx.com/workshop" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://cliperx.com/en/workshop/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cliperx.com/workshop" />
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
+    <loc>https://cliperx.com/en/workshop/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cliperx.com/workshop" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://cliperx.com/en/workshop/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cliperx.com/workshop" />
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
+    <loc>https://cliperx.com/workshop/develop</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cliperx.com/workshop/develop" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://cliperx.com/en/workshop/develop/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cliperx.com/workshop/develop" />
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
+    <loc>https://cliperx.com/en/workshop/develop/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://cliperx.com/workshop/develop" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://cliperx.com/en/workshop/develop/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cliperx.com/workshop/develop" />
+    <lastmod>2026-11-17</lastmod>
   </url>
 </urlset>

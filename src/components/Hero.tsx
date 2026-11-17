@@ -14,8 +14,8 @@ export default function Hero() {
       <div className="hero-copy">
         <p className="eyebrow">
           {lang === "zh"
-            ? "灵剪 · 你的个人记忆空间"
-            : "CliperX · A little space for your mind"}
+            ? "灵剪 · Mac 剪贴板与 AI 记忆空间"
+            : "CliperX · AI clipboard manager for Mac"}
         </p>
         <h1>
           {lang === "zh" ? (

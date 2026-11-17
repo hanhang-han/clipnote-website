@@ -9,7 +9,9 @@
     "preview": "vite preview --host=127.0.0.1",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
-    "deploy": "npm run build && node scripts/deploy.mjs"
+    "deploy": "npm run build && node scripts/deploy.mjs",
+    "test:seo": "node scripts/test-seo.mjs",
+    "test:seo:browser": "node scripts/test-seo-browser.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",

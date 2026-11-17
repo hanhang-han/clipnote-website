@@ -1,7 +1,9 @@
+import { localizedPath } from "../lib/seo";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowDown, Menu, X } from "lucide-react";
 import { useLang } from "../i18n";
+import { AccountMenu } from "../lib/account";
 import { DOWNLOAD_URL } from "../lib/site";
 export default function Navbar() {
   const { lang, toggle } = useLang();
@@ -32,6 +34,7 @@ export default function Navbar() {
     { href: "/#memories", zh: "记住什么", en: "What", color: "orange" },
     { href: "/#why", zh: "为什么灵剪", en: "Why", color: "yellow" },
     { href: "/#how", zh: "如何开始", en: "How", color: "pink" },
+    { href: "/workshop", zh: "创意工坊", en: "Workshop", color: "orange" },
   ];
   return (
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
@@ -40,7 +43,7 @@ export default function Navbar() {
         aria-label={lang === "zh" ? "主导航" : "Main navigation"}
       >
         <Link
-          to="/"
+          to={localizedPath("/", lang)}
           className="brand"
           aria-label={lang === "zh" ? "CliperX 首页" : "CliperX home"}
         >
@@ -49,14 +52,15 @@ export default function Navbar() {
         </Link>
         <div className="nav-center">
           {links.map((l) => (
-            <Link to={l.href} key={l.href}>
+            <Link to={localizedPath(l.href, lang)} key={l.href}>
               <i className={`nav-dot ${l.color}`} />
               {l[lang]}
             </Link>
           ))}
         </div>
         <div className="nav-right">
-          <Link className="nav-price" to="/#comparison">
+          <AccountMenu />
+          <Link className="nav-price" to={localizedPath("/#comparison", lang)}>
             {lang === "zh" ? "价格" : "Pricing"}
           </Link>
           <button
@@ -97,16 +101,16 @@ export default function Navbar() {
           aria-label={lang === "zh" ? "移动导航" : "Mobile navigation"}
         >
           {links.map((l) => (
-            <Link key={l.href} to={l.href} onClick={() => setOpen(false)}>
+            <Link key={l.href} to={localizedPath(l.href, lang)} onClick={() => setOpen(false)}>
               <i className={`nav-dot ${l.color}`} />
               {l[lang]}
             </Link>
           ))}
-          <Link to="/#comparison" onClick={() => setOpen(false)}>
+          <Link to={localizedPath("/#comparison", lang)} onClick={() => setOpen(false)}>
             {lang === "zh" ? "价格" : "Pricing"}
           </Link>
-          <Link to="/docs">{lang === "zh" ? "使用指南" : "Guide"}</Link>
-          <Link to="/download">
+          <Link to={localizedPath("/docs", lang)}>{lang === "zh" ? "使用指南" : "Guide"}</Link>
+          <Link to={localizedPath("/download", lang)}>
             {lang === "zh" ? "下载与安装" : "Installation"}
           </Link>
         </nav>
