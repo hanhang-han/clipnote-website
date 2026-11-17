@@ -321,6 +321,18 @@
   color: #2f3e24;
   background: #e9ecdf;
 }
+.admin-settings summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 13px;
+  color: #73786b;
+  cursor: pointer;
+  list-style: none;
+}
+.admin-settings > a {
+  margin-left: 18px;
+}
 .admin-content {
   min-width: 0;
 }
@@ -371,7 +383,8 @@
   overflow-x: auto;
   margin: 24px 0;
 }
-.admin-tabs button {
+.admin-tabs button,
+.admin-tabs a {
   flex-shrink: 0;
   padding: 10px 0;
   color: #777970;
@@ -380,8 +393,10 @@
   border: 0;
   border-bottom: 2px solid transparent;
   background: none;
+  text-decoration: none;
 }
-.admin-tabs button.active {
+.admin-tabs button.active,
+.admin-tabs a.active {
   border-color: #48583b;
   color: #343d2d;
 }

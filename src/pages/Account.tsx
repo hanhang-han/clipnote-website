@@ -167,8 +167,6 @@ export default function Account() {
                 <h2>{profile.name || "灵剪用户"}</h2>
               </div>
               <dl>
-                <dt>账号 ID</dt>
-                <dd className="account-id">{profile.userId}</dd>
                 <dt>邮箱</dt>
                 <dd>
                   {profile.email || "尚未填写"} ·{" "}
@@ -194,9 +192,6 @@ export default function Account() {
                   退出登录
                 </button>
               </div>
-              <p className="account-muted">
-                邮箱验证与邮件找回密码将在邮件服务接入后开放。
-              </p>
             </article>
             <article className="account-card membership-card">
               <div className="account-card-heading">

@@ -1,19 +1,19 @@
 import { useEffect, useState, Children, type ReactNode } from "react";
 import {
   Link,
+  Navigate,
   NavLink,
   Route,
   Routes,
   useParams,
+  useLocation,
   useSearchParams,
 } from "react-router-dom";
 import {
   LayoutDashboard,
   Users,
   Receipt,
-  ShieldCheck,
   Blocks,
-  KeyRound,
   SlidersHorizontal,
   ScrollText,
   ArrowLeft,
@@ -30,37 +30,26 @@ import { WORKSHOP_ORIGIN } from "../lib/workshop";
 import "../account.css";
 
 type Row = Record<string, any>;
-const roleNames = ["reviewer", "support", "billing_admin", "platform_admin"];
 const nav = [
   { path: "", name: "概览", icon: LayoutDashboard, permission: "" },
-  { path: "users", name: "用户管理", icon: Users, permission: "users.read" },
+  { path: "users", name: "用户", icon: Users, permission: "users.read" },
   {
     path: "orders",
-    name: "订单与退款",
+    name: "订单与会员",
     icon: Receipt,
     permission: "orders.read",
   },
   {
-    path: "entitlements",
-    name: "会员权益",
-    icon: ShieldCheck,
-    permission: "orders.read",
-  },
-  {
     path: "workshop",
-    name: "创意工坊",
+    name: "工坊审核",
     icon: Blocks,
     permission: "workshop.review",
   },
-  {
-    path: "access",
-    name: "角色权限",
-    icon: KeyRound,
-    permission: "roles.manage",
-  },
+];
+const settingsNav = [
   {
     path: "products",
-    name: "商品设置",
+    name: "价格设置",
     icon: SlidersHorizontal,
     permission: "products.manage",
   },
@@ -300,7 +289,7 @@ function UsersPage() {
       />
       <ResultState result={result} />
       <Table
-        headings={["用户", "会员", "状态", "角色", "注册时间", "最近登录"]}
+        headings={["用户", "会员", "状态", "注册时间", "最近登录"]}
       >
         {result.data?.users.map((user: Row) => (
           <tr key={user.userId}>
@@ -317,7 +306,6 @@ function UsersPage() {
             <td>
               <Status value={user.status} />
             </td>
-            <td>{user.roles.map(stateText).join("、") || "普通用户"}</td>
             <td>{dateText(user.createdAt)}</td>
             <td>{dateText(user.lastLoginAt)}</td>
           </tr>
@@ -382,8 +370,12 @@ function UserDetail() {
                 <dd>
                   <Status value={data.user.status} /> {data.user.statusReason}
                 </dd>
-                <dt>身份中心同步</dt>
-                <dd>{data.user.identitySyncPending ? "等待重试" : "已同步"}</dd>
+                {!!data.user.identitySyncPending && (
+                  <>
+                    <dt>账号同步</dt>
+                    <dd>等待重试</dd>
+                  </>
+                )}
                 <dt>有效会员</dt>
                 <dd>
                   {stateText(data.membership.plan)} ·{" "}
@@ -391,8 +383,6 @@ function UserDetail() {
                   {data.membership.proExpirationDate &&
                     ` · 至 ${dateText(data.membership.proExpirationDate)}`}
                 </dd>
-                <dt>角色</dt>
-                <dd>{data.roles.map(stateText).join("、") || "普通用户"}</dd>
                 <dt>注册时间</dt>
                 <dd>{dateText(data.user.createdAt)}</dd>
               </dl>
@@ -643,12 +633,21 @@ function UserDetail() {
     </>
   );
 }
+function BillingTabs() {
+  return (
+    <div className="admin-tabs">
+      <NavLink to="/admin/orders">订单与退款</NavLink>
+      <NavLink to="/admin/entitlements">会员权益</NavLink>
+    </div>
+  );
+}
 function OrdersPage() {
   const [params] = useSearchParams(),
     result = useAccountData<Row>("/api/admin/orders?" + params.toString());
   return (
     <>
-      <h1>订单与退款</h1>
+      <h1>订单与会员</h1>
+      <BillingTabs />
       <Filter statuses={["pending", "activated", "refunded", "expired"]} />
       <ResultState result={result} />
       <Table headings={["订单", "用户", "金额", "状态", "已退", "创建时间"]}>
@@ -917,7 +916,7 @@ function GrantTable({ rows, reload }: { rows: Row[]; reload: () => void }) {
     [reason, setReason] = useState("");
   return (
     <>
-      {profile?.permissions.includes("billing.manage") && (
+      {profile?.permissions.includes("billing.manage") && rows.some((row) => row.status === "active") && (
         <label className="admin-field">
           撤销原因
           <input
@@ -999,7 +998,8 @@ function EntitlementsPage() {
     [reason, setReason] = useState("");
   return (
     <>
-      <h1>会员权益</h1>
+      <h1>订单与会员</h1>
+      <BillingTabs />
       <Filter />
       <ResultState result={result} />
       {result.data && (
@@ -1081,99 +1081,6 @@ function EntitlementsPage() {
     </>
   );
 }
-function AccessPage() {
-  const [userId, setUserId] = useState(""),
-    [target, setTarget] = useState(""),
-    [selected, setSelected] = useState<string[]>([]),
-    [reason, setReason] = useState("");
-  const result = useAccountData<Row>(
-      target ? "/api/admin/users/" + encodeURIComponent(target) : null,
-    ),
-    definitions = useAccountData<Row>("/api/admin/roles"),
-    action = useAction(result.reload);
-  useEffect(() => {
-    if (result.data) setSelected(result.data.roles);
-  }, [result.data]);
-  return (
-    <>
-      <h1>角色权限</h1>
-      <form
-        className="admin-filter"
-        onSubmit={(event) => {
-          event.preventDefault();
-          setTarget(userId.trim());
-        }}
-      >
-        <input
-          value={userId}
-          onChange={(event) => setUserId(event.target.value)}
-          placeholder="输入完整用户 ID"
-          aria-label="用户 ID"
-          required
-        />
-        <button className="account-button">查看授权</button>
-      </form>
-      <ResultState result={result} />
-      {result.data && (
-        <form
-          className="account-card admin-form"
-          onSubmit={(event) => {
-            event.preventDefault();
-            if (
-              confirm(
-                `将 ${result.data?.user.name || target} 的角色修改为 ${selected.map(stateText).join("、") || "普通用户"}？`,
-              )
-            )
-              void action.run(() =>
-                accountAPI(
-                  `/api/admin/users/${encodeURIComponent(target)}/roles`,
-                  {
-                    method: "PUT",
-                    body: JSON.stringify({ roles: selected, reason }),
-                  },
-                ),
-              );
-          }}
-        >
-          <h2>{result.data.user.name || target}</h2>
-          <p className="account-id">{target}</p>
-          {roleNames.map((role) => (
-            <label className="admin-checkbox" key={role}>
-              <input
-                type="checkbox"
-                checked={selected.includes(role)}
-                onChange={(event) =>
-                  setSelected((value) =>
-                    event.target.checked
-                      ? [...value, role]
-                      : value.filter((item) => item !== role),
-                  )
-                }
-              />
-              <span>
-                {stateText(role)}
-                <small>{definitions.data?.roles[role]?.join(" · ")}</small>
-              </span>
-            </label>
-          ))}
-          <label>
-            授权原因
-            <textarea
-              value={reason}
-              onChange={(event) => setReason(event.target.value)}
-              required
-              minLength={2}
-            />
-          </label>
-          <button className="account-button primary" disabled={action.busy}>
-            保存角色
-          </button>
-          {action.message && <p role="status">{action.message}</p>}
-        </form>
-      )}
-    </>
-  );
-}
 function ProductsPage() {
   const result = useAccountData<Row>("/api/admin/products"),
     action = useAction(result.reload),
@@ -1188,7 +1095,7 @@ function ProductsPage() {
   }, [result.data]);
   return (
     <>
-      <h1>商品设置</h1>
+      <h1>价格设置</h1>
       <ResultState result={result} />
       {result.data && (
         <form
@@ -1529,6 +1436,7 @@ function WorkshopPage() {
 
 export default function Admin() {
   const { profile, loading, error } = useAccount();
+  const location = useLocation();
   if (loading)
     return (
       <section className="account-page">
@@ -1584,16 +1492,35 @@ export default function Admin() {
                 key={item.path}
                 to={"/admin" + (item.path ? "/" + item.path : "")}
                 end={!item.path}
+                className={({ isActive }) =>
+                  isActive || (item.path === "orders" && location.pathname === "/admin/entitlements")
+                    ? "active"
+                    : undefined
+                }
               >
                 <item.icon size={18} />
                 {item.name}
               </NavLink>
             ))}
+          {settingsNav.some((item) => profile.permissions.includes(item.permission)) && (
+            <details
+              className="admin-settings"
+              open={settingsNav.some((item) => location.pathname === "/admin/" + item.path)}
+            >
+              <summary><SlidersHorizontal size={18} />设置</summary>
+              {settingsNav
+                .filter((item) => profile.permissions.includes(item.permission))
+                .map((item) => (
+                  <NavLink key={item.path} to={"/admin/" + item.path}>
+                    <item.icon size={18} />
+                    {item.name}
+                  </NavLink>
+                ))}
+            </details>
+          )}
         </nav>
         <p className="account-muted">
           {profile.name || profile.userId}
-          <br />
-          {profile.roles.map(stateText).join("、")}
         </p>
       </aside>
       <div className="admin-content">
@@ -1622,7 +1549,7 @@ export default function Admin() {
           />
           <Route
             path="access"
-            element={allowed("roles.manage", <AccessPage />)}
+            element={<Navigate to="/admin/users" replace />}
           />
           <Route
             path="products"
