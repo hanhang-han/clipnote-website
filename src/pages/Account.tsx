@@ -175,7 +175,9 @@ export default function Account() {
                     ? "升级后在登录设备上同步会员权益。"
                     : "会员权益已关联到当前账号。"}
               </p>
-              {profile.billingType !== "lifetime" &&
+              {!profile.sources.some(
+                (source) => source.billingType === "lifetime",
+              ) &&
                 pricing.data?.lifetime?.enabled && (
                   <>
                     <div className="account-price">
