@@ -60,11 +60,12 @@ export async function accountAPI<T = any>(
     );
   return data as T;
 }
-export function loginHref(path = "/account", signup = false) {
+export function loginHref(path = "/account", signup = false, provider?: "apple") {
   return (
     WORKSHOP_ORIGIN +
     `/api/auth/${signup ? "signup" : "login"}?returnTo=` +
-    encodeURIComponent(window.location.origin + path)
+    encodeURIComponent(window.location.origin + path) +
+    (provider ? `&provider=${provider}` : "")
   );
 }
 interface AccountState {

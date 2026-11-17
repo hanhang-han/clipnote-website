@@ -9,7 +9,12 @@ import {
   useAccount,
   useAccountData,
 } from "../lib/account";
+import { WORKSHOP_ORIGIN } from "../lib/workshop";
 import "../account.css";
+
+interface LinkedIdentities {
+  apple: { enabled: boolean; linked: boolean };
+}
 
 export default function Account() {
   const { profile, loading, error, refresh, logout } = useAccount();
@@ -21,6 +26,21 @@ export default function Account() {
   const pricing = useAccountData<any>("/api/pricing");
   const orders = useAccountData<any>(profile ? "/api/account/orders" : null);
   const sessions = useAccountData<any>(profile ? "/api/auth/sessions" : null);
+  const authConfig = useAccountData<{ apple?: { enabled: boolean } }>("/api/auth/config");
+  const identities = useAccountData<LinkedIdentities>(profile ? "/api/auth/identities" : null);
+  const [bindingStarted, setBindingStarted] = useState(false);
+  useEffect(() => {
+    if (!profile) return;
+    const onFocus = () => identities.reload();
+    window.addEventListener("focus", onFocus);
+    return () => window.removeEventListener("focus", onFocus);
+  }, [profile?.userId]);
+  const linkFeedback: Record<string, string> = {
+    account_mismatch: "验证的账号与当前灵剪账号不一致，请返回原账号重新绑定 Apple。",
+    cancelled: "已取消账号验证，可重新发起 Apple 绑定。",
+    failed: "账号验证未完成，请重新发起 Apple 绑定。",
+    already_linked: "此灵剪账号已绑定 Apple。",
+  };
   const orderId = params.get("order");
   const [paymentState, setPaymentState] = useState("");
   useEffect(() => {
@@ -98,6 +118,14 @@ export default function Account() {
             {error || "在各台设备上使用同一份会员权益，并管理你的工坊作品。"}
           </p>
           <div className="account-actions">
+            {authConfig.data?.apple?.enabled && (
+              <a
+                className="account-button apple"
+                href={loginHref("/account" + window.location.search, false, "apple")}
+              >
+                使用 Apple 登录
+              </a>
+            )}
             <a
               className="account-button primary"
               href={loginHref("/account" + window.location.search)}
@@ -108,12 +136,22 @@ export default function Account() {
               创建账户
             </a>
           </div>
+          {authConfig.data?.apple?.enabled && (
+            <p className="account-muted">
+              首次使用 Apple 会创建账户。已有灵剪账号，请先登录后绑定 Apple。
+            </p>
+          )}
         </div>
       ) : (
         <>
           {message && (
             <p className="account-feedback" role="status">
               {message}
+            </p>
+          )}
+          {linkFeedback[params.get("appleLink") || ""] && (
+            <p className="account-feedback" role="status">
+              {linkFeedback[params.get("appleLink") || ""]}
             </p>
           )}
           {orderId && (
@@ -224,6 +262,46 @@ export default function Account() {
               </form>
             </article>
           </div>
+          <article className="account-card">
+            <div className="account-card-heading">
+              <ShieldCheck size={22} />
+              <h2>登录方式</h2>
+              <button className="account-button" onClick={identities.reload} disabled={identities.loading}>
+                刷新
+              </button>
+            </div>
+            {identities.error && <p role="alert">{identities.error}</p>}
+            {identities.loading && <p role="status">正在读取登录方式…</p>}
+            {identities.data && (
+              <div className="account-device">
+                <div>
+                  <strong>Apple 账号</strong>
+                  <p>
+                    {identities.data.apple.linked
+                      ? "已绑定，可使用 Apple 登录此灵剪账号。"
+                      : identities.data.apple.enabled
+                        ? "绑定后，可使用 Apple 登录并使用此账号的会员权益和工坊作品。"
+                        : "Apple 登录正在配置中。"}
+                  </p>
+                </div>
+                {identities.data.apple.enabled && !identities.data.apple.linked && (
+                  <form
+                    action={WORKSHOP_ORIGIN + "/api/auth/apple/link"}
+                    method="post"
+                    target="_blank"
+                    onSubmit={() => setBindingStarted(true)}
+                  >
+                    <button className="account-button" disabled={busy}>绑定 Apple</button>
+                  </form>
+                )}
+              </div>
+            )}
+            {bindingStarted && !identities.data?.apple.linked && (
+              <p className="account-muted" role="status">
+                请在新标签页验证当前账号，再在「第三方登录」中绑定 Apple。完成后返回此页查看绑定状态。
+              </p>
+            )}
+          </article>
           <article className="account-card">
             <div className="account-card-heading">
               <h2>购买记录</h2>

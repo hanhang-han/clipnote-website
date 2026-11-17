@@ -107,6 +107,11 @@
   align-items: center;
   gap: 10px;
 }
+.account-button.apple {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
 .account-button {
   display: inline-flex;
   align-items: center;
@@ -124,6 +129,9 @@
 }
 .account-button:hover {
   background: #f3f3e9;
+}
+.account-button.apple:hover {
+  background: #202020;
 }
 .account-button.primary {
   color: #fff;
