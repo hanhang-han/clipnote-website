@@ -28,6 +28,7 @@ import {
 } from "../lib/account";
 import { WORKSHOP_ORIGIN } from "../lib/workshop";
 import "../account.css";
+import AccountVerification from "../components/AccountVerification";
 
 type Row = Record<string, any>;
 const nav = [
@@ -236,6 +237,7 @@ function Overview() {
                 "/admin/orders?status=pending",
               ],
               ["待核对退款", data.pendingRefunds, "/admin/orders"],
+              ["待处理注销", data.pendingDeletions, "/admin/users?status=deletion_requested"],
             ]
               .filter((item) => item[1] !== undefined)
               .map((item) => (
@@ -270,6 +272,17 @@ function Overview() {
               </dl>
             </article>
           )}
+          {data.overdueDeletions > 0 && <p className="account-feedback" role="alert">有 {data.overdueDeletions} 个注销申请已超过预计处理时间，请优先核对。</p>}
+          {data.backup && <article className="account-card">
+            <h2>账户数据备份</h2>
+            <dl>
+              <dt>每日加密备份</dt><dd>{data.backup.current ? "正常" : "需要检查"} · {dateText(data.backup.completedAt)}</dd>
+              <dt>异地副本验证</dt><dd>{data.backup.latestOffsiteVerified ? "最新副本已验证" : "等待最新副本"} · {dateText(data.backup.offsiteVerifiedAt)}</dd>
+              <dt>保留时间</dt><dd>{data.backup.retentionDays} 天</dd>
+            </dl>
+            <p className="account-muted">服务器每日生成备份；管理员 Mac 在线时自动保存加密副本，并核对数据库和文件的可恢复性。</p>
+            {data.backup.error && <p role="alert">{data.backup.error}</p>}
+          </article>}
           <p className="account-muted">
             统计来自已确认的订单与退款记录，时间按当前浏览器时区展示。
           </p>
@@ -385,6 +398,8 @@ function UserDetail() {
                 </dd>
                 <dt>注册时间</dt>
                 <dd>{dateText(data.user.createdAt)}</dd>
+                {data.user.deletionRequestedAt && <><dt>注销申请</dt><dd>{dateText(data.user.deletionRequestedAt)}</dd><dt>预计处理</dt><dd>{dateText(data.user.deletionDueAt)}</dd></>}
+                {data.user.deletionCompletedAt && <><dt>注销完成</dt><dd>{dateText(data.user.deletionCompletedAt)}</dd></>}
               </dl>
               {profile?.permissions.includes("users.manage") && (
                 <div className="admin-form">
@@ -1477,7 +1492,7 @@ export default function Admin() {
       </article>
     );
   return (
-    <section className="admin-page">
+    <AccountVerification><section className="admin-page">
       <aside className="admin-sidebar">
         <p className="account-kicker">灵剪管理后台</p>
         <nav aria-label="后台导航">
@@ -1566,6 +1581,6 @@ export default function Admin() {
           />
         </Routes>
       </div>
-    </section>
+    </section></AccountVerification>
   );
 }

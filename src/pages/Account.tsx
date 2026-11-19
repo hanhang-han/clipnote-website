@@ -11,6 +11,7 @@ import {
 } from "../lib/account";
 import { WORKSHOP_ORIGIN } from "../lib/workshop";
 import "../account.css";
+import AccountVerification from "../components/AccountVerification";
 
 interface LinkedIdentities {
   apple: { enabled: boolean; linked: boolean };
@@ -43,6 +44,7 @@ export default function Account() {
   };
   const orderId = params.get("order");
   const [paymentState, setPaymentState] = useState("");
+  const [deletionDue, setDeletionDue] = useState("");
   useEffect(() => {
     if (!profile || !orderId) return;
     let cancelled = false;
@@ -96,7 +98,7 @@ export default function Account() {
     });
   }
   return (
-    <section className="account-page">
+    <AccountVerification><section className="account-page">
       <header className="account-heading">
         <div>
           <p className="account-kicker">灵剪账户</p>
@@ -106,6 +108,7 @@ export default function Account() {
           我的投稿 <ArrowUpRight size={16} />
         </Link>
       </header>
+      {deletionDue && <article className="account-card" role="status"><h2>注销申请已受理</h2><p>账号访问和登录凭据已停用，预计处理时间为 {dateText(deletionDue)}。管理员完成购买、退款核对后会删除账户资料并下架公开作品。</p></article>}
       {loading ? (
         <p className="account-feedback" role="status">
           正在读取账户…
@@ -180,7 +183,7 @@ export default function Account() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  密码与双重验证
+                  账号安全
                 </a>
                 <button
                   className="account-button"
@@ -400,7 +403,7 @@ export default function Account() {
           <details className="account-danger">
             <summary>账号注销</summary>
             <p>
-              提交后将暂停账号访问并撤销全部登录。管理员会处理身份资料、已发布作品与购买记录的留存。
+              提交后立即停用账号并撤销全部登录，预计七天内由管理员核对订单、退款后完成资料删除和公开作品下架。必要订单、审计和发布版本记录用于追溯，不再公开提供作品下载。本地与 iCloud 剪贴板请在客户端管理。
             </p>
             <button
               className="account-button"
@@ -408,10 +411,11 @@ export default function Account() {
               onClick={() => {
                 if (confirm("确认提交当前账号的注销申请？"))
                   void act(async () => {
-                    await accountAPI("/api/account/deletion-request", {
+                    const result = await accountAPI<{ dueAt: string }>("/api/account/deletion-request", {
                       method: "POST",
                       body: JSON.stringify({ confirmUserId: profile.userId }),
                     });
+                    setDeletionDue(result.dueAt);
                     await refresh();
                   });
               }}
@@ -421,6 +425,6 @@ export default function Account() {
           </details>
         </>
       )}
-    </section>
+    </section></AccountVerification>
   );
 }

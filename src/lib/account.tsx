@@ -52,12 +52,16 @@ export async function accountAPI<T = any>(
     },
   });
   const data = await response.json().catch(() => ({}));
-  if (!response.ok)
+  if (!response.ok) {
+    if (typeof window !== "undefined" && data.error === "reauthentication_required") {
+      window.dispatchEvent(new Event("cliperx:verification-required"));
+    }
     throw new APIError(
       response.status,
       data.error || "request_failed",
       data.message || "请求失败，请重试。",
     );
+  }
   return data as T;
 }
 export function loginHref(path = "/account", signup = false, provider?: "apple") {
